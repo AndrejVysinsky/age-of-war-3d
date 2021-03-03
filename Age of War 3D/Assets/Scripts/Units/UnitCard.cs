@@ -3,11 +3,11 @@ using UnityEngine.EventSystems;
 
 public class UnitCard : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] UnitSpawner unitSpawner;
+    [SerializeField] PlayerController playerController;
     [SerializeField] GameObject unitPrefab;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        unitSpawner.SpawnUnit(unitPrefab);
+        playerController.SpawnUnit(unitPrefab);
     }
 }

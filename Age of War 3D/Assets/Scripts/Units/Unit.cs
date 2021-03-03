@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Unit : MonoBehaviour
 {
@@ -9,34 +9,47 @@ public class Unit : MonoBehaviour
     private float _health;
     private bool _isAttacking;
 
+    private Unit _enemyInRange;
+    private Unit _allyInRange;
+
     private Vector3 _destination;
-    private List<Unit> _enemiesInRange;
+    private int _nextCheckpointIndex;
+
+    public UnityEvent<Unit> OnUnitDeath { get; set; }
 
     public UnitData UnitData => unitData;
+    public Line Line { get; private set; }
     public FactionEnum Faction { get; private set; }
 
     private void Awake()
     {
-        _enemiesInRange = new List<Unit>();
-
         _health = unitData.HitPoints;
         _isAttacking = false;
+
+        OnUnitDeath = new UnityEvent<Unit>();
     }
 
-    public void Initialize(Vector3 destination, FactionEnum faction)
+    public void Initialize(Line line, FactionEnum faction)
     {
-        _destination = destination;
+        Line = line;
         Faction = faction;
+
+        transform.position = Line.GetCheckpointPosition(0);
+        _nextCheckpointIndex = 1;
+        _destination = Line.GetCheckpointPosition(_nextCheckpointIndex);
     }
 
     private void Update()
     {
-        if (_enemiesInRange.Count > 0 && _isAttacking == false)
+        if (_enemyInRange != null)
         {
             StartCoroutine(Attack());
         }
 
-        MoveTowardsEnemyBase();
+        if (_allyInRange == null)
+        {
+            MoveTowardsEnemyBase();
+        }
     }
 
     private void MoveTowardsEnemyBase()
@@ -48,7 +61,14 @@ public class Unit : MonoBehaviour
             return;
 
         if (transform.position == _destination)
-            return;
+        {
+            if (Line.HasNextCheckpoint(_nextCheckpointIndex) == false)
+            {
+                return;
+            }
+
+            _destination = Line.GetCheckpointPosition(_nextCheckpointIndex++);
+        }
 
         transform.position = Vector3.MoveTowards(transform.position, _destination, UnitData.MovementSpeed * Time.deltaTime);
     }
@@ -59,14 +79,12 @@ public class Unit : MonoBehaviour
 
         while (true)
         {
-            var enemy = GetFirstEnemyInRange();
-
-            if (enemy != null)
+            if (_enemyInRange == null)
             {
                 break;
             }
 
-            enemy.TakeDamage(UnitData.Damage);
+            _enemyInRange.TakeDamage(UnitData.Damage);
 
             yield return new WaitForSeconds(UnitData.AttackDelay);
         }
@@ -74,34 +92,40 @@ public class Unit : MonoBehaviour
         _isAttacking = false;
     }
 
-    private Unit GetFirstEnemyInRange()
-    {
-        _enemiesInRange.RemoveAll(enemy => enemy == null);
-
-        if (_enemiesInRange.Count > 0)
-            return _enemiesInRange[0];
-        else
-            return null;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out Unit unit))
+        if (other.TryGetComponent(out Unit unit))
         {
-            if (unit.Faction != Faction)
+            //is enemy and is in same line
+            if (unit.Line == Line)
             {
-                _enemiesInRange.Add(unit);
+                if (unit.Faction != Faction)
+                {
+                    _enemyInRange = unit;
+                }
+                else
+                {
+                    _allyInRange = unit;
+                }
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out Unit unit))
+        if (other.TryGetComponent(out Unit unit))
         {
-            if (unit.Faction != Faction)
+            //is enemy and is in same line
+            if (unit.Line == Line)
             {
-                _enemiesInRange.Remove(unit);
+                if (unit.Faction != Faction)
+                {
+                    _enemyInRange = null;
+                }
+                else
+                {
+                    _allyInRange = null;
+                }
             }
         }
     }
@@ -112,6 +136,7 @@ public class Unit : MonoBehaviour
         
         if (_health <= 0)
         {
+            OnUnitDeath?.Invoke(this);
             Destroy(gameObject);
         }
     }

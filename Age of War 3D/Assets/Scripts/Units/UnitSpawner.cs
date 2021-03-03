@@ -1,40 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject spawnPoint;
-    [SerializeField] GameObject destinationPoint;
-    [SerializeField] FactionEnum faction;
+    private List<Unit> _units;
 
-    //testing
-    [SerializeField] GameObject unitPrefab;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        if (faction == FactionEnum.Blue)
-        {
-            StartCoroutine(SpawnerForAI());
-        }
+        _units = new List<Unit>();
     }
 
-    public IEnumerator SpawnerForAI()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(3f);
-            SpawnUnit(unitPrefab);
-        }
-    }
-
-    public void SpawnUnit(GameObject unitPrefab)
+    public void SpawnUnit(GameObject unitPrefab, Line line, FactionEnum faction)
     {
         var unitObject = Instantiate(unitPrefab, transform);
 
-        unitObject.transform.position = spawnPoint.transform.position;
+        var unit = unitObject.GetComponent<Unit>();
 
-        unitObject.GetComponent<Unit>().Initialize(destinationPoint.transform.position, faction);
+        unit.Initialize(line, faction);
+        unit.OnUnitDeath.AddListener(RemoveUnit);
+
+        _units.Add(unit);
+    }
+
+    public void RemoveUnit(Unit unit)
+    {
+        _units.Remove(unit);
     }
 }

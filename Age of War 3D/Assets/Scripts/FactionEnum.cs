@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 public enum FactionEnum
 {
-    Green,
-    Blue
+    Player,
+    AI
 }
