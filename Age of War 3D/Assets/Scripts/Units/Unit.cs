@@ -19,6 +19,7 @@ public class Unit : MonoBehaviour
 
     public UnitData UnitData => unitData;
     public Line Line { get; private set; }
+    public int UnitID { get; private set; }
     public FactionEnum Faction { get; private set; }
 
     private void Awake()
@@ -29,8 +30,9 @@ public class Unit : MonoBehaviour
         OnUnitDeath = new UnityEvent<Unit>();
     }
 
-    public void Initialize(Line line, FactionEnum faction)
+    public void Initialize(int unitID, Line line, FactionEnum faction)
     {
+        UnitID = unitID;
         Line = line;
         Faction = faction;
 

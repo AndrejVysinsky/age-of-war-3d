@@ -5,8 +5,11 @@ public class UnitSpawner : MonoBehaviour
 {
     private List<Unit> _units;
 
+    private int unitIDCounter;
+
     private void Awake()
     {
+        unitIDCounter = 0;
         _units = new List<Unit>();
     }
 
@@ -16,7 +19,7 @@ public class UnitSpawner : MonoBehaviour
 
         var unit = unitObject.GetComponent<Unit>();
 
-        unit.Initialize(line, faction);
+        unit.Initialize(unitIDCounter++, line, faction);
         unit.OnUnitDeath.AddListener(RemoveUnit);
 
         _units.Add(unit);
