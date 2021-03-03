@@ -9,8 +9,8 @@ public class Unit : MonoBehaviour
     private float _health;
     private bool _isAttacking;
 
-    private Unit _enemyInRange;
-    private Unit _allyInRange;
+    public Unit EnemyInRange { get; set; }
+    public Unit AllyInRange { get; set; }
 
     private Vector3 _destination;
     private int _nextCheckpointIndex;
@@ -41,12 +41,12 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        if (_enemyInRange != null)
+        if (EnemyInRange != null)
         {
             StartCoroutine(Attack());
         }
 
-        if (_allyInRange == null)
+        if (AllyInRange == null)
         {
             MoveTowardsEnemyBase();
         }
@@ -79,55 +79,17 @@ public class Unit : MonoBehaviour
 
         while (true)
         {
-            if (_enemyInRange == null)
+            if (EnemyInRange == null)
             {
                 break;
             }
 
-            _enemyInRange.TakeDamage(UnitData.Damage);
+            EnemyInRange.TakeDamage(UnitData.Damage);
 
             yield return new WaitForSeconds(UnitData.AttackDelay);
         }
 
         _isAttacking = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out Unit unit))
-        {
-            //is enemy and is in same line
-            if (unit.Line == Line)
-            {
-                if (unit.Faction != Faction)
-                {
-                    _enemyInRange = unit;
-                }
-                else
-                {
-                    _allyInRange = unit;
-                }
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent(out Unit unit))
-        {
-            //is enemy and is in same line
-            if (unit.Line == Line)
-            {
-                if (unit.Faction != Faction)
-                {
-                    _enemyInRange = null;
-                }
-                else
-                {
-                    _allyInRange = null;
-                }
-            }
-        }
     }
 
     public void TakeDamage(float damage)
