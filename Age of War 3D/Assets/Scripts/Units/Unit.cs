@@ -5,8 +5,8 @@ using UnityEngine.Events;
 public class Unit : MonoBehaviour
 {
     [SerializeField] UnitData unitData;
+    [SerializeField] UnitHealth unitHealth;
 
-    private float _health;
     private bool _isAttacking;
 
     public Unit EnemyInRange { get; set; }
@@ -24,7 +24,7 @@ public class Unit : MonoBehaviour
 
     private void Awake()
     {
-        _health = unitData.HitPoints;
+        unitHealth.Initialize(unitData.HitPoints);
         _isAttacking = false;
 
         OnUnitDeath = new UnityEvent<Unit>();
@@ -43,7 +43,7 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        if (EnemyInRange != null)
+        if (EnemyInRange != null && _isAttacking == false)
         {
             StartCoroutine(Attack());
         }
@@ -81,14 +81,14 @@ public class Unit : MonoBehaviour
 
         while (true)
         {
-            if (EnemyInRange == null)
+            yield return new WaitForSeconds(2f);
+
+            if (EnemyInRange == null || unitHealth.Health <= 0)
             {
                 break;
             }
 
             EnemyInRange.TakeDamage(UnitData.Damage);
-
-            yield return new WaitForSeconds(UnitData.AttackDelay);
         }
 
         _isAttacking = false;
@@ -96,9 +96,9 @@ public class Unit : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        _health -= damage;
+        unitHealth.SubtractHealth(damage);
         
-        if (_health <= 0)
+        if (unitHealth.Health <= 0)
         {
             OnUnitDeath?.Invoke(this);
             Destroy(gameObject);
