@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 public enum FactionEnum
 {
-    Player,
-    AI
+    /// <summary>
+    /// Green is first player (left side of map)
+    /// </summary>
+    Green,
+    /// <summary>
+    /// Blue is second player or AI (right side of map)
+    /// </summary>
+    Blue
 }

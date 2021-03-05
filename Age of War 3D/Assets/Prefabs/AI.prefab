@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720268225948284057}
-  - component: {fileID: 2702846128248718847}
+  - component: {fileID: 785770459}
   - component: {fileID: 5231040572990821191}
   m_Layer: 0
   m_Name: AI
@@ -129,7 +129,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2702846128248718847
+--- !u!114 &785770459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,12 +138,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5028952593920896700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c8124dbd8854c4f89980be91b8d4d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b29b8c050c7745428be3954ad926b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 1
   lineController: {fileID: 0}
   unitSpawner: {fileID: 5231040572990821191}
+  unitPrefabs:
+  - {fileID: 6915423625754250722, guid: 41afd2f768b036b4fb41705b4e030778, type: 3}
+  - {fileID: 8519373101542237319, guid: cd73e54d789a0e54faf279ee09f9bc6c, type: 3}
+  - {fileID: 1677309867434599859, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
+  - {fileID: 7825778013938283133, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
 --- !u!114 &5231040572990821191
 MonoBehaviour:
   m_ObjectHideFlags: 0

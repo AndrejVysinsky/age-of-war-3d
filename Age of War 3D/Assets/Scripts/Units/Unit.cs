@@ -36,9 +36,9 @@ public class Unit : MonoBehaviour
         Line = line;
         Faction = faction;
 
-        transform.position = Line.GetCheckpointPosition(0);
+        transform.position = Line.GetCheckpointPosition(0, Faction);
         _nextCheckpointIndex = 1;
-        _destination = Line.GetCheckpointPosition(_nextCheckpointIndex);
+        _destination = Line.GetCheckpointPosition(_nextCheckpointIndex, Faction);
     }
 
     private void Update()
@@ -64,12 +64,12 @@ public class Unit : MonoBehaviour
 
         if (transform.position == _destination)
         {
-            if (Line.HasNextCheckpoint(_nextCheckpointIndex) == false)
+            if (Line.HasNextCheckpoint(_nextCheckpointIndex, Faction) == false)
             {
                 return;
             }
 
-            _destination = Line.GetCheckpointPosition(_nextCheckpointIndex++);
+            _destination = Line.GetCheckpointPosition(_nextCheckpointIndex++, Faction);
         }
 
         transform.position = Vector3.MoveTowards(transform.position, _destination, UnitData.MovementSpeed * Time.deltaTime);
