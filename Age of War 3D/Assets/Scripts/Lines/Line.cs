@@ -4,9 +4,31 @@ using UnityEngine;
 public class Line : MonoBehaviour
 {
     [SerializeField] List<GameObject> checkPoints;
+    [SerializeField] LineRenderer lineRenderer;
     [SerializeField] bool isActive;
 
     public bool IsActive => isActive;
+
+    private void Start()
+    {
+        if (IsActive)
+        {
+            ShowLineRenderer();
+        }
+    }
+
+    private void ShowLineRenderer()
+    {
+        lineRenderer.positionCount = checkPoints.Count;
+
+        for (int i = 0; i < checkPoints.Count; i++)
+        {
+            var position = checkPoints[i].transform.position;
+            position.y += 0.2f;
+
+            lineRenderer.SetPosition(i, position);
+        }
+    }
 
     public Vector3 GetCheckpointPosition(int index, FactionEnum faction)
     {
