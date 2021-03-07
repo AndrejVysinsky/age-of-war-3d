@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 1
+  factionMaterial: {fileID: 2100000, guid: 80a47a55667a0c84d89cf1dce2243c1a, type: 2}
   lineController: {fileID: 0}
   unitSpawner: {fileID: 5231040572990821191}
   unitPrefabs:

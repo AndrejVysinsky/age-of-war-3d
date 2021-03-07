@@ -30,7 +30,7 @@ public class Unit : MonoBehaviour
         OnUnitDeath = new UnityEvent<Unit>();
     }
 
-    public void Initialize(int unitID, Line line, FactionEnum faction)
+    public void Initialize(int unitID, Line line, FactionEnum faction, Material factionMaterial)
     {
         UnitID = unitID;
         Line = line;
@@ -39,6 +39,8 @@ public class Unit : MonoBehaviour
         transform.position = Line.GetCheckpointPosition(0, Faction);
         _nextCheckpointIndex = 1;
         _destination = Line.GetCheckpointPosition(_nextCheckpointIndex, Faction);
+
+        GetComponent<MeshRenderer>().material = factionMaterial;
     }
 
     private void Update()

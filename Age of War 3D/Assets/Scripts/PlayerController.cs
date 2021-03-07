@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] FactionEnum faction;
+    [SerializeField] Material factionMaterial;
     [SerializeField] LineController lineController;
     [SerializeField] UnitSpawner unitSpawner;
 
@@ -48,6 +49,6 @@ public class PlayerController : MonoBehaviour
 
     public void SpawnUnit(GameObject unitPrefab)
     {
-        unitSpawner.SpawnUnit(unitPrefab, _activeLine, faction);
+        unitSpawner.SpawnUnit(unitPrefab, _activeLine, faction, factionMaterial);
     }
 }

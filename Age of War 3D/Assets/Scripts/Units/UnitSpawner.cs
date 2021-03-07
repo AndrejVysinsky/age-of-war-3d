@@ -13,13 +13,13 @@ public class UnitSpawner : MonoBehaviour
         _units = new List<Unit>();
     }
 
-    public void SpawnUnit(GameObject unitPrefab, Line line, FactionEnum faction)
+    public void SpawnUnit(GameObject unitPrefab, Line line, FactionEnum faction, Material factionMaterial)
     {
         var unitObject = Instantiate(unitPrefab, transform);
 
         var unit = unitObject.GetComponent<Unit>();
 
-        unit.Initialize(unitIDCounter++, line, faction);
+        unit.Initialize(unitIDCounter++, line, faction, factionMaterial);
         unit.OnUnitDeath.AddListener(RemoveUnit);
 
         _units.Add(unit);
