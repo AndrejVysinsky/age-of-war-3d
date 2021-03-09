@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 8a621bca25888224e908bbc8e63f1dfb, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 6011bd11ffbd06340b8d4a8eca0139de, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: e468b689cc2372f4596eae8207c5827e, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 97b7250b73927a24a87e724d8300554d, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -664,7 +664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.4383711, y: 0, z: 0, w: 0.89879405}
-  m_LocalPosition: {x: 0, y: 10.02, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1550,10 +1550,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 770536876, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 28b0efb63f8301c41bf30331672fde06, type: 2}
     - target: {fileID: 3180045697356729886, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
       propertyPath: m_Name
       value: Player
