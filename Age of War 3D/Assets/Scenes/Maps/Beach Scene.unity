@@ -2887,6 +2887,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: activeLineGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: activeLineGradient.key0.g
+      value: 0.7600646
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: activeLineGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: activeLineGradient.key1.g
+      value: 0.7607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: activeLineGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: inactiveLineGradient.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: inactiveLineGradient.key0.g
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: inactiveLineGradient.key0.r
+      value: 0.101739064
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: inactiveLineGradient.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: inactiveLineGradient.key1.g
+      value: 0.9333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: inactiveLineGradient.key1.r
+      value: 0.10196079
+      objectReference: {fileID: 0}
     - target: {fileID: 8344759193332439890, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: m_Name
       value: Line Controller
