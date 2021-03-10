@@ -47,8 +47,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SpawnUnit(GameObject unitPrefab)
+    public void SpawnUnit(int unitIndex)
     {
-        unitSpawner.SpawnUnit(unitPrefab, _activeLine, faction, factionMaterial);
+        unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial);
+    }
+
+    public void UpgradeUnit(int unitIndex)
+    {
+        //TODO: check for price
+
+        unitSpawner.UpgradeUnit(unitIndex);
     }
 }

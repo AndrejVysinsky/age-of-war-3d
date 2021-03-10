@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f0ee41dadd9644b82654a89d36c85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitTiers:
+  - {fileID: 11400000, guid: 096bbe31fb662ef4f97c8db38dcc1ed6, type: 2}
   unitData: {fileID: 11400000, guid: 096bbe31fb662ef4f97c8db38dcc1ed6, type: 2}
   unitHealth: {fileID: 8432477878686364882}
 --- !u!1001 &8995772915315693394

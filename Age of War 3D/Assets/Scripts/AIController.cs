@@ -9,8 +9,6 @@ public class AIController : MonoBehaviour
     [SerializeField] LineController lineController;
     [SerializeField] UnitSpawner unitSpawner;
 
-    [SerializeField] List<GameObject> unitPrefabs;
-
     private Line _activeLine;
 
     private void Start()
@@ -26,18 +24,25 @@ public class AIController : MonoBehaviour
 
             //max is exclusive
             int randomLineIndex = Random.Range(0, activeLines);
-            int randomUnit = Random.Range(0, unitPrefabs.Count);
+            int randomUnitIndex = Random.Range(0, unitSpawner.NumberOfDifferentUnits);
 
             _activeLine = lineController.GetLineByIndex(randomLineIndex);
 
-            SpawnUnit(unitPrefabs[randomUnit]);
+            SpawnUnit(randomUnitIndex);
 
             yield return new WaitForSeconds(0.5f);
         }
     }
 
-    public void SpawnUnit(GameObject unitPrefab)
+    public void SpawnUnit(int unitIndex)
     {
-        unitSpawner.SpawnUnit(unitPrefab, _activeLine, faction, factionMaterial);
+        unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial);
+    }
+
+    public void UpgradeUnit(int unitIndex)
+    {
+        //TODO: check for price
+
+        unitSpawner.UpgradeUnit(unitIndex);
     }
 }
