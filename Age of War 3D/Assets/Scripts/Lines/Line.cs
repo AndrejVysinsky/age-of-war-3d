@@ -55,4 +55,9 @@ public class Line : MonoBehaviour
 
         return index < checkPoints.Count;
     }
+
+    public void ChangeLineColor(Gradient gradient)
+    {
+        lineRenderer.colorGradient = gradient;
+    }
 }

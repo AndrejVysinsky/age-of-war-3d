@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class LineController : MonoBehaviour
 {
+    [SerializeField] Gradient activeLineGradient;
+    [SerializeField] Gradient inactiveLineGradient;
+
     [SerializeField] List<Line> lines;
 
     public int GetNumberOfActiveLines()
@@ -33,5 +36,20 @@ public class LineController : MonoBehaviour
     public Line GetLineByIndex(int index)
     {
         return lines[index];
+    }
+
+    public void HightlightLine(Line line)
+    {
+        for (int i = 0; i < lines.Count; i++)
+        {
+            if (line == lines[i])
+            {
+                lines[i].ChangeLineColor(activeLineGradient);
+            }
+            else
+            {
+                lines[i].ChangeLineColor(inactiveLineGradient);
+            }
+        }
     }
 }

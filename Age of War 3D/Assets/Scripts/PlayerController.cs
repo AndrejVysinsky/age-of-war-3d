@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _activeLine = lineController.GetFirstActiveLine();
+        lineController.HightlightLine(_activeLine);
     }
 
     private void Update()
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         if (lineController.IsLineActive(index))
         {
             _activeLine = lineController.GetLineByIndex(index);
+            lineController.HightlightLine(_activeLine);
         }
     }
 
