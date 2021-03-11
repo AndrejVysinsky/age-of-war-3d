@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -32,6 +33,11 @@ public class Unit : MonoBehaviour
         _isAttacking = false;
 
         OnUnitDeath = new UnityEvent<Unit>();
+    }
+
+    public int GetUnitTierCost(int currentTier)
+    {
+        return unitTiers[currentTier].Cost;
     }
 
     public void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)

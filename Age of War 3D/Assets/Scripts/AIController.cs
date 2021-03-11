@@ -8,6 +8,7 @@ public class AIController : MonoBehaviour
     [SerializeField] Material factionMaterial;
     [SerializeField] LineController lineController;
     [SerializeField] UnitSpawner unitSpawner;
+    [SerializeField] GoldController goldController;
 
     private Line _activeLine;
 
@@ -36,7 +37,8 @@ public class AIController : MonoBehaviour
 
     public void SpawnUnit(int unitIndex)
     {
-        unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial);
+        int cost = unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial, goldController.GetBalance());
+        goldController.RemoveBalance(cost);
     }
 
     public void UpgradeUnit(int unitIndex)
