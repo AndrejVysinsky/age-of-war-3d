@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Material factionMaterial;
     [SerializeField] LineController lineController;
     [SerializeField] UnitSpawner unitSpawner;
+    [SerializeField] GoldController goldController;
 
     private Line _activeLine;
 
@@ -51,7 +52,10 @@ public class PlayerController : MonoBehaviour
 
     public void SpawnUnit(int unitIndex)
     {
-        unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial);
+        // TODO : Get price from unit spawner and check if there is enough balance
+
+        int cost = unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial, goldController.GetBalance());
+        goldController.RemoveBalance(cost);
     }
 
     public void UpgradeUnit(int unitIndex)

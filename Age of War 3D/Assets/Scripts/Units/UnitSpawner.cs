@@ -25,13 +25,18 @@ public class UnitSpawner : MonoBehaviour
         StartCoroutine(UnitQueue());
     }
 
-    public void SpawnUnit(int unitIndex, Line line, FactionEnum faction, Material factionMaterial)
+    public int SpawnUnit(int unitIndex, Line line, FactionEnum faction, Material factionMaterial, int balance)
     {
         if (unitIndex < 0 || unitIndex > unitPrefabs.Count - 1)
-            return;
+            return 0;
 
         var unitPrefab = unitPrefabs[unitIndex];
 
+        int cost = unitPrefab.GetComponent<Unit>().GetUnitTierCost(_currentUnitTiers[unitIndex]);
+        if (cost > balance)
+        {
+            return 0;
+        }
         var unitObject = Instantiate(unitPrefab, transform);
 
         var unit = unitObject.GetComponent<Unit>();
@@ -43,6 +48,7 @@ public class UnitSpawner : MonoBehaviour
         unit.gameObject.SetActive(false);
 
         _unitsInQueue.Add(unit);
+        return cost;
     }
 
     private IEnumerator UnitQueue()

@@ -18,3 +18,5 @@ MonoBehaviour:
   damage: 15
   attackDelay: 1
   attackRange: 5
+  cost: 50
+  reward: 0

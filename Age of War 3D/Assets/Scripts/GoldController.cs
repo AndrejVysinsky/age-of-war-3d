@@ -58,6 +58,9 @@ public class GoldController: MonoBehaviour
             balanceString += "0";
         }
         balanceString += _balance.ToString();
-        this._goldText.text = balanceString;
+        if (_goldText != null)
+        {
+            this._goldText.text = balanceString;
+        }
     }
 }
