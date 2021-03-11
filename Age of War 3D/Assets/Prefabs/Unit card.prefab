@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
-  unitPrefab: {fileID: 0}
+  unitIndex: 0
 --- !u!1 &7578098942036570143
 GameObject:
   m_ObjectHideFlags: 0

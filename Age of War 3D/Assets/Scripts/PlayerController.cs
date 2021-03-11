@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _activeLine = lineController.GetFirstActiveLine();
+        lineController.HightlightLine(_activeLine);
     }
 
     private void Update()
@@ -44,11 +45,19 @@ public class PlayerController : MonoBehaviour
         if (lineController.IsLineActive(index))
         {
             _activeLine = lineController.GetLineByIndex(index);
+            lineController.HightlightLine(_activeLine);
         }
     }
 
-    public void SpawnUnit(GameObject unitPrefab)
+    public void SpawnUnit(int unitIndex)
     {
-        unitSpawner.SpawnUnit(unitPrefab, _activeLine, faction, factionMaterial);
+        unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial);
+    }
+
+    public void UpgradeUnit(int unitIndex)
+    {
+        //TODO: check for price
+
+        unitSpawner.UpgradeUnit(unitIndex);
     }
 }

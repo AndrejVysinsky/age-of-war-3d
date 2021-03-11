@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Unit : MonoBehaviour
 {
-    [SerializeField] UnitData unitData;
     [SerializeField] UnitHealth unitHealth;
+    [SerializeField] List<UnitData> unitTiers;
 
     private bool _isAttacking;
 
@@ -17,22 +18,35 @@ public class Unit : MonoBehaviour
 
     public UnityEvent<Unit> OnUnitDeath { get; set; }
 
-    public UnitData UnitData => unitData;
+    public UnitData UnitData { get; private set; }
+    public int NumberOfUnitTiers => unitTiers.Count;
     public Line Line { get; private set; }
     public int UnitID { get; private set; }
     public FactionEnum Faction { get; private set; }
 
     private void Awake()
     {
-        unitHealth.Initialize(unitData.HitPoints);
+        UnitData = unitTiers[0];
+
+        unitHealth.Initialize(UnitData.HitPoints);
         _isAttacking = false;
 
         OnUnitDeath = new UnityEvent<Unit>();
     }
 
-    public void Initialize(int unitID, Line line, FactionEnum faction, Material factionMaterial)
+    public void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)
     {
         UnitID = unitID;
+
+        if (unitTier < 0 || unitTier > unitTiers.Count - 1)
+        {
+            UnitData = unitTiers[0];
+        }
+        else
+        {
+            UnitData = unitTiers[unitTier];
+        }
+
         Line = line;
         Faction = faction;
 
