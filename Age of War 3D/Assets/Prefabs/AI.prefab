@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 720268225948284057}
   - component: {fileID: 785770459}
   - component: {fileID: 5231040572990821191}
+  - component: {fileID: 818633461}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -145,6 +146,7 @@ MonoBehaviour:
   factionMaterial: {fileID: 2100000, guid: 80a47a55667a0c84d89cf1dce2243c1a, type: 2}
   lineController: {fileID: 0}
   unitSpawner: {fileID: 5231040572990821191}
+  goldController: {fileID: 818633461}
 --- !u!114 &5231040572990821191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +164,20 @@ MonoBehaviour:
   - {fileID: -3329235734515909066, guid: cd73e54d789a0e54faf279ee09f9bc6c, type: 3}
   - {fileID: 9190944628346506613, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
   - {fileID: -2291775907212918199, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
+--- !u!114 &818633461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028952593920896700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7899f2502031e4f46a76a8b2ddf797ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goldText: {fileID: 0}
+  _balance: 1200
 --- !u!1 &5916953475857028562
 GameObject:
   m_ObjectHideFlags: 0

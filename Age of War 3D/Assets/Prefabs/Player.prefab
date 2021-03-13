@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 6923527041513935931}
   - component: {fileID: 5506168622547215709}
   - component: {fileID: 2410486435810128869}
+  - component: {fileID: 1295391511}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -290,6 +291,7 @@ MonoBehaviour:
   factionMaterial: {fileID: 2100000, guid: af385453e8ff6f64083e7066d18418c7, type: 2}
   lineController: {fileID: 0}
   unitSpawner: {fileID: 2410486435810128869}
+  goldController: {fileID: 1295391511}
 --- !u!114 &2410486435810128869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +309,20 @@ MonoBehaviour:
   - {fileID: -3329235734515909066, guid: cd73e54d789a0e54faf279ee09f9bc6c, type: 3}
   - {fileID: 9190944628346506613, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
   - {fileID: -2291775907212918199, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
+--- !u!114 &1295391511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180045697356729886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7899f2502031e4f46a76a8b2ddf797ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goldText: {fileID: 0}
+  _balance: 500
 --- !u!1 &4320811168775189872
 GameObject:
   m_ObjectHideFlags: 0
