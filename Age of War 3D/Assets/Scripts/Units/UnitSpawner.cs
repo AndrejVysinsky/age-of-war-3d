@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
 {
     [SerializeField] List<Unit> unitPrefabs;
+    [SerializeField] TextMeshProUGUI queueCapacityText;
+    [SerializeField] int maxQueueCapacity;
 
     private int[] _currentUnitTiers;
     private List<Unit> _spawnedUnits;
@@ -22,12 +25,17 @@ public class UnitSpawner : MonoBehaviour
         _spawnedUnits = new List<Unit>();
         _unitsInQueue = new List<Unit>();
 
+        UpdateQueueCapacityText();
+
         StartCoroutine(UnitQueue());
     }
 
     public int SpawnUnit(int unitIndex, Line line, FactionEnum faction, Material factionMaterial, int balance)
     {
         if (unitIndex < 0 || unitIndex > unitPrefabs.Count - 1)
+            return 0;
+
+        if (_unitsInQueue.Count >= maxQueueCapacity)
             return 0;
 
         var unitPrefab = unitPrefabs[unitIndex];
@@ -48,7 +56,16 @@ public class UnitSpawner : MonoBehaviour
         unit.gameObject.SetActive(false);
 
         _unitsInQueue.Add(unit);
+        UpdateQueueCapacityText();
         return cost;
+    }
+
+    private void UpdateQueueCapacityText()
+    {
+        if (queueCapacityText == null)
+            return;
+
+        queueCapacityText.text = $"{_unitsInQueue.Count} / {maxQueueCapacity}";
     }
 
     private IEnumerator UnitQueue()
@@ -77,6 +94,8 @@ public class UnitSpawner : MonoBehaviour
         _spawnedUnits.Add(unit);
 
         unit.gameObject.SetActive(true);
+
+        UpdateQueueCapacityText();
     }
 
     public void RemoveUnit(Unit unit)

@@ -164,6 +164,8 @@ MonoBehaviour:
   - {fileID: -3329235734515909066, guid: cd73e54d789a0e54faf279ee09f9bc6c, type: 3}
   - {fileID: 9190944628346506613, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
   - {fileID: -2291775907212918199, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
+  queueCapacityText: {fileID: 0}
+  maxQueueCapacity: 5
 --- !u!114 &818633461
 MonoBehaviour:
   m_ObjectHideFlags: 0
