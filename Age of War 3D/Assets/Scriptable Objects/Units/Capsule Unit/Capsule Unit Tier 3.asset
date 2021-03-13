@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b217763c707982479eb0fc90862b3da, type: 3}
   m_Name: Capsule Unit Tier 3
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: f25017811d4a3e640b24ae2dc5943f47, type: 3}
   name: 
   hitPoints: 300
   movementSpeed: 1

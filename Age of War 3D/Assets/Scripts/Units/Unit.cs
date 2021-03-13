@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Unit : MonoBehaviour
 {
-    [SerializeField] UnitHealth unitHealth;
+    [SerializeField] HealthSlider unitHealth;
     [SerializeField] List<UnitData> unitTiers;
 
     private bool _isAttacking;

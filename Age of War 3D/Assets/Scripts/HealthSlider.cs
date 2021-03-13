@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UnitHealth : MonoBehaviour
+public class HealthSlider : MonoBehaviour
 {
     [SerializeField] Slider slider;
     [SerializeField] Image healthIndicator;

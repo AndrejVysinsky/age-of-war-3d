@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 5506168622547215709}
   - component: {fileID: 2410486435810128869}
   - component: {fileID: 1295391511}
+  - component: {fileID: 7495796249687835877}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -292,6 +293,7 @@ MonoBehaviour:
   lineController: {fileID: 0}
   unitSpawner: {fileID: 2410486435810128869}
   goldController: {fileID: 1295391511}
+  outpost: {fileID: 7495796249687835877}
 --- !u!114 &2410486435810128869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +327,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goldText: {fileID: 0}
   _balance: 500
+--- !u!114 &7495796249687835877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180045697356729886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2678f8e8819c8441af520020303c958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outpostTiers:
+  - {fileID: 11400000, guid: 29b2cd2a25039ef41b4505163861c7af, type: 2}
+  - {fileID: 11400000, guid: 94c8deade74689e478a269a22d1e6653, type: 2}
+  - {fileID: 11400000, guid: 99447f924aed48443a8a416313f91227, type: 2}
+  healthSlider: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!1 &4320811168775189872
 GameObject:
   m_ObjectHideFlags: 0
