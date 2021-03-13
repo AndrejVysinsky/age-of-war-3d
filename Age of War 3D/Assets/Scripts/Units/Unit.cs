@@ -35,9 +35,14 @@ public class Unit : MonoBehaviour
         OnUnitDeath = new UnityEvent<Unit>();
     }
 
-    public int GetUnitTierCost(int currentTier)
+    public int GetUnitTrainCost(int currentTier)
     {
-        return unitTiers[currentTier].Cost;
+        return unitTiers[currentTier].TrainCost;
+    }
+
+    public int GetUnitUpgradeCost(int tierToUpgrade)
+    {
+        return unitTiers[tierToUpgrade].UpgradeCost;
     }
 
     public void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)

@@ -18,8 +18,7 @@ public class BaseGameController : MonoBehaviour
 
     public void UpgradeUnit(int unitIndex)
     {
-        //TODO: check for price
-
-        unitSpawner.UpgradeUnit(unitIndex);
+        int cost = unitSpawner.UpgradeUnit(unitIndex, goldController.GetBalance());
+        goldController.RemoveBalance(cost);
     }
 }

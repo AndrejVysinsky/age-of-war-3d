@@ -40,7 +40,7 @@ public class UnitSpawner : MonoBehaviour
 
         var unitPrefab = unitPrefabs[unitIndex];
 
-        int cost = unitPrefab.GetComponent<Unit>().GetUnitTierCost(_currentUnitTiers[unitIndex]);
+        int cost = unitPrefab.GetComponent<Unit>().GetUnitTrainCost(_currentUnitTiers[unitIndex]);
         if (cost > balance)
         {
             return 0;
@@ -103,14 +103,19 @@ public class UnitSpawner : MonoBehaviour
         _spawnedUnits.Remove(unit);
     }
 
-    public void UpgradeUnit(int unitIndex)
+    public int UpgradeUnit(int unitIndex, int balance)
     {
         if (unitIndex < 0 || unitIndex > unitPrefabs.Count - 1)
-            return;
+            return 0;
 
         if (_currentUnitTiers[unitIndex] >= unitPrefabs[unitIndex].NumberOfUnitTiers)
-            return;
+            return 0;
+
+        if (balance < unitPrefabs[unitIndex].GetUnitUpgradeCost(_currentUnitTiers[unitIndex] + 1))
+            return 0;
 
         _currentUnitTiers[unitIndex]++;
+
+        return unitPrefabs[unitIndex].GetUnitUpgradeCost(_currentUnitTiers[unitIndex]);
     }
 }
