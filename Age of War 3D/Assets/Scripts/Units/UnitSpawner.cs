@@ -25,6 +25,11 @@ public class UnitSpawner : MonoBehaviour
         _spawnedUnits = new List<Unit>();
         _unitsInQueue = new List<Unit>();
 
+        for (int i = 0; i < unitPrefabs.Count; i++)
+        {
+            EventManager.Instance.ExecuteEvent<IUnitUpgraded>((x, y) => x.OnUnitUpgraded(i, unitPrefabs[i].GetUnitData(_currentUnitTiers[i])));
+        }
+
         UpdateQueueCapacityText();
 
         StartCoroutine(UnitQueue());
@@ -108,13 +113,15 @@ public class UnitSpawner : MonoBehaviour
         if (unitIndex < 0 || unitIndex > unitPrefabs.Count - 1)
             return 0;
 
-        if (_currentUnitTiers[unitIndex] >= unitPrefabs[unitIndex].NumberOfUnitTiers)
+        if (_currentUnitTiers[unitIndex] + 1 >= unitPrefabs[unitIndex].NumberOfUnitTiers)
             return 0;
 
         if (balance < unitPrefabs[unitIndex].GetUnitUpgradeCost(_currentUnitTiers[unitIndex] + 1))
             return 0;
 
         _currentUnitTiers[unitIndex]++;
+
+        EventManager.Instance.ExecuteEvent<IUnitUpgraded>((x, y) => x.OnUnitUpgraded(unitIndex, unitPrefabs[unitIndex].GetUnitData(_currentUnitTiers[unitIndex])));
 
         return unitPrefabs[unitIndex].GetUnitUpgradeCost(_currentUnitTiers[unitIndex]);
     }

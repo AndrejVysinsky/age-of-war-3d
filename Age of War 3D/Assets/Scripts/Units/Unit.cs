@@ -42,6 +42,11 @@ public class Unit : MonoBehaviour
         return unitTiers[tierToUpgrade].UpgradeCost;
     }
 
+    public UnitData GetUnitData(int currentTier)
+    {
+        return unitTiers[currentTier];
+    }
+
     public void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)
     {
         UnitID = unitID;
