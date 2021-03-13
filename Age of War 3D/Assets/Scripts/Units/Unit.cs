@@ -27,9 +27,6 @@ public class Unit : MonoBehaviour
 
     private void Awake()
     {
-        UnitData = unitTiers[0];
-
-        unitHealth.Initialize(UnitData.HitPoints);
         _isAttacking = false;
 
         OnUnitDeath = new UnityEvent<Unit>();
@@ -57,6 +54,8 @@ public class Unit : MonoBehaviour
         {
             UnitData = unitTiers[unitTier];
         }
+
+        unitHealth.Initialize(UnitData.HitPoints);
 
         Line = line;
         Faction = faction;
