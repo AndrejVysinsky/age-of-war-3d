@@ -11,6 +11,13 @@ public class BaseGameController : MonoBehaviour
 
     protected Line _activeLine;
 
+    private void Awake()
+    {
+        var outpostData = outpost.Initialize();
+
+        unitSpawner.OnQueueCapacityChanged(outpostData.MaxQueueCapacity);
+    }
+
     public void SpawnUnit(int unitIndex)
     {
         int cost = unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial, goldController.GetBalance());
@@ -25,7 +32,12 @@ public class BaseGameController : MonoBehaviour
 
     public void UpgradeOutpost()
     {
-        int cost = outpost.UpgradeOutpost(goldController.GetBalance());
+        int cost = outpost.UpgradeOutpost(goldController.GetBalance(), out OutpostData outpostData);
         goldController.RemoveBalance(cost);
+
+        if (outpostData != null)
+        {
+            unitSpawner.OnQueueCapacityChanged(outpostData.MaxQueueCapacity);
+        }
     }
 }

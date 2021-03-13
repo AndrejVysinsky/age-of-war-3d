@@ -11,10 +11,11 @@ public class Outpost : MonoBehaviour
     private OutpostData _outpostData;
     private int _outpostTier;
 
-    private void Awake()
+    public OutpostData Initialize()
     {
-        //hmmm...
-        UpgradeOutpost(int.MaxValue);
+        Upgrade(0);
+
+        return _outpostData;
     }
 
     public void TakeDamage(float damage)
@@ -29,20 +30,27 @@ public class Outpost : MonoBehaviour
         }
     }
 
-    public int UpgradeOutpost(int balance)
+    public int UpgradeOutpost(int balance, out OutpostData outpostData)
     {
+        outpostData = null;
+
         if (_outpostTier >= outpostTiers.Count - 1)
             return 0;
 
         if (balance < outpostTiers[_outpostTier + 1].UpgradePrice)
             return 0;
 
-        _outpostData = outpostTiers[_outpostTier++];
-
-        healthSlider.Initialize(_outpostData.Health);
-
-        healthText.text = ((int)_outpostData.Health).ToString();
+        Upgrade(_outpostTier + 1);
+        outpostData = _outpostData;
 
         return _outpostData.UpgradePrice;
+    }
+
+    private void Upgrade(int tier)
+    {
+        _outpostTier = tier;
+        _outpostData = outpostTiers[_outpostTier];
+        healthSlider.Initialize(_outpostData.Health);
+        healthText.text = ((int)_outpostData.Health).ToString();
     }
 }

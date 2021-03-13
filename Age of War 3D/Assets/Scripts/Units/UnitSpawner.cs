@@ -7,12 +7,12 @@ public class UnitSpawner : MonoBehaviour
 {
     [SerializeField] List<Unit> unitPrefabs;
     [SerializeField] TextMeshProUGUI queueCapacityText;
-    [SerializeField] int maxQueueCapacity;
 
     private int[] _currentUnitTiers;
     private List<Unit> _spawnedUnits;
 
     private List<Unit> _unitsInQueue;
+    private int _maxQueueCapacity;
 
     private int _unitIDCounter;
 
@@ -35,12 +35,22 @@ public class UnitSpawner : MonoBehaviour
         StartCoroutine(UnitQueue());
     }
 
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(gameObject);
+    }
+
     public int SpawnUnit(int unitIndex, Line line, FactionEnum faction, Material factionMaterial, int balance)
     {
         if (unitIndex < 0 || unitIndex > unitPrefabs.Count - 1)
             return 0;
 
-        if (_unitsInQueue.Count >= maxQueueCapacity)
+        if (_unitsInQueue.Count >= _maxQueueCapacity)
             return 0;
 
         var unitPrefab = unitPrefabs[unitIndex];
@@ -70,7 +80,14 @@ public class UnitSpawner : MonoBehaviour
         if (queueCapacityText == null)
             return;
 
-        queueCapacityText.text = $"{_unitsInQueue.Count} / {maxQueueCapacity}";
+        queueCapacityText.text = $"{_unitsInQueue.Count} / {_maxQueueCapacity}";
+    }
+
+    public void OnQueueCapacityChanged(int newCapacity)
+    {
+        _maxQueueCapacity = newCapacity;
+
+        UpdateQueueCapacityText();
     }
 
     private IEnumerator UnitQueue()
