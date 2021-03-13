@@ -3,6 +3,7 @@
 [CreateAssetMenu(fileName = "New Unit Data", menuName = "Units/Unit Data")]
 public class UnitData : ScriptableObject
 {
+    [SerializeField] Sprite sprite;
     [SerializeField] new string name;
     [SerializeField] float hitPoints;
     [SerializeField] float movementSpeed;
@@ -13,6 +14,7 @@ public class UnitData : ScriptableObject
     [SerializeField] int upgradeCost;
     [SerializeField] int reward;
 
+    public Sprite Sprite => sprite;
     public string Name => name;
     public float HitPoints => hitPoints;
     public float MovementSpeed => movementSpeed;

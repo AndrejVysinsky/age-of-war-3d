@@ -1,9 +1,11 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IUnitUpgraded
 {
+    [SerializeField] Image unitImage;
     [SerializeField] TextMeshProUGUI priceText;
 
     [SerializeField] PlayerController playerController;
@@ -44,5 +46,10 @@ public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         _unitData = upgradedUnitData;
 
         priceText.text = _unitData.TrainCost.ToString();
+
+        if (_unitData.Sprite != null)
+        {
+            unitImage.sprite = _unitData.Sprite;
+        }
     }
 }
