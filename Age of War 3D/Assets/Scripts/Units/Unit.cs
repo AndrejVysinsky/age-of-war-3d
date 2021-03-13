@@ -11,15 +11,16 @@ public class Unit : MonoBehaviour
 
     private bool _isAttacking;
 
-    public Unit EnemyInRange { get; set; }
-    public Unit AllyInRange { get; set; }
+    private UnitData _unitData;
 
     private Vector3 _destination;
     private int _nextCheckpointIndex;
 
-    public UnityEvent<Unit> OnUnitDeath { get; set; }
+    public Unit EnemyInRange { get; set; }
+    public Unit AllyInRange { get; set; }
 
-    public UnitData UnitData { get; private set; }
+    public UnityEvent<Unit> OnUnitDeath { get; set; }
+    
     public int NumberOfUnitTiers => unitTiers.Count;
     public Line Line { get; private set; }
     public int UnitID { get; private set; }
@@ -30,16 +31,6 @@ public class Unit : MonoBehaviour
         _isAttacking = false;
 
         OnUnitDeath = new UnityEvent<Unit>();
-    }
-
-    public int GetUnitTrainCost(int currentTier)
-    {
-        return unitTiers[currentTier].TrainCost;
-    }
-
-    public int GetUnitUpgradeCost(int tierToUpgrade)
-    {
-        return unitTiers[tierToUpgrade].UpgradeCost;
     }
 
     public UnitData GetUnitData(int currentTier)
@@ -53,14 +44,14 @@ public class Unit : MonoBehaviour
 
         if (unitTier < 0 || unitTier > unitTiers.Count - 1)
         {
-            UnitData = unitTiers[0];
+            _unitData = unitTiers[0];
         }
         else
         {
-            UnitData = unitTiers[unitTier];
+            _unitData = unitTiers[unitTier];
         }
 
-        unitHealth.Initialize(UnitData.HitPoints);
+        unitHealth.Initialize(_unitData.HitPoints);
 
         Line = line;
         Faction = faction;
@@ -103,7 +94,7 @@ public class Unit : MonoBehaviour
             _destination = Line.GetCheckpointPosition(_nextCheckpointIndex++, Faction);
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, _destination, UnitData.MovementSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _destination, _unitData.MovementSpeed * Time.deltaTime);
     }
 
     private IEnumerator Attack()
@@ -119,7 +110,7 @@ public class Unit : MonoBehaviour
                 break;
             }
 
-            EnemyInRange.TakeDamage(UnitData.Damage);
+            EnemyInRange.TakeDamage(_unitData.Damage);
         }
 
         _isAttacking = false;
