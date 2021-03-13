@@ -30,6 +30,10 @@ public class RangeTrigger : MonoBehaviour
                 }
             }
         }
+        else if (other.TryGetComponent(out Outpost outpost))
+        {
+            unit.OutpostInRange = outpost;
+        }
     }
 
     private void OnTriggerExit(Collider other)

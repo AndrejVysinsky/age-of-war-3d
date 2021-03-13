@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 5231040572990821191}
   - component: {fileID: 818633461}
   - component: {fileID: 4421647025720589380}
+  - component: {fileID: 3749813247194948300}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -167,7 +168,6 @@ MonoBehaviour:
   - {fileID: 9190944628346506613, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
   - {fileID: -2291775907212918199, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
   queueCapacityText: {fileID: 0}
-  maxQueueCapacity: 5
 --- !u!114 &818633461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +200,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99447f924aed48443a8a416313f91227, type: 2}
   healthSlider: {fileID: 0}
   healthText: {fileID: 0}
+--- !u!65 &3749813247194948300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028952593920896700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.39, y: 1, z: 8.19}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5916953475857028562
 GameObject:
   m_ObjectHideFlags: 0

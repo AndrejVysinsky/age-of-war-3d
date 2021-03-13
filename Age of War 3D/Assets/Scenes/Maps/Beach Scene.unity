@@ -1836,10 +1836,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1295391511, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
-      propertyPath: _balance
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1295391511, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
       propertyPath: _goldText
       value: 
       objectReference: {fileID: 1115725956}

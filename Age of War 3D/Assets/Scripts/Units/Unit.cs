@@ -18,6 +18,7 @@ public class Unit : MonoBehaviour
 
     public Unit EnemyInRange { get; set; }
     public Unit AllyInRange { get; set; }
+    public Outpost OutpostInRange { get; set; }
 
     public UnityEvent<Unit> OnUnitDeath { get; set; }
     
@@ -65,9 +66,12 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        if (EnemyInRange != null && _isAttacking == false)
+        if (_isAttacking == false)
         {
-            StartCoroutine(Attack());
+            if (EnemyInRange != null || OutpostInRange != null)
+            {
+                StartCoroutine(Attack());
+            }
         }
 
         if (AllyInRange == null)
@@ -105,12 +109,24 @@ public class Unit : MonoBehaviour
         {
             yield return new WaitForSeconds(2f);
 
-            if (EnemyInRange == null || unitHealth.Health <= 0)
+            if (unitHealth.Health <= 0)
             {
                 break;
             }
 
-            EnemyInRange.TakeDamage(_unitData.Damage);
+            //prioritize enemies before outpost
+            if (EnemyInRange != null)
+            {
+                EnemyInRange.TakeDamage(_unitData.Damage);
+            }
+            else if (OutpostInRange != null)
+            {
+                OutpostInRange.TakeDamage(_unitData.Damage);
+            }
+            else
+            {
+                break;
+            }
         }
 
         _isAttacking = false;

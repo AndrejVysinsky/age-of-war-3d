@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 2410486435810128869}
   - component: {fileID: 1295391511}
   - component: {fileID: 7495796249687835877}
+  - component: {fileID: 4671813937215760238}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -312,7 +313,6 @@ MonoBehaviour:
   - {fileID: 9190944628346506613, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
   - {fileID: -2291775907212918199, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
   queueCapacityText: {fileID: 0}
-  maxQueueCapacity: 5
 --- !u!114 &1295391511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goldText: {fileID: 0}
-  _balance: 500
+  _balance: 5000
 --- !u!114 &7495796249687835877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +345,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99447f924aed48443a8a416313f91227, type: 2}
   healthSlider: {fileID: 0}
   healthText: {fileID: 0}
+--- !u!65 &4671813937215760238
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180045697356729886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.59, y: 1, z: 8.42}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4320811168775189872
 GameObject:
   m_ObjectHideFlags: 0
