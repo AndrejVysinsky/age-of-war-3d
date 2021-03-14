@@ -52,7 +52,7 @@ public class Unit : MonoBehaviour
             _unitData = unitTiers[unitTier];
         }
 
-        unitHealth.Initialize(_unitData.HitPoints);
+        unitHealth.Initialize(_unitData.HitPoints, false);
 
         Line = line;
         Faction = faction;

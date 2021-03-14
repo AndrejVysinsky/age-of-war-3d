@@ -14,7 +14,7 @@ public class HealthSlider : MonoBehaviour
     public float Health { get; private set; }
     public float MaxHealth { get; private set; }
 
-    public void Initialize(float health)
+    public void Initialize(float health, bool showFullHealth)
     {
         _gradient = new Gradient()
         {
@@ -27,6 +27,10 @@ public class HealthSlider : MonoBehaviour
 
         Health = health;
         MaxHealth = health;
+
+        healthIndicator.color = _gradient.Evaluate(1);
+
+        slider.gameObject.SetActive(showFullHealth);
     }
 
     public void SubtractHealth(float amount)
@@ -42,6 +46,9 @@ public class HealthSlider : MonoBehaviour
     private void VisualiseDamage()
     {
         float value = Health / MaxHealth;
+
+        if (slider.gameObject.activeSelf == false)
+            slider.gameObject.SetActive(true);
 
         slider.value = value;
         healthIndicator.color = _gradient.Evaluate(value);

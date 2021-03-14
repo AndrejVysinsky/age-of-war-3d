@@ -61,7 +61,7 @@ public class Outpost : MonoBehaviour
     {
         _outpostTier = tier;
         _outpostData = outpostTiers[_outpostTier];
-        healthSlider.Initialize(_outpostData.Health);
+        healthSlider.Initialize(_outpostData.Health, true);
         healthText.text = ((int)_outpostData.Health).ToString();
     }
 }
