@@ -2,8 +2,9 @@
 
 public class PlayerController : BaseGameController
 {
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         _activeLine = lineController.GetFirstActiveLine();
         lineController.HightlightLine(_activeLine);
     }

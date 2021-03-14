@@ -11,7 +11,7 @@ public class BaseGameController : MonoBehaviour
 
     protected Line _activeLine;
 
-    private void Awake()
+    protected virtual void Start()
     {
         var outpostData = outpost.Initialize(faction);
 

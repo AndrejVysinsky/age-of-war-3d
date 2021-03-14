@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class AIController : BaseGameController
 {
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         StartCoroutine(SpawnUnit());
     }
 
