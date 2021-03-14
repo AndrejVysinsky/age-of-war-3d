@@ -33,6 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7734214634591342561}
+  - {fileID: 8390078691620509754}
   - {fileID: 5714399474131549004}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -128,10 +129,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f0ee41dadd9644b82654a89d36c85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitHealth: {fileID: 3843477653655380574}
   unitTiers:
   - {fileID: 11400000, guid: a231f5c5d36bf2c42847703a8c437eee, type: 2}
-  unitData: {fileID: 11400000, guid: a231f5c5d36bf2c42847703a8c437eee, type: 2}
-  unitHealth: {fileID: 3843477653655380574}
+--- !u!1 &1711933316908385180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8390078691620509754}
+  - component: {fileID: 1462201222846238389}
+  - component: {fileID: 2220808287107846882}
+  m_Layer: 0
+  m_Name: Attack Range Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8390078691620509754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711933316908385180}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.024, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 129821501378555387}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1462201222846238389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711933316908385180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2220808287107846882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711933316908385180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a7752468cfd02429f2d51f5a547b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 9190944628346506613}
 --- !u!1 &9114886622049077207
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,9 +200,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7734214634591342561}
   - component: {fileID: 949454909025720056}
-  - component: {fileID: 6212403149226979423}
+  - component: {fileID: 5948240301339858066}
   m_Layer: 0
-  m_Name: Range Trigger
+  m_Name: Movement Range Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +235,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6212403149226979423
+--- !u!114 &5948240301339858066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +244,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9114886622049077207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a7752468cfd02429f2d51f5a547b4c, type: 3}
+  m_Script: {fileID: 11500000, guid: a8d6a8fdb42a4dc4ba6d5c4a04e48ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 9190944628346506613}
@@ -207,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8343530455521671826, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8343530455521671826, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_LocalPosition.x

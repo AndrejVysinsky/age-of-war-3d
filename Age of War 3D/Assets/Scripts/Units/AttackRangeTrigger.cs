@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class RangeTrigger : MonoBehaviour
+public class AttackRangeTrigger : MonoBehaviour
 {
     [SerializeField] Unit unit;
 
-    private List<Unit> _alliesInRange;
-
     private void Awake()
     {
-        _alliesInRange = new List<Unit>();
+        unit.OnUnitDeath.AddListener(RemoveUnit);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,11 +19,6 @@ public class RangeTrigger : MonoBehaviour
                 if (otherUnit.Faction != unit.Faction)
                 {
                     unit.EnemyInRange = otherUnit;
-                }
-                else
-                {
-                    _alliesInRange.Add(otherUnit);
-                    unit.AllyInRange = GetAllyInFront();
                 }
             }
         }
@@ -47,26 +39,12 @@ public class RangeTrigger : MonoBehaviour
                 {
                     unit.EnemyInRange = null;
                 }
-                else
-                {
-                    _alliesInRange.Remove(otherUnit);
-                    unit.AllyInRange = GetAllyInFront();
-                }
             }
         }
     }
 
-    private Unit GetAllyInFront()
+    private void RemoveUnit(Unit unit)
     {
-        _alliesInRange.RemoveAll(unit => unit == null);
 
-        for (int i = 0; i < _alliesInRange.Count; i++)
-        {
-            if (_alliesInRange[i].UnitID < unit.UnitID)
-            {
-                return _alliesInRange[i];
-            }
-        }
-        return null;
     }
 }

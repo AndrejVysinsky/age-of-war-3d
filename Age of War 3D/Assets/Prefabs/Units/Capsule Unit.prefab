@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8330326193275904619}
   - component: {fileID: 840439797764401407}
-  - component: {fileID: 7064638457432613099}
+  - component: {fileID: 1547859609971467760}
   m_Layer: 0
-  m_Name: Range Trigger
+  m_Name: Movement Range Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7064638457432613099
+--- !u!114 &1547859609971467760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1338044160994929635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a7752468cfd02429f2d51f5a547b4c, type: 3}
+  m_Script: {fileID: 11500000, guid: a8d6a8fdb42a4dc4ba6d5c4a04e48ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: -3682269649467534658}
@@ -91,6 +91,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8330326193275904619}
+  - {fileID: 7471297490683625567}
   - {fileID: 6732089917820785801}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -186,12 +187,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f0ee41dadd9644b82654a89d36c85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitHealth: {fileID: 2843555429387046299}
   unitTiers:
   - {fileID: 11400000, guid: 43ac43037a5872f4799c76d1d2111d73, type: 2}
   - {fileID: 11400000, guid: b1bd0f4efabaf844da9d81dbb4279c7c, type: 2}
   - {fileID: 11400000, guid: c53696add8018ae48871f9990335cf5e, type: 2}
-  unitData: {fileID: 11400000, guid: 43ac43037a5872f4799c76d1d2111d73, type: 2}
-  unitHealth: {fileID: 2843555429387046299}
+--- !u!1 &8851404277654041459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7471297490683625567}
+  - component: {fileID: 7018033340539395543}
+  - component: {fileID: 8493310863378723646}
+  m_Layer: 0
+  m_Name: Attack Range Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7471297490683625567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851404277654041459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.024, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5220262054013019443}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7018033340539395543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851404277654041459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8493310863378723646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851404277654041459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a7752468cfd02429f2d51f5a547b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: -3682269649467534658}
 --- !u!1001 &3361687133222333979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -204,12 +262,16 @@ PrefabInstance:
       value: Unit Health
       objectReference: {fileID: 0}
     - target: {fileID: 7924322064838028691, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7924322064838028691, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8343530455521671826, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8343530455521671826, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_LocalPosition.x

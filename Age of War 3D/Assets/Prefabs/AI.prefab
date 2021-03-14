@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goldText: {fileID: 0}
-  _balance: 1200
+  _balance: 2000
 --- !u!114 &4421647025720589380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99447f924aed48443a8a416313f91227, type: 2}
   healthSlider: {fileID: 0}
   healthText: {fileID: 0}
+  menuScript: {fileID: 0}
 --- !u!65 &3749813247194948300
 BoxCollider:
   m_ObjectHideFlags: 0
