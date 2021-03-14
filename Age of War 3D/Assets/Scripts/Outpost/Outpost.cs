@@ -32,11 +32,11 @@ public class Outpost : MonoBehaviour
         {
             if (_faction == FactionEnum.Green)
             {
-                menuScript.GameWin();
+                menuScript.GameOver();
             }
             else
             {
-                menuScript.GameOver();
+                menuScript.GameWin();
             }
         }
     }
