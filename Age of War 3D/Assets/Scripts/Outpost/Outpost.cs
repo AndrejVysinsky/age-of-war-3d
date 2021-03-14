@@ -7,12 +7,16 @@ public class Outpost : MonoBehaviour
     [SerializeField] List<OutpostData> outpostTiers;
     [SerializeField] HealthSlider healthSlider;
     [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] MenuScript menuScript;
 
+    private FactionEnum _faction;
     private OutpostData _outpostData;
     private int _outpostTier;
 
-    public OutpostData Initialize()
+    public OutpostData Initialize(FactionEnum faction)
     {
+        _faction = faction;
+
         Upgrade(0);
 
         return _outpostData;
@@ -26,7 +30,14 @@ public class Outpost : MonoBehaviour
 
         if (healthSlider.Health <= 0)
         {
-            //TODO: defeat
+            if (_faction == FactionEnum.Green)
+            {
+                menuScript.GameWin();
+            }
+            else
+            {
+                menuScript.GameOver();
+            }
         }
     }
 

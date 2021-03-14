@@ -13,7 +13,7 @@ public class BaseGameController : MonoBehaviour
 
     private void Awake()
     {
-        var outpostData = outpost.Initialize();
+        var outpostData = outpost.Initialize(faction);
 
         unitSpawner.OnQueueCapacityChanged(outpostData.MaxQueueCapacity);
     }

@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu Scene.unity
     guid: c51e97f6c30b02c4592f06d4dc47d333
   - enabled: 1
-    path: Assets/Scenes/Testing Game Scene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Maps/Beach Scene.unity
+    guid: 45c68628162467d48af349a7bcf916a7
   m_configObjects: {}
