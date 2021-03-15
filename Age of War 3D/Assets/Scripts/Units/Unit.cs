@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class Unit : MonoBehaviour
 {
     [SerializeField] HealthSlider unitHealth;
+    [SerializeField] MaterialSwitcher materialSwitcher;
     [SerializeField] List<UnitData> unitTiers;
 
     private bool _isAttacking;
@@ -61,7 +62,10 @@ public class Unit : MonoBehaviour
         _nextCheckpointIndex = 1;
         _destination = Line.GetCheckpointPosition(_nextCheckpointIndex, Faction);
 
-        GetComponent<MeshRenderer>().material = factionMaterial;
+        if (materialSwitcher != null)
+        {
+            materialSwitcher.SwitchMaterials(factionMaterial);
+        }
     }
 
     private void Update()
