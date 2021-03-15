@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialSwitchers:
   - meshRenderer: {fileID: 949686459885678418}
-    materialIndexToSwitch: 1
+    materialIndexToColorSwitch: 1
 --- !u!1 &8894426042546275828
 GameObject:
   m_ObjectHideFlags: 0

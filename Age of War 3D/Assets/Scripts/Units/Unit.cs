@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Unit : MonoBehaviour
 {
     [SerializeField] HealthSlider unitHealth;
-    [SerializeField] MaterialSwitcher materialSwitcher;
+    [SerializeField] ColorSwitcher materialSwitcher;
     [SerializeField] List<UnitData> unitTiers;
 
     private bool _isAttacking;
@@ -64,7 +64,7 @@ public class Unit : MonoBehaviour
 
         if (materialSwitcher != null)
         {
-            materialSwitcher.SwitchMaterials(factionMaterial);
+            materialSwitcher.SwitchColors(factionMaterial.color);
         }
     }
 
