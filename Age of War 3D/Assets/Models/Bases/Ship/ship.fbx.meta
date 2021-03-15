@@ -3,7 +3,47 @@ guid: 8998b95e0f65ad74daeddc8e70406291
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cierna
+    second: {fileID: 2100000, guid: 61276733c97a4794fa0fc530359c82fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: drevo1
+    second: {fileID: 2100000, guid: 0cfb420a18490f344a8486424d24eb9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: drevo2
+    second: {fileID: 2100000, guid: e079107b016d2c84c85d4c8d36acf2b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: drevo3
+    second: {fileID: 2100000, guid: 7c1fb28f02020444c9837d2936881c2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hrot
+    second: {fileID: 2100000, guid: b172f5b700650d045bc5fea6dcb6072d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: okno
+    second: {fileID: 2100000, guid: 1359eb6f14e8e624f9b7b635b227a562, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plachta
+    second: {fileID: 2100000, guid: 09827c4281068264a8c18bc96be58c30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vlajka
+    second: {fileID: 2100000, guid: b7ebba9a6bd486242aa68b81998d5816, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
