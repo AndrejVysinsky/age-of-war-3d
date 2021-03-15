@@ -321,7 +321,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.47
+  m_Intensity: 0.68
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1434,47 +1434,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: activeLineGradient.key0.b
-      value: 1
+      value: 0.22381006
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: activeLineGradient.key0.g
-      value: 0.7600646
+      value: 0.6320754
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: activeLineGradient.key0.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: activeLineGradient.key1.b
+      value: 0.22352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: activeLineGradient.key1.g
-      value: 0.7607844
+      value: 0.6313726
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: activeLineGradient.key1.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
+      propertyPath: inactiveLineGradient.ctime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: inactiveLineGradient.key0.b
-      value: 0
+      value: 0.3962264
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: inactiveLineGradient.key0.g
-      value: 0.9339623
+      value: 0.3962264
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: inactiveLineGradient.key0.r
-      value: 0.101739064
+      value: 0.3962264
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: inactiveLineGradient.key1.b
-      value: 0
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: inactiveLineGradient.key1.g
-      value: 0.9333334
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 750936715, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: inactiveLineGradient.key1.r
-      value: 0.10196079
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 8344759193332439890, guid: ad8502fff0a09c7448077a9560aea055, type: 3}
       propertyPath: m_Name

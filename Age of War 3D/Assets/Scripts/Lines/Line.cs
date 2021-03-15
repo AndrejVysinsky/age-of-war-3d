@@ -24,7 +24,7 @@ public class Line : MonoBehaviour
         for (int i = 0; i < checkPoints.Count; i++)
         {
             var position = checkPoints[i].transform.position;
-            position.y += 0.2f;
+            position.y += 0.01f;
 
             lineRenderer.SetPosition(i, position);
         }
