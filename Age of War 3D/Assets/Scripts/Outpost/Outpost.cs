@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Outpost : MonoBehaviour
+public class Outpost : MonoBehaviour, IDamagable
 {
     [SerializeField] List<OutpostData> outpostTiers;
     [SerializeField] HealthSlider healthSlider;

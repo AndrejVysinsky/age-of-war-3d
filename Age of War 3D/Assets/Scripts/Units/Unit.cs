@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour, IDamagable
 {
     [SerializeField] HealthSlider unitHealth;
     [SerializeField] ColorSwitcher materialSwitcher;
@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
 
     private bool _isAttacking;
 
-    private UnitData _unitData;
+    protected UnitData _unitData;
 
     private Vector3 _destination;
     private int _nextCheckpointIndex;
@@ -74,7 +74,7 @@ public class Unit : MonoBehaviour
         {
             if (EnemyInRange != null || OutpostInRange != null)
             {
-                StartCoroutine(Attack());
+                StartCoroutine(AttackMode());
             }
         }
 
@@ -105,7 +105,7 @@ public class Unit : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _destination, _unitData.MovementSpeed * Time.deltaTime);
     }
 
-    private IEnumerator Attack()
+    private IEnumerator AttackMode()
     {
         _isAttacking = true;
 
@@ -121,11 +121,11 @@ public class Unit : MonoBehaviour
             //prioritize enemies before outpost
             if (EnemyInRange != null)
             {
-                EnemyInRange.TakeDamage(_unitData.Damage);
+                Attack(EnemyInRange);
             }
             else if (OutpostInRange != null)
             {
-                OutpostInRange.TakeDamage(_unitData.Damage);
+                Attack(OutpostInRange);
             }
             else
             {
@@ -134,6 +134,18 @@ public class Unit : MonoBehaviour
         }
 
         _isAttacking = false;
+    }
+
+    private void Attack(IDamagable damagable)
+    {
+        //play animation
+
+        //at animation end deal damage
+        DealDamage(damagable);
+    }
+
+    protected virtual void DealDamage(IDamagable damagable)
+    {
     }
 
     public void TakeDamage(float damage)
