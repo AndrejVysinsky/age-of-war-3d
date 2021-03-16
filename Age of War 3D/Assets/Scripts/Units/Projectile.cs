@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
         if (_currentPosition == _targetPosition)
         {
             _isMoving = false;
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 1f);
             return;
         }
 
@@ -62,7 +62,7 @@ public class Projectile : MonoBehaviour
                 GetComponent<Collider>().enabled = false;
                 GetComponent<MeshRenderer>().enabled = false;
                 _isMoving = false;
-                Destroy(gameObject, 2f);
+                Destroy(gameObject, 1f);
             }
         }
     }
