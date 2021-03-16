@@ -145,10 +145,6 @@ PrefabInstance:
       propertyPath: lineController
       value: 
       objectReference: {fileID: 750936715}
-    - target: {fileID: 818633461, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: _balance
-      value: 2000
-      objectReference: {fileID: 0}
     - target: {fileID: 720268225948284057, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -193,10 +189,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1891149561856910378, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4b0e99b85dce3654180784cb3d804688, type: 2}
     - target: {fileID: 4421647025720589380, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
       propertyPath: healthText
       value: 
@@ -213,14 +205,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI
       objectReference: {fileID: 0}
-    - target: {fileID: 6791244144150199746, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4b0e99b85dce3654180784cb3d804688, type: 2}
-    - target: {fileID: 7479986935815857593, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4b0e99b85dce3654180784cb3d804688, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
 --- !u!1001 &478998015
@@ -808,10 +792,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 770536876, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e079107b016d2c84c85d4c8d36acf2b8, type: 2}
     - target: {fileID: 1295391511, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
       propertyPath: _goldText
       value: 

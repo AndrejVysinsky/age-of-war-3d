@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d6a8fdb42a4dc4ba6d5c4a04e48ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: -2291775907212918199}
+  unit: {fileID: 148640730882108631}
 --- !u!1 &7825778013938283133
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 575706231519041318}
   - component: {fileID: 7064195383073482172}
   - component: {fileID: 5303228499555705333}
-  - component: {fileID: -2291775907212918199}
+  - component: {fileID: 148640730882108631}
   m_Layer: 0
   m_Name: Sphere Unit
   m_TagString: Untagged
@@ -174,7 +174,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-2291775907212918199
+--- !u!114 &148640730882108631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,11 +183,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7825778013938283133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f0ee41dadd9644b82654a89d36c85b, type: 3}
+  m_Script: {fileID: 11500000, guid: 31122487292198c4da5e1d7323feb012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unitHealth: {fileID: 8432477878686364882}
-  materialSwitcher: {fileID: 0}
+  colorSwitcher: {fileID: 0}
   unitTiers:
   - {fileID: 11400000, guid: 096bbe31fb662ef4f97c8db38dcc1ed6, type: 2}
 --- !u!1 &9173825529206295828
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a7752468cfd02429f2d51f5a547b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: -2291775907212918199}
+  unit: {fileID: 148640730882108631}
 --- !u!1001 &8995772915315693394
 PrefabInstance:
   m_ObjectHideFlags: 0

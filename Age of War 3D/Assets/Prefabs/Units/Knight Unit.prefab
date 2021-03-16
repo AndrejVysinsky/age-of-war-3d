@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d6a8fdb42a4dc4ba6d5c4a04e48ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: -3682269649467534658}
+  unit: {fileID: 6997406040295253660}
 --- !u!1 &6915423625754250722
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 5220262054013019443}
   - component: {fileID: 2068119364840800668}
   - component: {fileID: 6211133103682240882}
-  - component: {fileID: -3682269649467534658}
+  - component: {fileID: 6997406040295253660}
   - component: {fileID: 8825539077409013678}
   m_Layer: 0
   m_Name: Knight Unit
@@ -126,7 +126,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-3682269649467534658
+--- !u!114 &6997406040295253660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,11 +135,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6915423625754250722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f0ee41dadd9644b82654a89d36c85b, type: 3}
+  m_Script: {fileID: 11500000, guid: 31122487292198c4da5e1d7323feb012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unitHealth: {fileID: 2843555429387046299}
-  materialSwitcher: {fileID: 8825539077409013678}
+  colorSwitcher: {fileID: 8825539077409013678}
   unitTiers:
   - {fileID: 11400000, guid: 43ac43037a5872f4799c76d1d2111d73, type: 2}
   - {fileID: 11400000, guid: b1bd0f4efabaf844da9d81dbb4279c7c, type: 2}
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a7752468cfd02429f2d51f5a547b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: -3682269649467534658}
+  unit: {fileID: 6997406040295253660}
 --- !u!1001 &3361687133222333979
 PrefabInstance:
   m_ObjectHideFlags: 0

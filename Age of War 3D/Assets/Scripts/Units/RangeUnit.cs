@@ -13,9 +13,9 @@ public class RangeUnit : Unit
         base.DealDamage(damagable);
 
         //spawn projectile
-        var projectileObject = Instantiate(projectilePrefab, transform);
+        var projectileObject = Instantiate(projectilePrefab);
 
-        //initialize with start position, end position, damage 
-        //projectilePrefab.GetComponent<Projectile>().Initialize(firePoint.transform.position, EnemyInRange, _unitData.Damage);
+        //initialize with start position, end position, damage
+        projectileObject.GetComponent<Projectile>().Initialize(firePoint.transform.position, this, damagable, _unitData.Damage);
     }
 }

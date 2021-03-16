@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d6a8fdb42a4dc4ba6d5c4a04e48ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: -3329235734515909066}
+  unit: {fileID: 1923957047244634846}
 --- !u!1 &8519373101542237319
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 2028394729431246083}
   - component: {fileID: 2845645879074944356}
   - component: {fileID: 6213123675263396762}
-  - component: {fileID: -3329235734515909066}
+  - component: {fileID: 1923957047244634846}
   - component: {fileID: 7056874263090235296}
   m_Layer: 0
   m_Name: Spearman Unit
@@ -126,7 +126,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &-3329235734515909066
+--- !u!114 &1923957047244634846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,11 +135,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8519373101542237319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f0ee41dadd9644b82654a89d36c85b, type: 3}
+  m_Script: {fileID: 11500000, guid: 31122487292198c4da5e1d7323feb012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unitHealth: {fileID: 6369008192422549969}
-  materialSwitcher: {fileID: 7056874263090235296}
+  colorSwitcher: {fileID: 7056874263090235296}
   unitTiers:
   - {fileID: 11400000, guid: 4de98cc5298b7ea4fbfed790b6233a5e, type: 2}
 --- !u!114 &7056874263090235296
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a7752468cfd02429f2d51f5a547b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: -3329235734515909066}
+  unit: {fileID: 1923957047244634846}
 --- !u!1001 &1940034856806872022
 PrefabInstance:
   m_ObjectHideFlags: 0

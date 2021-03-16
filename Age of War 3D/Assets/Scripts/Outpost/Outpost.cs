@@ -9,13 +9,20 @@ public class Outpost : MonoBehaviour, IDamagable
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] MenuScript menuScript;
 
-    private FactionEnum _faction;
     private OutpostData _outpostData;
     private int _outpostTier;
 
+    public FactionEnum Faction { get; private set; }
+    public Transform Transform { get; private set; }
+
+    private void Awake()
+    {
+        Transform = transform;
+    }
+
     public OutpostData Initialize(FactionEnum faction)
     {
-        _faction = faction;
+        Faction = faction;
 
         Upgrade(0);
 
@@ -30,7 +37,7 @@ public class Outpost : MonoBehaviour, IDamagable
 
         if (healthSlider.Health <= 0)
         {
-            if (_faction == FactionEnum.Green)
+            if (Faction == FactionEnum.Green)
             {
                 menuScript.GameOver();
             }

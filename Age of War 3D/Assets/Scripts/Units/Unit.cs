@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Unit : MonoBehaviour, IDamagable
 {
     [SerializeField] HealthSlider unitHealth;
-    [SerializeField] ColorSwitcher materialSwitcher;
+    [SerializeField] ColorSwitcher colorSwitcher;
     [SerializeField] List<UnitData> unitTiers;
 
     private bool _isAttacking;
@@ -27,11 +27,13 @@ public class Unit : MonoBehaviour, IDamagable
     public Line Line { get; private set; }
     public int UnitID { get; private set; }
     public FactionEnum Faction { get; private set; }
+    public Transform Transform { get; private set; }
 
     private void Awake()
     {
         _isAttacking = false;
 
+        Transform = transform;
         OnUnitDeath = new UnityEvent<Unit>();
     }
 
@@ -62,9 +64,9 @@ public class Unit : MonoBehaviour, IDamagable
         _nextCheckpointIndex = 1;
         _destination = Line.GetCheckpointPosition(_nextCheckpointIndex, Faction);
 
-        if (materialSwitcher != null)
+        if (colorSwitcher != null)
         {
-            materialSwitcher.SwitchColors(factionMaterial.color);
+            colorSwitcher.SwitchColors(factionMaterial.color);
         }
     }
 
@@ -111,8 +113,6 @@ public class Unit : MonoBehaviour, IDamagable
 
         while (true)
         {
-            yield return new WaitForSeconds(2f);
-
             if (unitHealth.Health <= 0)
             {
                 break;
@@ -131,6 +131,8 @@ public class Unit : MonoBehaviour, IDamagable
             {
                 break;
             }
+
+            yield return new WaitForSeconds(2f);
         }
 
         _isAttacking = false;
