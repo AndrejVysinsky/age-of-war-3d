@@ -24,6 +24,10 @@ public class Projectile : MonoBehaviour
         _damage = damage;
 
         transform.position = startPosition;
+
+        var forward = self.Transform.forward;
+
+        _targetPosition = self.Transform.position + forward * 8f;
     }
 
     private void Update()
@@ -39,7 +43,7 @@ public class Projectile : MonoBehaviour
         if (_currentPosition == _targetPosition)
         {
             _isMoving = false;
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 2f);
             return;
         }
 
@@ -59,9 +63,13 @@ public class Projectile : MonoBehaviour
             if (damagable.Faction != _self.Faction)
             {
                 damagable.TakeDamage(_damage);
+
                 GetComponent<Collider>().enabled = false;
                 GetComponent<MeshRenderer>().enabled = false;
+                var emission = GetComponent<ParticleSystem>().emission;
+                emission.enabled = false;
                 _isMoving = false;
+
                 Destroy(gameObject, 1f);
             }
         }

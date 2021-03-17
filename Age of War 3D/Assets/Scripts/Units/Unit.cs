@@ -63,6 +63,7 @@ public class Unit : MonoBehaviour, IDamagable
         transform.position = Line.GetCheckpointPosition(0, Faction);
         _nextCheckpointIndex = 1;
         _destination = Line.GetCheckpointPosition(_nextCheckpointIndex, Faction);
+        transform.LookAt(_destination);
 
         if (colorSwitcher != null)
         {
@@ -102,6 +103,7 @@ public class Unit : MonoBehaviour, IDamagable
             }
 
             _destination = Line.GetCheckpointPosition(_nextCheckpointIndex++, Faction);
+            transform.LookAt(_destination);
         }
 
         transform.position = Vector3.MoveTowards(transform.position, _destination, _unitData.MovementSpeed * Time.deltaTime);

@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class AttackRangeTrigger : MonoBehaviour
 {
     [SerializeField] Unit unit;
 
+    private List<Unit> _enemiesInRange;
+
     private void Awake()
     {
+        _enemiesInRange = new List<Unit>();
         unit.OnUnitDeath.AddListener(RemoveUnit);
     }
 
@@ -18,7 +22,8 @@ public class AttackRangeTrigger : MonoBehaviour
             {
                 if (otherUnit.Faction != unit.Faction)
                 {
-                    unit.EnemyInRange = otherUnit;
+                    _enemiesInRange.Add(otherUnit);
+                    unit.EnemyInRange = GetEnemyInFront();
                 }
             }
         }
@@ -37,7 +42,8 @@ public class AttackRangeTrigger : MonoBehaviour
             {
                 if (otherUnit.Faction != unit.Faction)
                 {
-                    unit.EnemyInRange = null;
+                    _enemiesInRange.Remove(otherUnit);
+                    unit.EnemyInRange = GetEnemyInFront();
                 }
             }
         }
@@ -46,5 +52,26 @@ public class AttackRangeTrigger : MonoBehaviour
     private void RemoveUnit(Unit unit)
     {
 
+    }
+
+    private Unit GetEnemyInFront()
+    {
+        _enemiesInRange.RemoveAll(unit => unit == null);
+
+        int index = 0;
+        int minId = int.MaxValue;
+        for (int i = 0; i < _enemiesInRange.Count; i++)
+        {
+            if (_enemiesInRange[i].UnitID < minId)
+            {
+                index = i;
+                minId = _enemiesInRange[i].UnitID;
+            }
+        }
+
+        if (minId == int.MaxValue)
+            return null;
+
+        return _enemiesInRange[index];
     }
 }

@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  arcHeight: 1
+  arcHeight: 0.6
 --- !u!198 &395702074157954877
 ParticleSystem:
   m_ObjectHideFlags: 0

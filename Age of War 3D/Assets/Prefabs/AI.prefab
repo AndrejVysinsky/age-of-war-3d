@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 818633461}
   - component: {fileID: 4421647025720589380}
   - component: {fileID: 3749813247194948300}
+  - component: {fileID: 601331094}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -164,9 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefabs:
   - {fileID: 6997406040295253660, guid: 41afd2f768b036b4fb41705b4e030778, type: 3}
-  - {fileID: 6711369811019364783, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
-  - {fileID: 1923957047244634846, guid: cd73e54d789a0e54faf279ee09f9bc6c, type: 3}
-  - {fileID: 148640730882108631, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
   queueCapacityText: {fileID: 0}
 --- !u!114 &818633461
 MonoBehaviour:
@@ -212,8 +210,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.39, y: 1, z: 8.19}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6.39, y: 6.73, z: 8.19}
+  m_Center: {x: 0, y: 1.8, z: 0}
+--- !u!54 &601331094
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028952593920896700}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5916953475857028562
 GameObject:
   m_ObjectHideFlags: 0
