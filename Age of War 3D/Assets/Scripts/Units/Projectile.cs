@@ -2,6 +2,7 @@
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] float distance;
     [SerializeField] float speed;
     [SerializeField] float arcHeight;
 
@@ -27,7 +28,7 @@ public class Projectile : MonoBehaviour
 
         var forward = self.Transform.forward;
 
-        _targetPosition = self.Transform.position + forward * 8f;
+        _targetPosition = self.Transform.position + forward * distance;
     }
 
     private void Update()
@@ -66,8 +67,12 @@ public class Projectile : MonoBehaviour
 
                 GetComponent<Collider>().enabled = false;
                 GetComponent<MeshRenderer>().enabled = false;
-                var emission = GetComponent<ParticleSystem>().emission;
-                emission.enabled = false;
+
+                if (TryGetComponent(out ParticleSystem particleSystem))
+                {
+                    var emission = particleSystem.emission;
+                    emission.enabled = false;
+                }
                 _isMoving = false;
 
                 Destroy(gameObject, 1f);
