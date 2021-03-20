@@ -10,6 +10,8 @@ public class UnitSpawner : MonoBehaviour
 
     private int[] _currentUnitTiers;
     private List<Unit> _spawnedUnits;
+    private GoldController _playerGoldController;
+    private GoldController _AIGoldController;
 
     private List<Unit> _unitsInQueue;
     private int _maxQueueCapacity;
@@ -24,6 +26,8 @@ public class UnitSpawner : MonoBehaviour
         _currentUnitTiers = new int[unitPrefabs.Count];
         _spawnedUnits = new List<Unit>();
         _unitsInQueue = new List<Unit>();
+        _playerGoldController = GameObject.Find("Player").GetComponent<GoldController>();
+        _AIGoldController = GameObject.Find("AI").GetComponent<GoldController>();
 
         for (int i = 0; i < unitPrefabs.Count; i++)
         {
@@ -60,12 +64,15 @@ public class UnitSpawner : MonoBehaviour
         {
             return 0;
         }
+
         var unitObject = Instantiate(unitPrefab, transform);
 
         var unit = unitObject.GetComponent<Unit>();
         unit.Initialize(_unitIDCounter++, _currentUnitTiers[unitIndex], line, faction, factionMaterial);
-        unit.OnUnitDeath.AddListener(RemoveUnit);
-
+        if (unitIndex != 4)
+        {
+            unit.OnUnitDeath.AddListener(RemoveUnit); // TODO zisti na kereho anciasa to nejde na minera
+        }
         //_spawnedUnits.Add(unit);
 
         unit.gameObject.SetActive(false);
@@ -122,6 +129,14 @@ public class UnitSpawner : MonoBehaviour
 
     public void RemoveUnit(Unit unit)
     {
+        if (unit.Faction == FactionEnum.Green)
+        {
+            _AIGoldController.AddBalance(unit.GetUnitReward());
+        }
+        if (unit.Faction == FactionEnum.Blue)
+        {
+            _playerGoldController.AddBalance(unit.GetUnitReward());
+        }
         _spawnedUnits.Remove(unit);
     }
 
