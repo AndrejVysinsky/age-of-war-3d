@@ -21,4 +21,4 @@ MonoBehaviour:
   attackRange: 5
   trainCost: 50
   upgradeCost: 0
-  reward: 0
+  reward: 20
