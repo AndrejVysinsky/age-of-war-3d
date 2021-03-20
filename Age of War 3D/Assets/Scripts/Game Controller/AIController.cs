@@ -23,7 +23,7 @@ public class AIController : BaseGameController
 
             SpawnUnit(randomUnitIndex);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.7f);
         }
     }
 }

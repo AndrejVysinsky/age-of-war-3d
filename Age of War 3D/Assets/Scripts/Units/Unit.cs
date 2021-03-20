@@ -14,7 +14,7 @@ public class Unit : MonoBehaviour, IDamagable
 
     protected UnitData _unitData;
 
-    private Vector3 _destination;
+    protected Vector3 _destination;
     private int _nextCheckpointIndex;
 
     public Unit EnemyInRange { get; set; }
@@ -40,6 +40,11 @@ public class Unit : MonoBehaviour, IDamagable
     public UnitData GetUnitData(int currentTier)
     {
         return unitTiers[currentTier];
+    }
+
+    public int GetUnitReward()
+    {
+        return _unitData.Reward;
     }
 
     public void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)
@@ -87,7 +92,7 @@ public class Unit : MonoBehaviour, IDamagable
         }
     }
 
-    private void MoveTowardsEnemyBase()
+    protected virtual void MoveTowardsEnemyBase()
     {
         if (_isAttacking)
             return;
@@ -152,7 +157,7 @@ public class Unit : MonoBehaviour, IDamagable
     {
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         unitHealth.SubtractHealth(damage);
         
