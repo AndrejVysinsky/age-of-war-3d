@@ -16,10 +16,15 @@ public class BaseGameController : MonoBehaviour
         var outpostData = outpost.Initialize(faction);
 
         unitSpawner.OnQueueCapacityChanged(outpostData.MaxQueueCapacity);
+
+        goldController.Initialize(faction);
     }
 
     public void SpawnUnit(int unitIndex)
     {
+        if (faction == FactionEnum.Blue)
+            return;
+
         int cost = unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial, goldController.GetBalance());
         goldController.RemoveBalance(cost);
     }

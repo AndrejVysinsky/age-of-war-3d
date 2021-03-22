@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Unit : MonoBehaviour, IDamagable
 {
     [SerializeField] HealthSlider unitHealth;
-    [SerializeField] ColorSwitcher colorSwitcher;
+    [SerializeField] protected ColorSwitcher colorSwitcher;
     [SerializeField] List<UnitData> unitTiers;
 
     private bool _isAttacking;
@@ -26,7 +26,7 @@ public class Unit : MonoBehaviour, IDamagable
     public int NumberOfUnitTiers => unitTiers.Count;
     public Line Line { get; private set; }
     public int UnitID { get; private set; }
-    public FactionEnum Faction { get; private set; }
+    public FactionEnum Faction { get; protected set; }
     public Transform Transform { get; private set; }
 
     private void Awake()
@@ -47,7 +47,7 @@ public class Unit : MonoBehaviour, IDamagable
         return _unitData.Reward;
     }
 
-    public void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)
+    public virtual void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)
     {
         UnitID = unitID;
 
@@ -88,11 +88,11 @@ public class Unit : MonoBehaviour, IDamagable
 
         if (AllyInRange == null)
         {
-            MoveTowardsEnemyBase();
+            MoveTowardsObjective();
         }
     }
 
-    protected virtual void MoveTowardsEnemyBase()
+    protected virtual void MoveTowardsObjective()
     {
         if (_isAttacking)
             return;

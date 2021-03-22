@@ -10,6 +10,8 @@ public class GoldController: MonoBehaviour
     [SerializeField] int _balance = 0;
     private const int ZERO_PREFIX_COUNT = 5;
 
+    public FactionEnum Faction { get; private set; }
+
     public void Start()
     {
         this.UpdateBalance();
@@ -18,6 +20,11 @@ public class GoldController: MonoBehaviour
     public void Update()
     {
         
+    }
+
+    public void Initialize(FactionEnum faction)
+    {
+        Faction = faction;
     }
 
     public void AddBalance(int balance)
