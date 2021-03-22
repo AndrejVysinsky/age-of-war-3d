@@ -9,15 +9,16 @@ public class MinerUnit : Unit
 
     private Vector3 goldVeinPosition;
 
-    private void Awake()
+    public void Initialize(FactionEnum faction, Material factionMaterial)
     {
-        // set _destination to each map's Mining spot
-        goldController = GameObject.Find("Player").GetComponent<GoldController>();
-    }
+        _unitData = unitTiers[0];
 
-    public override void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)
-    {
-        base.Initialize(unitID, unitTier, line, faction, factionMaterial);
+        Faction = faction;
+
+        if (colorSwitcher != null)
+        {
+            colorSwitcher.SwitchColors(factionMaterial.color);
+        }
 
         var goldControllers = FindObjectsOfType<GoldController>();
 

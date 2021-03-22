@@ -38,8 +38,11 @@ public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         //TODO: Hide tooltip
     }
 
-    public void OnUnitUpgraded(int upgradedUnitIndex, UnitData upgradedUnitData)
+    public void OnUnitUpgraded(int upgradedUnitIndex, UnitData upgradedUnitData, FactionEnum faction)
     {
+        if (faction != FactionEnum.Green)
+            return;
+
         if (upgradedUnitIndex != unitIndex)
             return;
 

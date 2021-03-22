@@ -17,7 +17,7 @@ public class AIController : BaseGameController
 
             //max is exclusive
             int randomLineIndex = Random.Range(0, activeLines);
-            int randomUnitIndex = Random.Range(0, unitSpawner.NumberOfDifferentUnits);
+            int randomUnitIndex = Random.Range(0, unitSpawner.NumberOfDifferentUnits - 1);
 
             _activeLine = lineController.GetLineByIndex(randomLineIndex);
 

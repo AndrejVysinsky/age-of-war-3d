@@ -10,8 +10,8 @@ public class UnitSpawner : MonoBehaviour
 
     private int[] _currentUnitTiers;
     private List<Unit> _spawnedUnits;
-    private GoldController _playerGoldController;
-    private GoldController _AIGoldController;
+    private GoldController _goldController;
+    private BaseGameController _gameController;
 
     private List<Unit> _unitsInQueue;
     private int _maxQueueCapacity;
@@ -26,12 +26,12 @@ public class UnitSpawner : MonoBehaviour
         _currentUnitTiers = new int[unitPrefabs.Count];
         _spawnedUnits = new List<Unit>();
         _unitsInQueue = new List<Unit>();
-        _playerGoldController = GameObject.Find("Player").GetComponent<GoldController>();
-        _AIGoldController = GameObject.Find("AI").GetComponent<GoldController>();
+        _goldController = GetComponent<GoldController>();
+        _gameController = GetComponent<BaseGameController>();
 
         for (int i = 0; i < unitPrefabs.Count; i++)
         {
-            EventManager.Instance.ExecuteEvent<IUnitUpgraded>((x, y) => x.OnUnitUpgraded(i, unitPrefabs[i].GetUnitData(_currentUnitTiers[i])));
+            EventManager.Instance.ExecuteEvent<IUnitUpgraded>((x, y) => x.OnUnitUpgraded(i, unitPrefabs[i].GetUnitData(_currentUnitTiers[i]), _gameController.Faction));
         }
 
         UpdateQueueCapacityText();
@@ -73,13 +73,22 @@ public class UnitSpawner : MonoBehaviour
         {
             unit.OnUnitDeath.AddListener(RemoveUnit); // TODO zisti na kereho anciasa to nejde na minera
         }
-        //_spawnedUnits.Add(unit);
 
         unit.gameObject.SetActive(false);
 
         _unitsInQueue.Add(unit);
         UpdateQueueCapacityText();
         return cost;
+    }
+
+    public void SpawnMinerUnit(int unitIndex, FactionEnum faction, Material factionMaterial)
+    {
+        var unitPrefab = unitPrefabs[unitIndex];
+
+        var unitObject = Instantiate(unitPrefab, transform);
+
+        var unit = unitObject.GetComponent<MinerUnit>();
+        unit.Initialize(faction, factionMaterial);
     }
 
     private void UpdateQueueCapacityText()
@@ -129,14 +138,7 @@ public class UnitSpawner : MonoBehaviour
 
     public void RemoveUnit(Unit unit)
     {
-        if (unit.Faction == FactionEnum.Green)
-        {
-            _AIGoldController.AddBalance(unit.GetUnitReward());
-        }
-        if (unit.Faction == FactionEnum.Blue)
-        {
-            _playerGoldController.AddBalance(unit.GetUnitReward());
-        }
+        _goldController.AddBalance(unit.GetUnitReward());
         _spawnedUnits.Remove(unit);
     }
 
@@ -153,7 +155,7 @@ public class UnitSpawner : MonoBehaviour
 
         _currentUnitTiers[unitIndex]++;
 
-        EventManager.Instance.ExecuteEvent<IUnitUpgraded>((x, y) => x.OnUnitUpgraded(unitIndex, unitPrefabs[unitIndex].GetUnitData(_currentUnitTiers[unitIndex])));
+        EventManager.Instance.ExecuteEvent<IUnitUpgraded>((x, y) => x.OnUnitUpgraded(unitIndex, unitPrefabs[unitIndex].GetUnitData(_currentUnitTiers[unitIndex]), _gameController.Faction));
 
         return unitPrefabs[unitIndex].GetUnitData(_currentUnitTiers[unitIndex]).UpgradeCost;
     }

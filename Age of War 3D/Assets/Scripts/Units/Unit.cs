@@ -8,7 +8,7 @@ public class Unit : MonoBehaviour, IDamagable
 {
     [SerializeField] HealthSlider unitHealth;
     [SerializeField] protected ColorSwitcher colorSwitcher;
-    [SerializeField] List<UnitData> unitTiers;
+    [SerializeField] protected List<UnitData> unitTiers;
 
     private bool _isAttacking;
 
@@ -47,7 +47,7 @@ public class Unit : MonoBehaviour, IDamagable
         return _unitData.Reward;
     }
 
-    public virtual void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)
+    public void Initialize(int unitID, int unitTier, Line line, FactionEnum faction, Material factionMaterial)
     {
         UnitID = unitID;
 

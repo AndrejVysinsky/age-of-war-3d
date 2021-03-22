@@ -11,6 +11,8 @@ public class BaseGameController : MonoBehaviour
 
     protected Line _activeLine;
 
+    public FactionEnum Faction => faction;
+
     protected virtual void Start()
     {
         var outpostData = outpost.Initialize(faction);
@@ -22,11 +24,13 @@ public class BaseGameController : MonoBehaviour
 
     public void SpawnUnit(int unitIndex)
     {
-        if (faction == FactionEnum.Blue)
-            return;
-
         int cost = unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial, goldController.GetBalance());
         goldController.RemoveBalance(cost);
+    }
+
+    public void SpawnMinerUnit()
+    {
+        unitSpawner.SpawnMinerUnit(4, faction, factionMaterial);
     }
 
     public void UpgradeUnit(int unitIndex)
