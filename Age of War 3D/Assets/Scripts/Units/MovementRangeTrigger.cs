@@ -5,12 +5,11 @@ public class MovementRangeTrigger : MonoBehaviour
 {
     [SerializeField] Unit unit;
 
-    private List<Unit> _alliesInRange;
+    private List<Unit> _unitInRange;
 
     private void Awake()
     {
-        _alliesInRange = new List<Unit>();
-        unit.OnUnitDeath.AddListener(RemoveUnit);
+        _unitInRange = new List<Unit>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,11 +18,8 @@ public class MovementRangeTrigger : MonoBehaviour
         {
             if (otherUnit.Line == unit.Line)
             {
-                if (otherUnit.Faction == unit.Faction)
-                {
-                    _alliesInRange.Add(otherUnit);
-                    unit.AllyInRange = GetAllyInFront();
-                }
+                _unitInRange.Add(otherUnit);
+                unit.UnitInMovementRange = GetUnitInFront();
             }
         }
     }
@@ -34,30 +30,31 @@ public class MovementRangeTrigger : MonoBehaviour
         {
             if (otherUnit.Line == unit.Line)
             {
-                if (otherUnit.Faction == unit.Faction)
-                {
-                    _alliesInRange.Remove(otherUnit);
-                    unit.AllyInRange = GetAllyInFront();
-                }
+                _unitInRange.Remove(otherUnit);
+                unit.UnitInMovementRange = GetUnitInFront();
             }
         }
     }
 
-    private void RemoveUnit(Unit unit)
+    private Unit GetUnitInFront()
     {
+        _unitInRange.RemoveAll(unit => unit == null);
 
-    }
-
-    private Unit GetAllyInFront()
-    {
-        _alliesInRange.RemoveAll(unit => unit == null);
-
-        for (int i = 0; i < _alliesInRange.Count; i++)
+        Unit enemyInFront = null;
+        //find ally in front of unit
+        for (int i = 0; i < _unitInRange.Count; i++)
         {
-            if (_alliesInRange[i].UnitID < unit.UnitID)
-                return _alliesInRange[i];
+            if (_unitInRange[i].Faction == unit.Faction)
+            {
+                if (_unitInRange[i].UnitID < unit.UnitID)
+                    return _unitInRange[i];
+            }
+            else
+            {
+                enemyInFront = _unitInRange[i];
+            }
         }
 
-        return null;
+        return enemyInFront;
     }
 }

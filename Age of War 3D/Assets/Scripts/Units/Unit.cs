@@ -18,7 +18,7 @@ public class Unit : MonoBehaviour, IDamagable
     private int _nextCheckpointIndex;
 
     public Unit EnemyInRange { get; set; }
-    public Unit AllyInRange { get; set; }
+    public Unit UnitInMovementRange { get; set; }
     public Outpost OutpostInRange { get; set; }
 
     public UnityEvent<Unit> OnUnitDeath { get; set; }
@@ -86,7 +86,7 @@ public class Unit : MonoBehaviour, IDamagable
             }
         }
 
-        if (AllyInRange == null)
+        if (UnitInMovementRange == null)
         {
             MoveTowardsObjective();
         }
@@ -94,9 +94,6 @@ public class Unit : MonoBehaviour, IDamagable
 
     protected virtual void MoveTowardsObjective()
     {
-        if (_isAttacking)
-            return;
-
         if (_destination == Vector3.zero)
             return;
 
