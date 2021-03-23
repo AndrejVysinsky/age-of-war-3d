@@ -16,6 +16,8 @@ public class UnitSpawner : MonoBehaviour
     private List<Unit> _unitsInQueue;
     private int _maxQueueCapacity;
 
+    private int _spawnedMiners;
+
     private int _unitIDCounter;
 
     public int NumberOfDifferentUnits => unitPrefabs.Count;
@@ -28,6 +30,8 @@ public class UnitSpawner : MonoBehaviour
         _unitsInQueue = new List<Unit>();
         _goldController = GetComponent<GoldController>();
         _gameController = GetComponent<BaseGameController>();
+
+        _spawnedMiners = 0;
 
         for (int i = 0; i < unitPrefabs.Count; i++)
         {
@@ -81,14 +85,27 @@ public class UnitSpawner : MonoBehaviour
         return cost;
     }
 
-    public void SpawnMinerUnit(int unitIndex, FactionEnum faction, Material factionMaterial)
+    public int SpawnMinerUnit(int unitIndex, FactionEnum faction, Material factionMaterial, int balance)
     {
+        if (_spawnedMiners >= GetComponent<Outpost>().MaxMinerUnits)
+            return 0;
+
         var unitPrefab = unitPrefabs[unitIndex];
+
+        int cost = unitPrefab.GetComponent<Unit>().GetUnitData(_currentUnitTiers[unitIndex]).TrainCost;
+        if (cost > balance)
+        {
+            return 0;
+        }
 
         var unitObject = Instantiate(unitPrefab, transform);
 
         var unit = unitObject.GetComponent<MinerUnit>();
         unit.Initialize(faction, factionMaterial);
+
+        _spawnedMiners++;
+
+        return cost;
     }
 
     private void UpdateQueueCapacityText()

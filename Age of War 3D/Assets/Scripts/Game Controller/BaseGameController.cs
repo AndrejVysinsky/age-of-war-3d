@@ -24,13 +24,20 @@ public class BaseGameController : MonoBehaviour
 
     public void SpawnUnit(int unitIndex)
     {
+        if (unitIndex == 4)
+        {
+            SpawnMinerUnit();
+            return;
+        }
+
         int cost = unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial, goldController.GetBalance());
         goldController.RemoveBalance(cost);
     }
 
     public void SpawnMinerUnit()
     {
-        unitSpawner.SpawnMinerUnit(4, faction, factionMaterial);
+        int cost = unitSpawner.SpawnMinerUnit(4, faction, factionMaterial, goldController.GetBalance());
+        goldController.RemoveBalance(cost);
     }
 
     public void UpgradeUnit(int unitIndex)

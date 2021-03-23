@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +14,7 @@ public class Outpost : MonoBehaviour, IDamagable
 
     public FactionEnum Faction { get; private set; }
     public Transform Transform { get; private set; }
+    public int MaxMinerUnits => _outpostData.MaxMinerUnits;
 
     private void Awake()
     {
@@ -71,17 +71,5 @@ public class Outpost : MonoBehaviour, IDamagable
         _outpostData = outpostTiers[_outpostTier];
         healthSlider.Initialize(_outpostData.Health, true);
         healthText.text = ((int)_outpostData.Health).ToString();
-
-        StartCoroutine(SpawnMinerUnit());
-    }
-
-    private IEnumerator SpawnMinerUnit()
-    {
-        yield return new WaitForEndOfFrame();
-
-        if (TryGetComponent(out BaseGameController gameController))
-        {
-            gameController.SpawnMinerUnit();
-        }
     }
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   health: 500
   maxQueueCapacity: 5
   upgradePrice: 200
+  maxMinerUnits: 1
