@@ -7,11 +7,17 @@ public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 {
     [SerializeField] Image unitImage;
     [SerializeField] TextMeshProUGUI priceText;
+    [SerializeField] Button upgradeUnitButton;
 
     [SerializeField] PlayerController playerController;
     [SerializeField] int unitIndex;
 
     private UnitData _unitData;
+
+    private void Start()
+    {
+        upgradeUnitButton.onClick.AddListener(UpgradeUnit);
+    }
 
     private void OnEnable()
     {
@@ -36,6 +42,11 @@ public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         //TODO: Hide tooltip
+    }
+
+    private void UpgradeUnit()
+    {
+        playerController.UpgradeUnit(unitIndex);
     }
 
     public void OnUnitUpgraded(int upgradedUnitIndex, UnitData upgradedUnitData, FactionEnum faction)
