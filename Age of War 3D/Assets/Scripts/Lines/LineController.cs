@@ -38,6 +38,11 @@ public class LineController : MonoBehaviour
         return lines[index];
     }
 
+    public int GetIndexOfLine(Line line)
+    {
+        return lines.IndexOf(line);
+    }
+
     public void HightlightLine(Line line)
     {
         for (int i = 0; i < lines.Count; i++)

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5440231997094111381}
   - component: {fileID: 5504021446115222342}
   - component: {fileID: 5525156910991934319}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6633198994448872725}
   - component: {fileID: 8373842604499703078}
   - component: {fileID: 4925020260654176406}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: -6766009790236598519}
   - component: {fileID: -1517153565428998664}
   - component: {fileID: -3378301300564114225}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Miner Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,9 +282,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4727023593999168866}
     m_Modifications:
+    - target: {fileID: 533132517469132300, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3690204128118364448, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_Name
       value: Unit Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690204128118364448, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129226645178161674, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101222494549273543, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238094454089357888, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7924322064838028691, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -293,6 +313,10 @@ PrefabInstance:
     - target: {fileID: 7924322064838028691, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959778122607436517, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8343530455521671826, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_RootOrder

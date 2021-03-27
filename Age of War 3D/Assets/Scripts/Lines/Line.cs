@@ -8,6 +8,9 @@ public class Line : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] bool isActive;
 
+    private PlayerController _playerController;
+    private LineController _lineController;
+
     public bool IsActive => isActive;
 
     private void Start()
@@ -15,7 +18,11 @@ public class Line : MonoBehaviour
         if (IsActive)
         {
             ShowLineRenderer();
+            SetCollider();
         }
+
+        _playerController = FindObjectOfType<PlayerController>();
+        _lineController = GetComponentInParent<LineController>();
     }
 
     private void ShowLineRenderer()
@@ -29,6 +36,26 @@ public class Line : MonoBehaviour
 
             lineRenderer.SetPosition(i, position);
         }
+    }
+
+    private void SetCollider()
+    {
+        var boxCollider = GetComponent<BoxCollider>();
+
+        var center = (spawnPoints[0].transform.position + spawnPoints[1].transform.position) / 2;
+        center.y = 0.1f;
+
+        var size = spawnPoints[1].transform.position - spawnPoints[0].transform.position;
+        size.y = 0.2f;
+        size.z = 1f;
+
+        boxCollider.center = center;
+        boxCollider.size = size;
+    }
+
+    private void OnMouseDown()
+    {
+        _playerController.TryToSwitchActiveLine(_lineController.GetIndexOfLine(this));
     }
 
     public Vector3 GetSpawnPointPosition(FactionEnum faction)

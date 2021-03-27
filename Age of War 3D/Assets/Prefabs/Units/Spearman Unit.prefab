@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6610913642569552896}
   - component: {fileID: 2500486446477282639}
   - component: {fileID: 5064520257411962903}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Movement Range Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 2845645879074944356}
   - component: {fileID: 1923957047244634846}
   - component: {fileID: 7056874263090235296}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spearman Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 1089081191449511367}
   - component: {fileID: 5353724833842554631}
   - component: {fileID: 475385601752301585}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attack Range Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,9 +266,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7510081741969645876, guid: de350c87b54e28548b0077e6f31aa77b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de350c87b54e28548b0077e6f31aa77b, type: 3}
       propertyPath: m_Name
       value: Spearman
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de350c87b54e28548b0077e6f31aa77b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de350c87b54e28548b0077e6f31aa77b, type: 3}
@@ -289,9 +297,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2028394729431246083}
     m_Modifications:
+    - target: {fileID: 533132517469132300, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3690204128118364448, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_Name
       value: Unit Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690204128118364448, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129226645178161674, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101222494549273543, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238094454089357888, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7924322064838028691, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -300,6 +328,10 @@ PrefabInstance:
     - target: {fileID: 7924322064838028691, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959778122607436517, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8343530455521671826, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_RootOrder

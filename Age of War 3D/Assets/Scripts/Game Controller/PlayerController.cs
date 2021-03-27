@@ -33,7 +33,7 @@ public class PlayerController : BaseGameController
         }
     }
 
-    private void TryToSwitchActiveLine(int index)
+    public void TryToSwitchActiveLine(int index)
     {
         if (lineController.IsLineActive(index))
         {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7334494948683651567}
   - component: {fileID: 2477381459394708540}
   - component: {fileID: 4213439943361756589}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4604039888145539026}
   - component: {fileID: 6744031927934229261}
   - component: {fileID: 1944696027705684498}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Movement Range Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 7064195383073482172}
   - component: {fileID: 6539410368682288977}
   - component: {fileID: 976846698046367123}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Archer Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1552138524641927220}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 4711723709628263111}
   - component: {fileID: 625824691319088337}
   - component: {fileID: 656600364251933422}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attack Range Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,13 +320,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6909264321740039978}
     m_Modifications:
+    - target: {fileID: 533132517469132300, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3690204128118364448, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_Name
       value: Unit Health
       objectReference: {fileID: 0}
+    - target: {fileID: 3690204128118364448, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129226645178161674, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101222494549273543, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238094454089357888, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7924322064838028691, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959778122607436517, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8343530455521671826, guid: 1e809bb757ea1dd4f87a8d9a6349a2f3, type: 3}
       propertyPath: m_RootOrder
