@@ -29,7 +29,10 @@ public class AttackRangeTrigger : MonoBehaviour
         }
         else if (other.TryGetComponent(out Outpost outpost))
         {
-            unit.OutpostInRange = outpost;
+            if (outpost.Faction != unit.Faction)
+            {
+                unit.OutpostInRange = outpost;
+            }
         }
     }
 

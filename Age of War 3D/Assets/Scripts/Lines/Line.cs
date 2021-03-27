@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
+    [SerializeField] List<GameObject> spawnPoints;
     [SerializeField] List<GameObject> checkPoints;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] bool isActive;
@@ -19,15 +20,23 @@ public class Line : MonoBehaviour
 
     private void ShowLineRenderer()
     {
-        lineRenderer.positionCount = checkPoints.Count;
+        lineRenderer.positionCount = spawnPoints.Count;
 
-        for (int i = 0; i < checkPoints.Count; i++)
+        for (int i = 0; i < spawnPoints.Count; i++)
         {
-            var position = checkPoints[i].transform.position;
+            var position = spawnPoints[i].transform.position;
             position.y += 0.01f;
 
             lineRenderer.SetPosition(i, position);
         }
+    }
+
+    public Vector3 GetSpawnPointPosition(FactionEnum faction)
+    {
+        if (faction == FactionEnum.Green)
+            return spawnPoints[0].transform.position;
+        else
+            return spawnPoints[1].transform.position;
     }
 
     public Vector3 GetCheckpointPosition(int index, FactionEnum faction)

@@ -65,8 +65,8 @@ public class Unit : MonoBehaviour, IDamagable
         Line = line;
         Faction = faction;
 
-        transform.position = Line.GetCheckpointPosition(0, Faction);
-        _nextCheckpointIndex = 1;
+        transform.position = Line.GetSpawnPointPosition(Faction);
+        _nextCheckpointIndex = 0;
         _destination = Line.GetCheckpointPosition(_nextCheckpointIndex, Faction);
         transform.LookAt(_destination);
 
