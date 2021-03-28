@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2636581086334068628}
   - component: {fileID: 7595836277477605130}
   - component: {fileID: 1629783518396255679}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AI Unit Scanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3298836506268443630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 49.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 720268225948284057}
@@ -55,8 +55,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 46.8, y: 0.8, z: 4}
+  m_Center: {x: -23, y: -0.63, z: 0}
 --- !u!1 &5028952593920896700
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,6 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 720268225948284057}
   - component: {fileID: 785770459}
+  - component: {fileID: 6397193187184527160}
   - component: {fileID: 5231040572990821191}
   - component: {fileID: 818633461}
   - component: {fileID: 4421647025720589380}
@@ -113,6 +114,20 @@ MonoBehaviour:
   unitSpawner: {fileID: 5231040572990821191}
   goldController: {fileID: 818633461}
   outpost: {fileID: 4421647025720589380}
+  aiBrain: {fileID: 6397193187184527160}
+--- !u!114 &6397193187184527160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028952593920896700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf914ed93c9bfc44a76041e3774c559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiUnitScanner: {fileID: 7595836277477605130}
 --- !u!114 &5231040572990821191
 MonoBehaviour:
   m_ObjectHideFlags: 0

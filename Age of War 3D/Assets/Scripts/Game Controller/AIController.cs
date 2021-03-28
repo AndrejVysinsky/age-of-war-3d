@@ -1,12 +1,23 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AIController : BaseGameController
 {
+    [SerializeField] AIBrain aiBrain;
+
     protected override void Start()
     {
         base.Start();
         StartCoroutine(SpawnUnit());
+
+        //nech brain vie ake lajny existuju
+        var lines = new List<Line>();
+        for (int i = 0; i < lineController.GetNumberOfActiveLines(); i++)
+        {
+            lines.Add(lineController.GetLineByIndex(i));
+        }
+        aiBrain.Initialize(lines);
     }
 
     private IEnumerator SpawnUnit()
