@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: c54422d9d49dfa24bb9e49311296bddf
+guid: 6a7cfa087cb2ff948a53c65540917ab1
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: archer
+    second: {fileID: 2100000, guid: 64425a5c3dcca174c9d3caf176eae277, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color
+    second: {fileID: 2100000, guid: e9a3926cc5b0efa48bb7b90497bd27bc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
