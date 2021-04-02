@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Attack Decision Data
   m_EditorClassIdentifier: 
   playerLowCashFactor: 2
-  aiCashFactor: 4
+  aiCashFactor: 0.5
   unitsTrainedFactor: 0.3
   minerSpawnedFactor: 0.3
   health_dmgRatioFactor: 2.2
