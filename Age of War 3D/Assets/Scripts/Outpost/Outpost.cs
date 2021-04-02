@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +14,7 @@ public class Outpost : MonoBehaviour, IDamagable
     private OutpostData _outpostData;
     private int _outpostTier;
 
+    public bool UnderAttack { get; private set; }
     public FactionEnum Faction { get; private set; }
     public Transform Transform { get; private set; }
     public int MaxMinerUnits => _outpostData.MaxMinerUnits;
@@ -34,6 +37,8 @@ public class Outpost : MonoBehaviour, IDamagable
     {
         healthSlider.SubtractHealth(damage);
 
+        StartCoroutine(setUnderAttack());
+
         healthText.text = ((int)healthSlider.Health).ToString();
 
         if (healthSlider.Health <= 0)
@@ -46,6 +51,18 @@ public class Outpost : MonoBehaviour, IDamagable
             {
                 menuScript.GameWin();
             }
+        }
+    }
+
+    private IEnumerator setUnderAttack()
+    {
+        if (!UnderAttack)
+        {
+            UnderAttack = true;
+
+            yield return new WaitForSeconds(5f);
+
+            UnderAttack = false;
         }
     }
 
@@ -71,5 +88,10 @@ public class Outpost : MonoBehaviour, IDamagable
         _outpostData = outpostTiers[_outpostTier];
         healthSlider.Initialize(_outpostData.Health, true);
         healthText.text = ((int)_outpostData.Health).ToString();
+    }
+
+    public float GetHealth()
+    {
+        return healthSlider.Health;
     }
 }

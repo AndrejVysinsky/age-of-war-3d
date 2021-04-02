@@ -164,4 +164,14 @@ public class Unit : MonoBehaviour, IDamagable
             Destroy(gameObject);
         }
     }
+
+    public float GetHealth()
+    {
+        return unitHealth.Health;
+    }
+
+    public float GetDamage()
+    {
+        return _unitData.Damage;
+    }
 }

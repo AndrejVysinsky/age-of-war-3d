@@ -176,4 +176,14 @@ public class UnitSpawner : MonoBehaviour
 
         return unitPrefabs[unitIndex].GetUnitData(_currentUnitTiers[unitIndex]).UpgradeCost;
     }
+
+    public List<Unit> GetUnitPrefabs()
+    {
+        return unitPrefabs;
+    }
+
+    public int[] GetCurrentUnitTiers()
+    {
+        return _currentUnitTiers;
+    }
 }
