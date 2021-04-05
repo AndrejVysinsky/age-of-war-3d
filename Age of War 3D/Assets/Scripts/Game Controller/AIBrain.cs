@@ -43,13 +43,13 @@ public class AIBrain : MonoBehaviour
     private PlayMode _currentMode = PlayMode.ATTACK;
     private int _unitsTrained;
     private int _minersSpawned;
-    private const float UNDECISIVE = 0.1f;
+    private const float UNDECISIVE = 100;
     private bool _firstRound = true;
 
     /* TODO LIST: 
      * - make the ai spawn amount of units relative to balance (not too many, not too few)
      * - sometimes is better to not do anything
-     * - make 1/ some coef values
+     * - spawn enemies only until the line is circa equal
      */
 
 
@@ -86,7 +86,7 @@ public class AIBrain : MonoBehaviour
              minRatio = lineHpDmgRatios[0];
 
             var attackViability = GetAttackViability(maxRatio.Item2);
-            var defenseViability = 400*Math.Abs(GetDefenseViability(minRatio.Item2));
+            var defenseViability = Math.Abs(GetDefenseViability(minRatio.Item2));
 
             Debug.Log("Attack viability:" + attackViability);
             Debug.Log("Defense viability:" + defenseViability);
@@ -204,7 +204,8 @@ public class AIBrain : MonoBehaviour
             Debug.Log("No defense units available");
         }
 
-        while (units.Count > 0)
+        int maxSpawn = 2;
+        while (units.Count > 0 || --maxSpawn == 0)
         {
             AIDecisionCA decision = new AIDecisionCA(units[0].Item1, lineIndex, false);
             decisions.Add(decision);
@@ -245,14 +246,22 @@ public class AIBrain : MonoBehaviour
             healthAISum += myUnit.GetHealth();
         }
 
-        if (healthEnemySum == 0)
+        if (healthEnemySum == 0 && healthAISum == 0)
         {
-            return 1;
+            // noone on the line
+            return 0;
         }
 
-        if (healthAISum == 0)
+        if (healthEnemySum != 0 && healthAISum == 0)
         {
-            return 0.1f;
+            // only enemy on the line
+            return -1;
+        }
+
+        if (healthEnemySum == 0)
+        {
+            // only AI on the line
+            healthEnemySum = 1;
         }
 
         return healthAISum / healthEnemySum;
@@ -273,14 +282,22 @@ public class AIBrain : MonoBehaviour
             dmgAISum += myUnit.GetHealth();
         }
 
-        if (dmgEnemySum == 0)
+        if (dmgEnemySum == 0 && dmgAISum == 0)
         {
+            // noone on the line
             return 1;
         }
 
-        if (dmgAISum == 0)
+        if (dmgEnemySum != 0 && dmgAISum == 0)
         {
-            return -1;
+            // only enemy on the line
+            return 1;
+        }
+
+        if (dmgEnemySum == 0)
+        {
+            // only AI on the line
+            dmgEnemySum = 1;
         }
 
         return dmgAISum / dmgEnemySum;
@@ -288,7 +305,7 @@ public class AIBrain : MonoBehaviour
 
     private float GetAttackViability(float maxLineRatio)
     {
-        return (1/_playerGoldController.GetBalance()) * attackDecisionData.PlayerLowCashFactor
+        return (100/_playerGoldController.GetBalance()) * attackDecisionData.PlayerLowCashFactor
             + _unitsTrained * attackDecisionData.UnitsTrainedFactor
             + _minersSpawned * attackDecisionData.MinerSpawnedFactor
             + maxLineRatio * attackDecisionData.Health_dmgRatioFactor
@@ -308,7 +325,7 @@ public class AIBrain : MonoBehaviour
             minLineRatio = Math.Abs(minLineRatio) * 1000;
         }
 
-        return 1/_outpost.GetHealth() * defenseDecisonData.AiBaseHealthFactor
+        return 100/_outpost.GetHealth() * defenseDecisonData.AiBaseHealthFactor
             + minLineRatio * defenseDecisonData.Health_dmgRatioFactor
             + attackFactor * defenseDecisonData.CurrentAttackFactor;
     }
