@@ -19,6 +19,23 @@ public class AIDecisionCA
     }
 }
 
+public class UnitTransferObject
+{
+    public UnitType _unitType;
+    public float _cost;
+    public float _dmg;
+    public float _health;
+
+    public UnitTransferObject(UnitType type, float cost, float dmg, float health)
+    {
+        _unitType = type;
+        _cost = cost;
+        _dmg = dmg;
+        _health = health;
+    }
+}
+
+
 
 public class AIBrain : MonoBehaviour
 {
@@ -44,6 +61,8 @@ public class AIBrain : MonoBehaviour
     private int _unitsTrained;
     private int _minersSpawned;
     private const float UNDECISIVE = 100;
+    private const float DEF_OVERSPAWN = 0.2f;
+    private const float ATCK_OVERSPAWN = 1.2f;
     private bool _firstRound = true;
 
     /* TODO LIST: 
@@ -78,7 +97,7 @@ public class AIBrain : MonoBehaviour
             for (int i = 0; i < aiUnitScanner.LineUnitHolders.Count; i++)
             {
                 var line = aiUnitScanner.LineUnitHolders[i];
-                lineHpDmgRatios.Add(new Tuple<int,float> (i , GetAIEnemyHealthRatio(line) / GetAIEnemyDamageRatio(line)));
+                lineHpDmgRatios.Add(new Tuple<int,float> (i , GetAIEnemyHealthRatio(line) * GetAIEnemyDamageRatio(line)));
             }
             lineHpDmgRatios = lineHpDmgRatios.OrderBy(i => i.Item2).ToList();
 
@@ -132,6 +151,8 @@ public class AIBrain : MonoBehaviour
                 break;
             case PlayMode.DEFENSE:
                 Debug.Log("DEFENSE mode");
+                Debug.Log("***************/n Defensing line " + minRatio.Item1 + "/n ratio is: " + minRatio.Item2 + "/n*************");
+                Debug.Log("***************/n Max ratio is on line " + maxRatio.Item1 + "/n ratio is: " + maxRatio.Item2 + "/n*************");
                 decisions = PrepareToDefense(minRatio.Item1);
                 break;
             case PlayMode.MINE:
@@ -183,12 +204,17 @@ public class AIBrain : MonoBehaviour
         {
             Debug.Log("No attack units available");
         }
-        int maxSpawn = 2;
-        while(units.Count > 0 || --maxSpawn == 0)
+
+        List<UnitTransferObject> spawnedUnits = new List<UnitTransferObject>();
+        var baseRatio = GetNewLineRatio(lineIndex, spawnedUnits);
+        var ratio = 1000f;
+        while (units.Count > 0 && (ratio/baseRatio) < ATCK_OVERSPAWN)
         {
-            AIDecisionCA decision = new AIDecisionCA(units[0].Item1, lineIndex, false);
+            AIDecisionCA decision = new AIDecisionCA(units[0]._unitType, lineIndex, false);
+            spawnedUnits.Add(units[0]);
             decisions.Add(decision);
-            balance -= (int)units[0].Item2;
+            balance -= (int)units[0]._cost;
+            ratio = GetNewLineRatio(lineIndex, spawnedUnits);
             units = GetAvailableUnits(balance);
         }
         return decisions;
@@ -204,28 +230,42 @@ public class AIBrain : MonoBehaviour
             Debug.Log("No defense units available");
         }
 
-        int maxSpawn = 2;
-        while (units.Count > 0 || --maxSpawn == 0)
+        //int maxSpawn = 2;
+        List<UnitTransferObject> spawnedUnits = new List<UnitTransferObject>();
+        var baseRatio = GetNewLineRatio(lineIndex, spawnedUnits);
+        var ratio = 1000f;
+        while (units.Count > 0 && (ratio - baseRatio) > DEF_OVERSPAWN)
         {
-            AIDecisionCA decision = new AIDecisionCA(units[0].Item1, lineIndex, false);
+            AIDecisionCA decision = new AIDecisionCA(units[0]._unitType, lineIndex, false);
+            spawnedUnits.Add(units[0]);
             decisions.Add(decision);
-            balance -= (int)units[0].Item2;
+            balance -= (int)units[0]._cost;
+            ratio = GetNewLineRatio(lineIndex, spawnedUnits);
             units = GetAvailableUnits(balance);
         }
         return decisions;
     }
 
-    private List<Tuple<UnitType, float>> GetAvailableUnits(float balance)
+    private float GetNewLineRatio(int lineIndex, List<UnitTransferObject> newSpawnedUnits)
     {
-        var list = new List<Tuple<UnitType, float>>();
+        var health = GetAIEnemyHealthRatio(aiUnitScanner.LineUnitHolders[lineIndex], newSpawnedUnits);
+        var dmg = GetAIEnemyDamageRatio(aiUnitScanner.LineUnitHolders[lineIndex], newSpawnedUnits);
+        return health * dmg;
+    }
+
+    private List<UnitTransferObject> GetAvailableUnits(float balance)
+    {
+        var list = new List<UnitTransferObject>();
         var prefabs = _unitSpawner.GetUnitPrefabs();
         for (int i = 0; i <prefabs.Count ; i++)
         {
             var cost = prefabs[i].GetUnitData(_unitSpawner.GetCurrentUnitTiers()[i]).TrainCost;
             var type = prefabs[i].GetUnitData(_unitSpawner.GetCurrentUnitTiers()[i]).Type;
+            var dmg = prefabs[i].GetUnitData(_unitSpawner.GetCurrentUnitTiers()[i]).Damage;
+            var health = prefabs[i].GetUnitData(_unitSpawner.GetCurrentUnitTiers()[i]).HitPoints;
             if (cost <= balance && type != UnitType.MINER)
             {
-                list.Add(new Tuple<UnitType, float>(type, cost));
+                list.Add(new UnitTransferObject(type, cost, dmg, health));
             }
         }
         return list.OrderBy(a => UnityEngine.Random.Range(0, 100)).ToList(); // TODO is it shuffled?
@@ -303,6 +343,87 @@ public class AIBrain : MonoBehaviour
         return dmgAISum / dmgEnemySum;
     }
 
+    private float GetAIEnemyHealthRatio(LineUnitHolder line, List<UnitTransferObject> newUnits)
+    {
+        float healthAISum = 0f;
+        float healthEnemySum = 0f;
+
+        foreach (var enemyUnit in line.enemyUnits)
+        {
+            healthEnemySum += enemyUnit.GetHealth();
+        }
+
+        foreach (var myUnit in line.myUnits)
+        {
+            healthAISum += myUnit.GetHealth();
+        }
+
+        foreach (var newUnit in newUnits)
+        {
+            healthAISum += newUnit._health;
+        }
+
+        if (healthEnemySum == 0 && healthAISum == 0)
+        {
+            // noone on the line
+            return 0;
+        }
+
+        if (healthEnemySum != 0 && healthAISum == 0)
+        {
+            // only enemy on the line
+            return -1;
+        }
+
+        if (healthEnemySum == 0)
+        {
+            // only AI on the line
+            healthEnemySum = 1;
+        }
+
+        return healthAISum / healthEnemySum;
+    }
+
+    private float GetAIEnemyDamageRatio(LineUnitHolder line, List<UnitTransferObject> newUnits)
+    {
+        float dmgAISum = 0f;
+        float dmgEnemySum = 0f;
+
+        foreach (var enemyUnit in line.enemyUnits)
+        {
+            dmgEnemySum += enemyUnit.GetHealth();
+        }
+
+        foreach (var myUnit in line.myUnits)
+        {
+            dmgAISum += myUnit.GetHealth();
+        }
+
+        foreach (var newUnit in newUnits)
+        {
+            dmgAISum += newUnit._dmg;
+        }
+
+        if (dmgEnemySum == 0 && dmgAISum == 0)
+        {
+            // noone on the line
+            return 1;
+        }
+
+        if (dmgEnemySum != 0 && dmgAISum == 0)
+        {
+            // only enemy on the line
+            return 1;
+        }
+
+        if (dmgEnemySum == 0)
+        {
+            // only AI on the line
+            dmgEnemySum = 1;
+        }
+
+        return dmgAISum / dmgEnemySum;
+    }
     private float GetAttackViability(float maxLineRatio)
     {
         return (100/_playerGoldController.GetBalance()) * attackDecisionData.PlayerLowCashFactor
