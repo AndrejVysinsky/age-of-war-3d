@@ -41,7 +41,7 @@ public class GoldController: MonoBehaviour
     {
         if ((this._balance - balance) < 0)
         {
-            Debug.LogWarning("Try to subtract more than balance");
+            Debug.LogWarning("Insufficient balance");
             return false;
         }
 

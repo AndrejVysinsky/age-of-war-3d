@@ -9,17 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b217763c707982479eb0fc90862b3da, type: 3}
-  m_Name: Archer Unit Tier 1
+  m_Script: {fileID: 11500000, guid: 97b94b8ed7b2e874ead02a05d5a15d71, type: 3}
+  m_Name: Attack Decision Data
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  name: 
-  hitPoints: 100
-  movementSpeed: 1
-  damage: 15
-  attackDelay: 0.5
-  attackRange: 5
-  trainCost: 70
-  upgradeCost: 0
-  reward: 0
-  type: 3
+  playerLowCashFactor: 2
+  aiCashFactor: 0.5
+  unitsTrainedFactor: 0.3
+  minerSpawnedFactor: 0.3
+  health_dmgRatioFactor: 2.2

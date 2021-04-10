@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Units;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Unit Data", menuName = "Units/Unit Data")]
 public class UnitData : ScriptableObject
@@ -13,6 +14,7 @@ public class UnitData : ScriptableObject
     [SerializeField] int trainCost;
     [SerializeField] int upgradeCost;
     [SerializeField] int reward;
+    [SerializeField] UnitType type;
 
     public Sprite Sprite => sprite;
     public string Name => name;
@@ -24,4 +26,5 @@ public class UnitData : ScriptableObject
     public int TrainCost => trainCost;
     public int UpgradeCost => upgradeCost;
     public int Reward => reward;
+    public UnitType Type => type;
 }

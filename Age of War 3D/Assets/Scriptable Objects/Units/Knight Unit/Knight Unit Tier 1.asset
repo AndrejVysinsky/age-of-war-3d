@@ -22,3 +22,4 @@ MonoBehaviour:
   trainCost: 50
   upgradeCost: 0
   reward: 20
+  type: 4
