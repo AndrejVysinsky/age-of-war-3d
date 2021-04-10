@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Assets.Scripts;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -37,11 +38,13 @@ public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         //TODO: Show tooltip with unit info
+        MouseCursor.Instance.SetHandCursor();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         //TODO: Hide tooltip
+        MouseCursor.Instance.SetPointerCursor();
     }
 
     private void UpgradeUnit()
