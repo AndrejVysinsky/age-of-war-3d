@@ -1592,6 +1592,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4989679682899696901, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
   m_PrefabInstance: {fileID: 20351435446244119}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4426998136821767588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4406656634036850355, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
+  m_PrefabInstance: {fileID: 20351435446244119}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &267064053815109136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1603,6 +1614,10 @@ PrefabInstance:
       propertyPath: unitIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3912609409230321461, guid: 71281d4bc65be4c43bd0eae28b4ba16d, type: 3}
+      propertyPath: upgradeUnitButton
+      value: 
+      objectReference: {fileID: 4426998136821767588}
     - target: {fileID: 5258598883789933987, guid: 71281d4bc65be4c43bd0eae28b4ba16d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000030517578
@@ -1824,6 +1839,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4989679682899696901, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
   m_PrefabInstance: {fileID: 2297107275889149236}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2506077519354268551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4406656634036850355, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
+  m_PrefabInstance: {fileID: 2297107275889149236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3656770235457300582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1835,6 +1861,10 @@ PrefabInstance:
       propertyPath: unitIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3912609409230321461, guid: 71281d4bc65be4c43bd0eae28b4ba16d, type: 3}
+      propertyPath: upgradeUnitButton
+      value: 
+      objectReference: {fileID: 2506077519354268551}
     - target: {fileID: 5258598883789933987, guid: 71281d4bc65be4c43bd0eae28b4ba16d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000030517578
@@ -2055,6 +2085,10 @@ PrefabInstance:
       propertyPath: unitIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3912609409230321461, guid: 71281d4bc65be4c43bd0eae28b4ba16d, type: 3}
+      propertyPath: upgradeUnitButton
+      value: 
+      objectReference: {fileID: 7572592504581734615}
     - target: {fileID: 5258598883789933987, guid: 71281d4bc65be4c43bd0eae28b4ba16d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000030517578
@@ -2271,6 +2305,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
+--- !u!114 &7572592504581734615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4406656634036850355, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
+  m_PrefabInstance: {fileID: 6066584124796423780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1228973773583782753 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4989679682899696901, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
@@ -2283,6 +2328,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6633207062009693513}
     m_Modifications:
+    - target: {fileID: 3912609409230321461, guid: 71281d4bc65be4c43bd0eae28b4ba16d, type: 3}
+      propertyPath: upgradeUnitButton
+      value: 
+      objectReference: {fileID: 4811794460363494287}
     - target: {fileID: 5258598883789933987, guid: 71281d4bc65be4c43bd0eae28b4ba16d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000030517578
@@ -2516,3 +2565,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4989679682899696901, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
   m_PrefabInstance: {fileID: 9214781883769560380}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4811794460363494287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4406656634036850355, guid: ff9ec31bb42c59e409b4726c37740a43, type: 3}
+  m_PrefabInstance: {fileID: 9214781883769560380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
