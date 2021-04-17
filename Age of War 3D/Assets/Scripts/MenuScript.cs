@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MenuScript : MonoBehaviour
@@ -6,6 +7,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject menuOptions;
     [SerializeField] GameObject gameOverOptions;
     [SerializeField] GameObject gameWinOptions;
+    [SerializeField] MapEnum currentMapEnum;
 
     private void Awake()
     {
@@ -57,5 +59,19 @@ public class MenuScript : MonoBehaviour
         menuOptions.SetActive(false);
         gameOverOptions.SetActive(false);
         gameWinOptions.SetActive(true);
+
+        int lastMap = (int)MapEnum.Last;
+
+        int currentMap = (int)currentMapEnum;
+
+        if (currentMap < lastMap)
+        {
+            MapEnum nextMap = (MapEnum)(currentMap + 1);
+
+            //to je jedno aka hodnota, ide iba o to aby tam bol ten kluc
+            //potom map card v menu sa spyta ci to ten kluc obsahuje ak hej dovol zahrat danu mapu
+            PlayerPrefs.SetInt(Enum.GetName(typeof(MapEnum), nextMap), 1);
+            PlayerPrefs.Save();
+        }
     }
 }

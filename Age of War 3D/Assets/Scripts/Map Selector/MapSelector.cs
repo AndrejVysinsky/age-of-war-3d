@@ -40,4 +40,10 @@ public class MapSelector : MonoBehaviour
     {
         sceneLoader.LoadScene(_selectedMapIndex + 1);
     }
+
+    public void DeletePlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
 }
