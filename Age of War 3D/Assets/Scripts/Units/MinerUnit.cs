@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MinerUnit : Unit
@@ -80,7 +81,10 @@ public class MinerUnit : Unit
         {
             // play animation
 
-
+            var position = transform.position;
+            position.Set(position.x, position.y + HEIGHT_OFFSET, position.z);
+            var text_holder = Instantiate(dmgTakenText, position, Quaternion.identity);
+            text_holder.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("+ " + _unitData.Reward);
             goldController.AddBalance(_unitData.Reward);
             yield return new WaitForSeconds(2f);
         }

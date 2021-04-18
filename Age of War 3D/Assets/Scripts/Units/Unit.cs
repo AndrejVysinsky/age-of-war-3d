@@ -10,11 +10,12 @@ public class Unit : MonoBehaviour, IDamagable
     [SerializeField] HealthSlider unitHealth;
     [SerializeField] protected ColorSwitcher colorSwitcher;
     [SerializeField] protected List<UnitData> unitTiers;
-    [SerializeField] GameObject dmgTakenText;
+    [SerializeField] protected GameObject dmgTakenText;
 
     private bool _isAttacking;
 
     protected UnitData _unitData;
+    protected float HEIGHT_OFFSET = 2.2f;
 
     protected Vector3 _destination;
     private int _nextCheckpointIndex;
@@ -30,7 +31,6 @@ public class Unit : MonoBehaviour, IDamagable
     public int UnitID { get; private set; }
     public FactionEnum Faction { get; protected set; }
     public Transform Transform { get; private set; }
-    private float HEIGHT_OFFSET = 2.2f;
 
     private void Awake()
     {
