@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spearman Unit Tier 1
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 60a069ae873bdaf458e0ebe4d0f41b00, type: 3}
-  name: 
+  name: Spearman
   hitPoints: 100
   movementSpeed: 1
   damage: 15
@@ -22,3 +22,4 @@ MonoBehaviour:
   trainCost: 40
   upgradeCost: 0
   reward: 0
+  type: 2
