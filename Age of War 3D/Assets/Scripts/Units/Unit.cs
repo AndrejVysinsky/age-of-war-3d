@@ -181,4 +181,18 @@ public class Unit : MonoBehaviour, IDamagable
     {
         return _unitData.Damage;
     }
+
+    protected float getRandomizedDamage(float unitDamage)
+    {
+        float percentage = unitDamage * 0.1f;
+        decimal acutal_dmg = (decimal)UnityEngine.Random.Range(unitDamage - percentage, unitDamage + percentage);
+        float rounded = Convert.ToSingle(RoundDown(acutal_dmg, 1));
+        return rounded;
+    }
+
+    private decimal RoundDown(decimal i, double decimalPlaces)
+    {
+        var power = Convert.ToDecimal(Math.Pow(10, decimalPlaces));
+        return Math.Floor(i * power) / power;
+    }
 }
