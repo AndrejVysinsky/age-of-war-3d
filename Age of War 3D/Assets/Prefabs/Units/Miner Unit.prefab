@@ -81,6 +81,7 @@ MonoBehaviour:
   colorSwitcher: {fileID: 0}
   unitTiers:
   - {fileID: 11400000, guid: 332745e424030ce4e9eb7e7e185bc249, type: 2}
+  dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
   goldController: {fileID: 0}
 --- !u!1001 &2017149846593473725
 PrefabInstance:

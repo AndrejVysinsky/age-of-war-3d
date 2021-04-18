@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class Unit : MonoBehaviour, IDamagable
 {
     [SerializeField] HealthSlider unitHealth;
     [SerializeField] protected ColorSwitcher colorSwitcher;
     [SerializeField] protected List<UnitData> unitTiers;
+    [SerializeField] GameObject dmgTakenText;
 
     private bool _isAttacking;
 
@@ -28,6 +30,7 @@ public class Unit : MonoBehaviour, IDamagable
     public int UnitID { get; private set; }
     public FactionEnum Faction { get; protected set; }
     public Transform Transform { get; private set; }
+    private float HEIGHT_OFFSET = 2.2f;
 
     private void Awake()
     {
@@ -163,6 +166,10 @@ public class Unit : MonoBehaviour, IDamagable
             OnUnitDeath?.Invoke(this);
             Destroy(gameObject);
         }
+        var position = transform.position;
+        position.Set(position.x, position.y + HEIGHT_OFFSET, position.z);
+        var text_holder = Instantiate(dmgTakenText, position, Quaternion.identity);
+        text_holder.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("- " + damage);
     }
 
     public float GetHealth()

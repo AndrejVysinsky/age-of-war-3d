@@ -142,6 +142,7 @@ MonoBehaviour:
   colorSwitcher: {fileID: 7056874263090235296}
   unitTiers:
   - {fileID: 11400000, guid: 4de98cc5298b7ea4fbfed790b6233a5e, type: 2}
+  dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
 --- !u!114 &7056874263090235296
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -144,6 +144,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 43ac43037a5872f4799c76d1d2111d73, type: 2}
   - {fileID: 11400000, guid: b1bd0f4efabaf844da9d81dbb4279c7c, type: 2}
   - {fileID: 11400000, guid: c53696add8018ae48871f9990335cf5e, type: 2}
+  dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
 --- !u!114 &8825539077409013678
 MonoBehaviour:
   m_ObjectHideFlags: 0

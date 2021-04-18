@@ -143,6 +143,7 @@ MonoBehaviour:
   colorSwitcher: {fileID: 6008598570379712315}
   unitTiers:
   - {fileID: 11400000, guid: 096bbe31fb662ef4f97c8db38dcc1ed6, type: 2}
+  dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
   projectilePrefab: {fileID: 7198217547334675006, guid: c18872f1429f3824a8790fedc31d888a, type: 3}
   firePoint: {fileID: 8407711341912503533}
 --- !u!114 &6008598570379712315
