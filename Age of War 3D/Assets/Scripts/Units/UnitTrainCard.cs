@@ -4,21 +4,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IUnitUpgraded
+public class UnitTrainCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IUnitUpgraded
 {
+    [Header("Components")]
     [SerializeField] Image unitImage;
     [SerializeField] TextMeshProUGUI priceText;
-    [SerializeField] Button upgradeUnitButton;
 
+    [Header("Misc")]
     [SerializeField] PlayerController playerController;
     [SerializeField] int unitIndex;
 
-    private UnitData _unitData;
-
-    private void Start()
-    {
-        upgradeUnitButton.onClick.AddListener(UpgradeUnit);
-    }
+    public UnitData UnitData { get; private set; }
+    public int UnitIndex => unitIndex;
+    public PlayerController PlayerController => playerController;
 
     private void OnEnable()
     {
@@ -47,11 +45,6 @@ public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         MouseCursor.Instance.SetPointerCursor();
     }
 
-    private void UpgradeUnit()
-    {
-        playerController.UpgradeUnit(unitIndex);
-    }
-
     public void OnUnitUpgraded(int upgradedUnitIndex, UnitData upgradedUnitData, FactionEnum faction)
     {
         if (faction != FactionEnum.Green)
@@ -60,13 +53,13 @@ public class UnitCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         if (upgradedUnitIndex != unitIndex)
             return;
 
-        _unitData = upgradedUnitData;
+        UnitData = upgradedUnitData;
 
-        priceText.text = _unitData.TrainCost.ToString();
+        priceText.text = UnitData.TrainCost.ToString();
 
-        if (_unitData.Sprite != null)
+        if (UnitData.Sprite != null)
         {
-            unitImage.sprite = _unitData.Sprite;
+            unitImage.sprite = UnitData.Sprite;
         }
     }
 }

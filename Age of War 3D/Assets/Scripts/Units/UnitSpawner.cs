@@ -174,7 +174,10 @@ public class UnitSpawner : MonoBehaviour
 
         EventManager.Instance.ExecuteEvent<IUnitUpgraded>((x, y) => x.OnUnitUpgraded(unitIndex, unitPrefabs[unitIndex].GetUnitData(_currentUnitTiers[unitIndex]), _gameController.Faction));
 
-        return unitPrefabs[unitIndex].GetUnitData(_currentUnitTiers[unitIndex]).UpgradeCost;
+        if (_currentUnitTiers[unitIndex] == 1)
+            return 0;
+
+        return unitPrefabs[unitIndex].GetUnitData(_currentUnitTiers[unitIndex] - 1).UpgradeCost;
     }
 
     public List<Unit> GetUnitPrefabs()
