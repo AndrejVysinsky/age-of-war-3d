@@ -59,16 +59,6 @@ public class Line : MonoBehaviour
         _playerController.TryToSwitchActiveLine(_lineController.GetIndexOfLine(this));
     }
 
-    private void OnMouseEnter()
-    {
-        MouseCursor.Instance.SetHandCursor();
-    }
-
-    private void OnMouseExit()
-    {
-        MouseCursor.Instance.SetPointerCursor();
-    }
-
     public Vector3 GetSpawnPointPosition(FactionEnum faction)
     {
         if (faction == FactionEnum.Green)
