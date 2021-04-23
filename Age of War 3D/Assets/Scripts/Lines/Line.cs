@@ -97,4 +97,9 @@ public class Line : MonoBehaviour
     {
         lineRenderer.colorGradient = gradient;
     }
+
+    public Bounds GetLineBounds()
+    {
+        return GetComponent<BoxCollider>().bounds;
+    }
 }

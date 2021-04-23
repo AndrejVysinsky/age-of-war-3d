@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7495796249687835877}
   - component: {fileID: 4671813937215760238}
   - component: {fileID: 2689043214517107075}
+  - component: {fileID: 1548523851473503736}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -85,6 +86,7 @@ MonoBehaviour:
   unitSpawner: {fileID: 2410486435810128869}
   goldController: {fileID: 1295391511}
   outpost: {fileID: 7495796249687835877}
+  arrowAbility: {fileID: 1548523851473503736}
 --- !u!114 &2410486435810128869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +168,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1548523851473503736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180045697356729886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e7f9c06c0d8104f8ee917f4644f34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowAbilityTiers:
+  - {fileID: 11400000, guid: 158c7b81999bf5d4eaff631f74fbe9cd, type: 2}
+  - {fileID: 11400000, guid: aee17751c54108548b0e88e93c99c5d1, type: 2}
+  - {fileID: 11400000, guid: 070e081e907e1ec47b36800b3c1dd827, type: 2}

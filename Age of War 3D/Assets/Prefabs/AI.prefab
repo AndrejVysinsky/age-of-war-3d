@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 5231040572990821191}
   - component: {fileID: 818633461}
   - component: {fileID: 4421647025720589380}
+  - component: {fileID: 849015091504492256}
   - component: {fileID: 3749813247194948300}
   - component: {fileID: 601331094}
   m_Layer: 0
@@ -114,6 +115,7 @@ MonoBehaviour:
   unitSpawner: {fileID: 5231040572990821191}
   goldController: {fileID: 818633461}
   outpost: {fileID: 4421647025720589380}
+  arrowAbility: {fileID: 849015091504492256}
   aiBrain: {fileID: 6397193187184527160}
 --- !u!114 &6397193187184527160
 MonoBehaviour:
@@ -128,6 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiUnitScanner: {fileID: 7595836277477605130}
+  _playerGoldController: {fileID: 0}
+  attackDecisionData: {fileID: 0}
+  defenseDecisonData: {fileID: 0}
 --- !u!114 &5231040572990821191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +185,22 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   healthText: {fileID: 0}
   menuScript: {fileID: 0}
+--- !u!114 &849015091504492256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028952593920896700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e7f9c06c0d8104f8ee917f4644f34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowAbilityTiers:
+  - {fileID: 11400000, guid: 158c7b81999bf5d4eaff631f74fbe9cd, type: 2}
+  - {fileID: 11400000, guid: aee17751c54108548b0e88e93c99c5d1, type: 2}
+  - {fileID: 11400000, guid: 070e081e907e1ec47b36800b3c1dd827, type: 2}
 --- !u!65 &3749813247194948300
 BoxCollider:
   m_ObjectHideFlags: 0

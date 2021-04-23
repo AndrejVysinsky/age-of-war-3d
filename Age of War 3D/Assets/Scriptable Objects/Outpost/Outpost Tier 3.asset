@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5951389fb8a3ab4c8379d1db63ef598, type: 3}
   m_Name: Outpost Tier 3
   m_EditorClassIdentifier: 
+  name: Tier 3
+  sprite: {fileID: 21300000, guid: c5fc26822e94bd845a13ae8579fc8632, type: 3}
   health: 2000
   maxQueueCapacity: 15
-  upgradePrice: 800
+  upgradePrice: 0
   maxMinerUnits: 3

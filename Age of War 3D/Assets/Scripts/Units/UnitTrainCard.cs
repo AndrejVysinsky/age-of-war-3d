@@ -11,12 +11,16 @@ public class UnitTrainCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
     [SerializeField] TextMeshProUGUI priceText;
 
     [Header("Misc")]
-    [SerializeField] PlayerController playerController;
     [SerializeField] int unitIndex;
 
     public UnitData UnitData { get; private set; }
+    public PlayerController PlayerController { get; private set; }
     public int UnitIndex => unitIndex;
-    public PlayerController PlayerController => playerController;
+
+    private void Start()
+    {
+        PlayerController = FindObjectOfType<PlayerController>();
+    }
 
     private void OnEnable()
     {
@@ -30,7 +34,7 @@ public class UnitTrainCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        playerController.SpawnUnit(unitIndex);
+        PlayerController.SpawnUnit(unitIndex);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

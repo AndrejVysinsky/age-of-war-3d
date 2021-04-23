@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerController : BaseGameController
 {
+    public ArrowAbility ArrowAbility => arrowAbility;
+
     protected override void Start()
     {
         base.Start();
-        _activeLine = lineController.GetFirstActiveLine();
-        lineController.HightlightLine(_activeLine);
+        ActiveLine = lineController.GetFirstActiveLine();
+        lineController.HightlightLine(ActiveLine);
     }
 
     private void Update()
@@ -37,8 +40,8 @@ public class PlayerController : BaseGameController
     {
         if (lineController.IsLineActive(index))
         {
-            _activeLine = lineController.GetLineByIndex(index);
-            lineController.HightlightLine(_activeLine);
+            ActiveLine = lineController.GetLineByIndex(index);
+            lineController.HightlightLine(ActiveLine);
         }
-    }
+    }    
 }

@@ -8,14 +8,15 @@ public class BaseGameController : MonoBehaviour
     [SerializeField] protected UnitSpawner unitSpawner;
     [SerializeField] protected GoldController goldController;
     [SerializeField] protected Outpost outpost;
+    [SerializeField] protected ArrowAbility arrowAbility;
 
-    protected Line _activeLine;
-
+    public Line ActiveLine { get; protected set; }
     public FactionEnum Faction => faction;
 
     protected virtual void Start()
     {
         var outpostData = outpost.Initialize(faction);
+        arrowAbility.Initialize(faction);
 
         unitSpawner.OnQueueCapacityChanged(outpostData.MaxQueueCapacity);
 
@@ -30,7 +31,7 @@ public class BaseGameController : MonoBehaviour
             return;
         }
 
-        int cost = unitSpawner.SpawnUnit(unitIndex, _activeLine, faction, factionMaterial, goldController.GetBalance());
+        int cost = unitSpawner.SpawnUnit(unitIndex, ActiveLine, faction, factionMaterial, goldController.GetBalance());
         goldController.RemoveBalance(cost);
     }
 
@@ -55,5 +56,11 @@ public class BaseGameController : MonoBehaviour
         {
             unitSpawner.OnQueueCapacityChanged(outpostData.MaxQueueCapacity);
         }
+    }
+
+    public void UpgradeArrowAbility()
+    {
+        int cost = arrowAbility.UpgradeArrowAbility(goldController.GetBalance());
+        goldController.RemoveBalance(cost);
     }
 }

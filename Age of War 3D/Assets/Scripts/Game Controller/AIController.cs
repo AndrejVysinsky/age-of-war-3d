@@ -28,7 +28,7 @@ public class AIController : BaseGameController
             foreach (var decision in decisions)
             {
                 // TODO: implement unit training 
-                _activeLine = lineController.GetLineByIndex(decision._lineID);
+                ActiveLine = lineController.GetLineByIndex(decision._lineID);
                 SpawnUnit((int)decision._unitType);
             }
             yield return new WaitForSeconds(5f);
