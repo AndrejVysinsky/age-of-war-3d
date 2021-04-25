@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     private float _damage;
 
     private bool _isMoving = true;
+    private float timeCount = 0.0f;
 
     public void Initialize(Vector3 startPosition, IDamagable self, IDamagable target, float damage)
     {
@@ -54,6 +55,9 @@ public class Projectile : MonoBehaviour
 
         float arc = MathfArc.GetArcHeightAtPosition(_startPosition, _currentPosition, _targetPosition, arcHeight);
 
+        var rotation = Quaternion.Slerp(Quaternion.identity, Quaternion.Euler(0.0f, 0.0f, 180f), timeCount);
+        timeCount = timeCount + Time.deltaTime;
+        transform.rotation = Quaternion.Euler(rotation.eulerAngles);
         transform.position = new Vector3(_currentPosition.x, _currentPosition.y + arc, _currentPosition.z);
     }
 
