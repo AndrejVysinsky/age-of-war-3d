@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b217763c707982479eb0fc90862b3da, type: 3}
   m_Name: Archer Unit Tier 1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 197a53bd039d6504c994b4ced05cdd8d, type: 3}
+  sprite: {fileID: 21300000, guid: 80240e5654b19474cb75b588763a0ca3, type: 3}
   name: Archer
   hitPoints: 100
   movementSpeed: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b217763c707982479eb0fc90862b3da, type: 3}
   m_Name: Spearman Unit Tier 1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 60a069ae873bdaf458e0ebe4d0f41b00, type: 3}
+  sprite: {fileID: 21300000, guid: fe3a23d89631bfc4c9cb3134bea99328, type: 3}
   name: Spearman
   hitPoints: 100
   movementSpeed: 1

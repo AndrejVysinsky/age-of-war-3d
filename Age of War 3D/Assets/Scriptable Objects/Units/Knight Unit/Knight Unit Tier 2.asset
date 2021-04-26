@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b217763c707982479eb0fc90862b3da, type: 3}
   m_Name: Knight Unit Tier 2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: a62941960e28ca04e9bdada53f50464f, type: 3}
+  sprite: {fileID: 21300000, guid: 3b73ffb6e9b7d62408fea4ef30028595, type: 3}
   name: Knight
   hitPoints: 200
   movementSpeed: 1
