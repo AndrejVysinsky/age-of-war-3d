@@ -20,6 +20,7 @@ MonoBehaviour:
   damage: 15
   attackDelay: 0.5
   attackRange: 5
+  trainTime: 2
   trainCost: 60
   upgradeCost: 0
   reward: 0
