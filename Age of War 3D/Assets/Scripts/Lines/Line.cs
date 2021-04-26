@@ -61,7 +61,7 @@ public class Line : MonoBehaviour
 
     public Vector3 GetSpawnPointPosition(FactionEnum faction)
     {
-        if (faction == FactionEnum.Green)
+        if (faction == FactionEnum.Player)
             return spawnPoints[0].transform.position;
         else
             return spawnPoints[1].transform.position;
@@ -73,7 +73,7 @@ public class Line : MonoBehaviour
             return Vector3.zero;
 
         //blue needs to go in opposite direction
-        if (faction == FactionEnum.Blue)
+        if (faction == FactionEnum.AI)
         {
             index = checkPoints.Count - 1 - index;
         }
@@ -84,7 +84,7 @@ public class Line : MonoBehaviour
     public bool HasNextCheckpoint(int index, FactionEnum faction)
     {
         //blue needs to go in opposite direction
-        if (faction == FactionEnum.Blue)
+        if (faction == FactionEnum.AI)
         {
             index = checkPoints.Count - 1 - index;
             return index >= 0;

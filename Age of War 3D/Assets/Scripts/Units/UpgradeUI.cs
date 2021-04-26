@@ -18,6 +18,9 @@ public class UpgradeUI : MonoBehaviour
     {
         upgradeUnitsButton.onClick.AddListener(ShowUnitUpgrades);
         upgradeOutpostButton.onClick.AddListener(ShowOutpostUpgrades);
+
+        upgradeUnitsButton.image.color = activeButtonColor;
+        upgradeOutpostButton.image.color = inactiveButtonColor;
     }
 
     private void ShowOutpostUpgrades()

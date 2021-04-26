@@ -55,7 +55,7 @@ public class Projectile : MonoBehaviour
 
         float arc = MathfArc.GetArcHeightAtPosition(_startPosition, _currentPosition, _targetPosition, arcHeight);
         Quaternion rotation;
-        if (_self.Faction == FactionEnum.Blue)
+        if (_self.Faction == FactionEnum.AI)
         {
             rotation = Quaternion.Slerp(Quaternion.identity, Quaternion.Euler(0.0f, 0.0f, -180f), timeCount);
         }

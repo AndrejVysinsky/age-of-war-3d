@@ -47,7 +47,7 @@ public class OutpostUpgradeCard : MonoBehaviour, IOutpostUpgraded
 
     public void OnOutpostUpgraded(OutpostData outpostData, FactionEnum faction)
     {
-        if (faction != FactionEnum.Green)
+        if (faction != FactionEnum.Player)
             return;
 
         outpostName.text = outpostData.Name;

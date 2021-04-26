@@ -44,7 +44,7 @@ public class ArrowAbilityUpgradeCard : MonoBehaviour, IArrowAbilityUpgraded
 
     public void OnArrowAbilityUpgraded(ArrowAbilityData arrowAbilityData, FactionEnum faction)
     {
-        if (faction != FactionEnum.Green)
+        if (faction != FactionEnum.Player)
             return;
 
         arrowAbilityName.text = arrowAbilityData.Name;

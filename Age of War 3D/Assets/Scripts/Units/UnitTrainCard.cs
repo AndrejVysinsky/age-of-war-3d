@@ -83,7 +83,7 @@ public class UnitTrainCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 
     public void OnUnitUpgraded(int upgradedUnitIndex, UnitData upgradedUnitData, FactionEnum faction)
     {
-        if (faction != FactionEnum.Green)
+        if (faction != FactionEnum.Player)
             return;
 
         if (upgradedUnitIndex != unitIndex)
@@ -149,7 +149,7 @@ public class UnitTrainCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 
     public void OnUnitTrainingStarted(int unitIndex, FactionEnum faction)
     {
-        if (faction != FactionEnum.Green)
+        if (faction != FactionEnum.Player)
             return;
 
         if (this.unitIndex != unitIndex)

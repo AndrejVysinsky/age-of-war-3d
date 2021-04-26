@@ -33,7 +33,7 @@ public class AIUnitScanner : MonoBehaviour
             {
                 if (LineUnitHolders[i].line == otherUnit.Line)
                 {
-                    if (otherUnit.Faction == FactionEnum.Green)
+                    if (otherUnit.Faction == FactionEnum.Player)
                     {
                         LineUnitHolders[i].enemyUnits.Add(otherUnit);
                     }
@@ -53,7 +53,7 @@ public class AIUnitScanner : MonoBehaviour
         {
             if (LineUnitHolders[i].line == unit.Line)
             {
-                if (unit.Faction == FactionEnum.Green)
+                if (unit.Faction == FactionEnum.Player)
                 {
                     LineUnitHolders[i].enemyUnits.Remove(unit);
                 }

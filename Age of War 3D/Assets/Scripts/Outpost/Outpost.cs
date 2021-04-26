@@ -43,7 +43,7 @@ public class Outpost : MonoBehaviour, IDamagable
 
         if (healthSlider.Health <= 0)
         {
-            if (Faction == FactionEnum.Green)
+            if (Faction == FactionEnum.Player)
             {
                 menuScript.GameOver();
             }
