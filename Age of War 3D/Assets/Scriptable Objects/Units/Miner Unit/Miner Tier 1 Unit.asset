@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b217763c707982479eb0fc90862b3da, type: 3}
   m_Name: Miner Tier 1 Unit
   m_EditorClassIdentifier: 
+  unitTier: 1
   sprite: {fileID: 21300000, guid: d19af8d149175d94689e92f3ed7c81a7, type: 3}
   name: Miner
   hitPoints: 0

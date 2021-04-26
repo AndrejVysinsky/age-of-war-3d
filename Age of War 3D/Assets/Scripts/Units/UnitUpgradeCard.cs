@@ -22,8 +22,6 @@ public class UnitUpgradeCard : MonoBehaviour
     [Header("Misc")]
     [SerializeField] UnitTrainCard unitCard;
 
-    private int _activeStars = 0;
-
     private void Start()
     {
         unitUpgradeButton.onClick.AddListener(UpgradeUnit);
@@ -49,10 +47,9 @@ public class UnitUpgradeCard : MonoBehaviour
         unitAttackValue.text = upgradedUnitData.Damage.ToString();
         unitUpgradeCost.text = upgradedUnitData.UpgradeCost.ToString();
 
-        _activeStars++;
         for (int i = 0; i < unitStars.Count; i++)
         {
-            unitStars[i].SetActive(i < _activeStars - 1);
+            unitStars[i].SetActive(i < upgradedUnitData.UnitTier - 1);
         }
 
         if (upgradedUnitData.UpgradeCost == 0)

@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Unit Data", menuName = "Units/Unit Data")]
 public class UnitData : ScriptableObject
 {
+    [SerializeField] int unitTier;
     [SerializeField] Sprite sprite;
     [SerializeField] new string name;
     [SerializeField] float hitPoints;
@@ -16,6 +17,7 @@ public class UnitData : ScriptableObject
     [SerializeField] int reward;
     [SerializeField] UnitType type;
 
+    public int UnitTier => unitTier;
     public Sprite Sprite => sprite;
     public string Name => name;
     public float HitPoints => hitPoints;

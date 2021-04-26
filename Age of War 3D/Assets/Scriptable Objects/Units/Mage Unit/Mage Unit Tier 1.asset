@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b217763c707982479eb0fc90862b3da, type: 3}
   m_Name: Mage Unit Tier 1
   m_EditorClassIdentifier: 
+  unitTier: 1
   sprite: {fileID: 21300000, guid: 3e3fefb9519afdc498f2e565fcc9a30e, type: 3}
   name: Mage
   hitPoints: 100
