@@ -17,6 +17,8 @@ public class UnitUpgradeCard : MonoBehaviour
     [SerializeField] GameObject upgradeContainer;
     [SerializeField] GameObject maxLevelContainer;
 
+    [SerializeField] List<GameObject> unitStars;
+
     [Header("Misc")]
     [SerializeField] UnitTrainCard unitCard;
 
@@ -44,6 +46,11 @@ public class UnitUpgradeCard : MonoBehaviour
         unitHitpoints.text = upgradedUnitData.HitPoints.ToString();
         unitAttackValue.text = upgradedUnitData.Damage.ToString();
         unitUpgradeCost.text = upgradedUnitData.UpgradeCost.ToString();
+
+        for (int i = 0; i < unitStars.Count; i++)
+        {
+            unitStars[i].SetActive(i < upgradedUnitData.UnitTier - 1);
+        }
 
         if (upgradedUnitData.UpgradeCost == 0)
         {

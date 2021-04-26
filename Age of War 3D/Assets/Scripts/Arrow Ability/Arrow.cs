@@ -8,6 +8,8 @@ public class Arrow : MonoBehaviour
     private float _targetY;
     private FactionEnum _faction;
 
+    private bool _isOnGround = false;
+
     public void Initialize(Vector3 spawnPosition, float targetY, float damage, FactionEnum faction)
     {
         transform.position = spawnPosition;
@@ -20,6 +22,7 @@ public class Arrow : MonoBehaviour
     {
         if (transform.position.y <= _targetY)
         {
+            _isOnGround = true;
             Destroy(gameObject, 2f);
             return;
         }
@@ -33,6 +36,9 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_isOnGround)
+            return;
+
         if (other.TryGetComponent(out Unit unit))
         {
             if (unit.Faction != _faction)

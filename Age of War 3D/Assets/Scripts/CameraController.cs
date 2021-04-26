@@ -51,9 +51,9 @@ public class CameraController : MonoBehaviour
     private void MoveCamera()
     {
         float xAxisValue = Input.GetAxis("Horizontal") * moveSpeed * GetBaseDeltaTime();
-        float zAxisValue = Input.GetAxis("Vertical") * moveSpeed * GetBaseDeltaTime();
+        //float zAxisValue = Input.GetAxis("Vertical") * moveSpeed * GetBaseDeltaTime();
 
-        var moveVector = new Vector3(xAxisValue, 0.0f, zAxisValue);
+        var moveVector = new Vector3(xAxisValue, 0.0f, 0.0f);
 
         transform.Translate(Quaternion.AngleAxis(transform.rotation.eulerAngles.y, Vector3.up) * moveVector, Space.World);
     }

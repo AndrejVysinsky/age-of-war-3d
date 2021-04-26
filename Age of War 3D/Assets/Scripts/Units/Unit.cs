@@ -45,6 +45,11 @@ public class Unit : MonoBehaviour, IDamagable
         return unitTiers[currentTier];
     }
 
+    public UnitData GetUnitData()
+    {
+        return _unitData;
+    }
+
     public int GetUnitReward()
     {
         return _unitData.Reward;
