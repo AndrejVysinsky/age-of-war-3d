@@ -18,4 +18,5 @@ MonoBehaviour:
   damage: 35
   cooldown: 5
   numberOfArrows: 50
+  price: 700
   upgradePrice: 1000
