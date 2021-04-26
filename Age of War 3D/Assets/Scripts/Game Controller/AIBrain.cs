@@ -87,7 +87,6 @@ public class AIBrain : MonoBehaviour
         var minRatio = new Tuple<int, float>(3, 1);
         if (_firstRound || aiUnitScanner.LineUnitHolders.Count == 0)
         {
-            _firstRound = false;
             _currentMode = PlayMode.ATTACK;
         } 
         else
@@ -208,7 +207,7 @@ public class AIBrain : MonoBehaviour
         List<UnitTransferObject> spawnedUnits = new List<UnitTransferObject>();
         var baseRatio = GetNewLineRatio(lineIndex, spawnedUnits);
         var ratio = 1000f;
-        while (units.Count > 0 && (ratio/baseRatio) < ATCK_OVERSPAWN)
+        while (units.Count > 0 && (ratio/baseRatio) < ATCK_OVERSPAWN || _firstRound)
         {
             AIDecisionCA decision = new AIDecisionCA(units[0]._unitType, lineIndex, false);
             spawnedUnits.Add(units[0]);
@@ -216,6 +215,7 @@ public class AIBrain : MonoBehaviour
             balance -= (int)units[0]._cost;
             ratio = GetNewLineRatio(lineIndex, spawnedUnits);
             units = GetAvailableUnits(balance);
+            _firstRound = false;
         }
         return decisions;
     }
