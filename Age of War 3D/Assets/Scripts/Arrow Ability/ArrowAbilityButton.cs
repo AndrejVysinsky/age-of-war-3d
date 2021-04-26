@@ -1,25 +1,29 @@
-﻿using TMPro;
+﻿using Assets.Scripts;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ArrowAbilityButton : MonoBehaviour, IArrowAbilityUpgraded
+public class ArrowAbilityButton : MonoBehaviour, IArrowAbilityUpgraded, IPointerDownHandler
 {
-    [SerializeField] Button button;
+    [SerializeField] Image abilityImage;
+    [SerializeField] TMP_Text abilityPrice;
+    [SerializeField] TMP_Text hotKeyText;
+    [SerializeField] KeyCode hotKey;
 
     [Header("Timer")]
     [SerializeField] Image timerImage;
-    [SerializeField] TMP_Text timerText;
 
-    private ArrowAbility _arrowAbility;
+    private PlayerController _playerController;
 
     private float _remainingCooldown;
     private float _cooldown;
 
     private void Start()
     {
-        _arrowAbility = FindObjectOfType<PlayerController>().ArrowAbility;
+        _playerController = FindObjectOfType<PlayerController>();
 
-        button.onClick.AddListener(UseAbility);
+        hotKeyText.text = hotKey.ToString();
     }
 
     private void OnEnable()
@@ -34,22 +38,29 @@ public class ArrowAbilityButton : MonoBehaviour, IArrowAbilityUpgraded
 
     private void Update()
     {
+        if (Input.GetKeyDown(hotKey))
+        {
+            UseAbility();
+        }
+
         if (_remainingCooldown <= 0)
         {
             timerImage.fillAmount = 0;
-            timerText.text = "";
+            timerImage.gameObject.SetActive(false);
             return;
         }
 
         _remainingCooldown -= Time.deltaTime;
 
         timerImage.fillAmount = _remainingCooldown / _cooldown;
-        timerText.text = Mathf.FloorToInt(_remainingCooldown).ToString();
     }
 
     public void OnArrowAbilityUpgraded(ArrowAbilityData arrowAbilityData, FactionEnum faction)
     {
         RefreshTimer(arrowAbilityData.Cooldown);
+
+        abilityImage.sprite = arrowAbilityData.Sprite;
+        abilityPrice.text = arrowAbilityData.Price.ToString();
     }
 
     private void UseAbility()
@@ -57,13 +68,29 @@ public class ArrowAbilityButton : MonoBehaviour, IArrowAbilityUpgraded
         if (_remainingCooldown > 0)
             return;
 
-        _arrowAbility.UseAbility();
-        RefreshTimer(_arrowAbility.Cooldown);
+        _playerController.UseArrowAbility();
+        RefreshTimer(_playerController.ArrowAbility.Cooldown);
     }
 
     private void RefreshTimer(float timer)
     {
         _remainingCooldown = timer;
         _cooldown = timer;
+        timerImage.gameObject.SetActive(true);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        UseAbility();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        MouseCursor.Instance.SetHandCursor();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        MouseCursor.Instance.SetPointerCursor();
     }
 }

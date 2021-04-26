@@ -26,7 +26,7 @@ public class BaseGameController : MonoBehaviour
     /// <returns>Returns true on successful spawn.</returns>
     public bool SpawnUnit(int unitIndex)
     {
-        if (unitIndex == 4)
+        if (unitIndex >= 4)
         {
             return SpawnMinerUnit();
         }
@@ -39,10 +39,7 @@ public class BaseGameController : MonoBehaviour
 
     public bool SpawnMinerUnit()
     {
-        int cost = unitSpawner.SpawnMinerUnit(4, faction, factionMaterial, goldController.GetBalance());
-        goldController.RemoveBalance(cost);
-
-        return cost != 0;
+        return unitSpawner.SpawnMinerUnit(4, faction, factionMaterial, goldController.GetBalance());
     }
 
     public void UpgradeUnit(int unitIndex)
@@ -56,6 +53,8 @@ public class BaseGameController : MonoBehaviour
         int cost = outpost.UpgradeOutpost(goldController.GetBalance(), out OutpostData outpostData);
         goldController.RemoveBalance(cost);
 
+        SpawnMinerUnit();
+
         if (outpostData != null)
         {
             unitSpawner.OnQueueCapacityChanged(outpostData.MaxQueueCapacity);
@@ -65,6 +64,12 @@ public class BaseGameController : MonoBehaviour
     public void UpgradeArrowAbility()
     {
         int cost = arrowAbility.UpgradeArrowAbility(goldController.GetBalance());
+        goldController.RemoveBalance(cost);
+    }
+
+    public void UseArrowAbility()
+    {
+        int cost = arrowAbility.UseAbility(goldController.GetBalance());
         goldController.RemoveBalance(cost);
     }
 }

@@ -88,18 +88,12 @@ public class UnitSpawner : MonoBehaviour
         return cost;
     }
 
-    public int SpawnMinerUnit(int unitIndex, FactionEnum faction, Material factionMaterial, int balance)
+    public bool SpawnMinerUnit(int unitIndex, FactionEnum faction, Material factionMaterial, int balance)
     {
         if (_spawnedMiners >= GetComponent<Outpost>().MaxMinerUnits)
-            return 0;
+            return false;
 
         var unitPrefab = unitPrefabs[unitIndex];
-
-        int cost = unitPrefab.GetComponent<Unit>().GetUnitData(_currentUnitTiers[unitIndex]).TrainCost;
-        if (cost > balance)
-        {
-            return 0;
-        }
 
         var unitObject = Instantiate(unitPrefab, transform);
 
@@ -108,7 +102,7 @@ public class UnitSpawner : MonoBehaviour
 
         _spawnedMiners++;
 
-        return cost;
+        return true;
     }
 
     private void UpdateQueueCapacityText()

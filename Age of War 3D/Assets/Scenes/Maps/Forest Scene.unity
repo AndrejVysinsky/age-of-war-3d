@@ -198,14 +198,6 @@ PrefabInstance:
       propertyPath: lineController
       value: 
       objectReference: {fileID: 750936715}
-    - target: {fileID: 785770459, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: factionMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 5656048cd61ef3c43910341c5dd505a3, type: 2}
-    - target: {fileID: 818633461, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: _balance
-      value: 3000
-      objectReference: {fileID: 0}
     - target: {fileID: 720268225948284057, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -266,26 +258,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI
       objectReference: {fileID: 0}
-    - target: {fileID: 5231040572990821191, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: unitPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 6711369811019364783, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
-    - target: {fileID: 5231040572990821191, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: unitPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1923957047244634846, guid: cd73e54d789a0e54faf279ee09f9bc6c, type: 3}
-    - target: {fileID: 5231040572990821191, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: unitPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 976846698046367123, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
-    - target: {fileID: 6397193187184527160, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: attackDecisionData
-      value: 
-      objectReference: {fileID: 11400000, guid: 95b499c34ca0dbd49aad4180275ed067, type: 2}
-    - target: {fileID: 6397193187184527160, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: defenseDecisonData
-      value: 
-      objectReference: {fileID: 11400000, guid: 850f0a05482358d428e3f8090f5036ed, type: 2}
     - target: {fileID: 6397193187184527160, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
       propertyPath: _playerGoldController
       value: 
@@ -1204,10 +1176,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5061962479920929386}
-    - target: {fileID: 504443713150518680, guid: f56b9b4b8376a6b42abca642be63034d, type: 3}
-      propertyPath: currentMapEnum
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 504443713263414448, guid: f56b9b4b8376a6b42abca642be63034d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1251,10 +1219,6 @@ PrefabInstance:
       propertyPath: _goldText
       value: 
       objectReference: {fileID: 1115725956}
-    - target: {fileID: 1548523851473503736, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
-      propertyPath: arrowAbilityButton
-      value: 
-      objectReference: {fileID: 6633207062855132570}
     - target: {fileID: 2410486435810128869, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
       propertyPath: queueCapacityText
       value: 
@@ -1267,10 +1231,6 @@ PrefabInstance:
       propertyPath: lineController
       value: 
       objectReference: {fileID: 750936715}
-    - target: {fileID: 5506168622547215709, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
-      propertyPath: factionMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: e9a3926cc5b0efa48bb7b90497bd27bc, type: 2}
     - target: {fileID: 6923527041513935931, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2584,17 +2544,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7592bd85049d4dd4ab3d5446d2bc1d3e, type: 3}
---- !u!114 &6633207062855132570 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1117454149186372141, guid: 7592bd85049d4dd4ab3d5446d2bc1d3e, type: 3}
-  m_PrefabInstance: {fileID: 6633207062855132569}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7419288337787588223
 PrefabInstance:
   m_ObjectHideFlags: 0

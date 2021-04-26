@@ -45,8 +45,13 @@ public class ArrowAbility : MonoBehaviour
         EventManager.Instance.ExecuteEvent<IArrowAbilityUpgraded>((x, y) => x.OnArrowAbilityUpgraded(_arrowAbilityData, _faction));
     }
 
-    public void UseAbility()
+    public int UseAbility(int balance)
     {
+        if (balance < _arrowAbilityData.Price)
+        {
+            return 0;
+        }
+
         var lineBounds = GetComponent<BaseGameController>().ActiveLine.GetLineBounds();
 
         for (int i = 0; i < _arrowAbilityData.NumberOfArrows; i++)
@@ -65,6 +70,8 @@ public class ArrowAbility : MonoBehaviour
 
             StartCoroutine(SpawnArrow(delay, randomPosition, targetHeight));
         }
+
+        return _arrowAbilityData.Price;
     }
 
     private IEnumerator SpawnArrow(float delay, Vector3 position, float targetHeight)

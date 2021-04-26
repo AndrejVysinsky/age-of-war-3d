@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 1
-  factionMaterial: {fileID: 2100000, guid: 80a47a55667a0c84d89cf1dce2243c1a, type: 2}
+  factionMaterial: {fileID: 2100000, guid: 5656048cd61ef3c43910341c5dd505a3, type: 2}
   lineController: {fileID: 0}
   unitSpawner: {fileID: 5231040572990821191}
   goldController: {fileID: 818633461}
@@ -131,8 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiUnitScanner: {fileID: 7595836277477605130}
   _playerGoldController: {fileID: 0}
-  attackDecisionData: {fileID: 0}
-  defenseDecisonData: {fileID: 0}
+  attackDecisionData: {fileID: 11400000, guid: 95b499c34ca0dbd49aad4180275ed067, type: 2}
+  defenseDecisonData: {fileID: 11400000, guid: 850f0a05482358d428e3f8090f5036ed, type: 2}
 --- !u!114 &5231040572990821191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,9 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefabs:
   - {fileID: 6997406040295253660, guid: 41afd2f768b036b4fb41705b4e030778, type: 3}
-  - {fileID: 6997406040295253660, guid: 41afd2f768b036b4fb41705b4e030778, type: 3}
-  - {fileID: 6997406040295253660, guid: 41afd2f768b036b4fb41705b4e030778, type: 3}
-  - {fileID: 6997406040295253660, guid: 41afd2f768b036b4fb41705b4e030778, type: 3}
+  - {fileID: 6711369811019364783, guid: 99552045cb1eab54b93ef8895bf688d4, type: 3}
+  - {fileID: 1923957047244634846, guid: cd73e54d789a0e54faf279ee09f9bc6c, type: 3}
+  - {fileID: 976846698046367123, guid: 4aa65ca09d2b04d4289ff88997dfc7dd, type: 3}
   - {fileID: -3378301300564114225, guid: c7e5cc031d2b3b841aeb66c896bfe007, type: 3}
   queueCapacityText: {fileID: 0}
 --- !u!114 &818633461
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goldText: {fileID: 0}
-  _balance: 500
+  _balance: 3000
 --- !u!114 &4421647025720589380
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class ArrowAbilityData : ScriptableObject
     [SerializeField] float damage;
     [SerializeField] float cooldown;
     [SerializeField] int numberOfArrows;
+    [SerializeField] int price;
     [SerializeField] int upgradePrice;
 
     public GameObject ArrowPrefab => arrowPrefab;
@@ -17,5 +18,6 @@ public class ArrowAbilityData : ScriptableObject
     public float Damage => damage;
     public float Cooldown => cooldown;
     public int NumberOfArrows => numberOfArrows;
+    public int Price => price;
     public int UpgradePrice => upgradePrice;
 }
