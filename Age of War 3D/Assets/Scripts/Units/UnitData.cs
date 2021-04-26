@@ -12,6 +12,7 @@ public class UnitData : ScriptableObject
     [SerializeField] float damage;
     [SerializeField] float attackDelay;
     [SerializeField] float attackRange;
+    [SerializeField] float trainTime;
     [SerializeField] int trainCost;
     [SerializeField] int upgradeCost;
     [SerializeField] int reward;
@@ -25,6 +26,7 @@ public class UnitData : ScriptableObject
     public float Damage => damage;
     public float AttackDelay => attackDelay;
     public float AttackRange => attackRange;
+    public float TrainTime => trainTime;
     public int TrainCost => trainCost;
     public int UpgradeCost => upgradeCost;
     public int Reward => reward;

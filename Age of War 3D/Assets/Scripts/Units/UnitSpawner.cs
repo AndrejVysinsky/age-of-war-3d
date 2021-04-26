@@ -14,6 +14,7 @@ public class UnitSpawner : MonoBehaviour
     private BaseGameController _gameController;
 
     private List<Unit> _unitsInQueue;
+    private List<int> _unitsInQueueIndex;
     private int _maxQueueCapacity;
 
     private int _spawnedMiners;
@@ -28,6 +29,7 @@ public class UnitSpawner : MonoBehaviour
         _currentUnitTiers = new int[unitPrefabs.Count];
         _spawnedUnits = new List<Unit>();
         _unitsInQueue = new List<Unit>();
+        _unitsInQueueIndex = new List<int>();
         _goldController = GetComponent<GoldController>();
         _gameController = GetComponent<BaseGameController>();
 
@@ -81,6 +83,7 @@ public class UnitSpawner : MonoBehaviour
         unit.gameObject.SetActive(false);
 
         _unitsInQueue.Add(unit);
+        _unitsInQueueIndex.Add(unitIndex);
         UpdateQueueCapacityText();
         return cost;
     }
@@ -129,12 +132,10 @@ public class UnitSpawner : MonoBehaviour
         {
             if (_unitsInQueue.Count != 0)
             {
-                //TODO: variable time based on unit
-                //TODO: queue visual indicator -> maybe indicator on which line unit will spawn
-                var time = 1f;
-
                 //wait until TrainUnit() is over
-                yield return StartCoroutine(TrainUnit(_unitsInQueue[0], time));
+                EventManager.Instance.ExecuteEvent<IUnitTrainingStarted>((x, y) => x.OnUnitTrainingStarted(_unitsInQueueIndex[0], _gameController.Faction));
+
+                yield return StartCoroutine(TrainUnit(_unitsInQueue[0], _unitsInQueue[0].GetUnitData().TrainTime));
             }
 
             yield return null;
@@ -146,6 +147,7 @@ public class UnitSpawner : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         _unitsInQueue.Remove(unit);
+        _unitsInQueueIndex.RemoveAt(0);
         _spawnedUnits.Add(unit);
 
         unit.gameObject.SetActive(true);
