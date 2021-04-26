@@ -54,8 +54,15 @@ public class Projectile : MonoBehaviour
         _currentPosition = Vector3.MoveTowards(_currentPosition, _targetPosition, Time.deltaTime * targetDistance * speed);
 
         float arc = MathfArc.GetArcHeightAtPosition(_startPosition, _currentPosition, _targetPosition, arcHeight);
-
-        var rotation = Quaternion.Slerp(Quaternion.identity, Quaternion.Euler(0.0f, 0.0f, 180f), timeCount);
+        Quaternion rotation;
+        if (_self.Faction == FactionEnum.Blue)
+        {
+            rotation = Quaternion.Slerp(Quaternion.identity, Quaternion.Euler(0.0f, 0.0f, -180f), timeCount);
+        }
+        else
+        {
+            rotation = Quaternion.Slerp(Quaternion.identity, Quaternion.Euler(0.0f, 0.0f, 180f), timeCount);
+        }
         timeCount = timeCount + Time.deltaTime;
         transform.rotation = Quaternion.Euler(rotation.eulerAngles);
         transform.position = new Vector3(_currentPosition.x, _currentPosition.y + arc, _currentPosition.z);
