@@ -54,7 +54,7 @@ public class AttackRangeTrigger : MonoBehaviour
 
     private void RemoveUnit(Unit unit)
     {
-
+        _enemiesInRange.Remove(unit);
     }
 
     private Unit GetEnemyInFront()
