@@ -98,4 +98,9 @@ public class Outpost : MonoBehaviour, IDamagable
     {
         return healthSlider.Health;
     }
+
+    public float GetUpgradePrice()
+    {
+        return _outpostData.UpgradePrice;
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Units;
 
 public class AIController : BaseGameController
 {
@@ -27,9 +28,23 @@ public class AIController : BaseGameController
 
             foreach (var decision in decisions)
             {
-                // TODO: implement unit training 
-                ActiveLine = lineController.GetLineByIndex(decision._lineID);
-                SpawnUnit((int)decision._unitType);
+                if (decision._upgrade)
+                {
+                    switch (decision._unitType)
+                    {
+                        case UnitType.MINER:
+                            UpgradeOutpost();
+                            break;
+                        default:
+                            UpgradeUnit((int)decision._unitType);
+                            break;
+                    }
+                } 
+                else 
+                {
+                    ActiveLine = lineController.GetLineByIndex(decision._lineID);
+                    SpawnUnit((int)decision._unitType);
+                }
             }
             yield return new WaitForSeconds(5f);
         }

@@ -44,7 +44,7 @@ public class AIBrain : MonoBehaviour
         ATTACK,
         DEFENSE,
         TRAIN,
-        MINE,
+        UPGRADE_OUTPOST,
         IDLE
     }
 
@@ -60,15 +60,13 @@ public class AIBrain : MonoBehaviour
     private PlayMode _currentMode = PlayMode.ATTACK;
     private int _unitsTrained;
     private int _minersSpawned;
-    private const float UNDECISIVE = 100;
+    private const float UNDECISIVE = 500;
     private const float DEF_OVERSPAWN = 0.2f;
     private const float ATCK_OVERSPAWN = 1.2f;
     private bool _firstRound = true;
 
     /* TODO LIST: 
-     * - make the ai spawn amount of units relative to balance (not too many, not too few)
      * - sometimes is better to not do anything
-     * - spawn enemies only until the line is circa equal
      */
 
 
@@ -122,15 +120,13 @@ public class AIBrain : MonoBehaviour
             {
                 if (_minersSpawned == 0)
                 {
-                    _currentMode = PlayMode.MINE;
+                    _currentMode = PlayMode.UPGRADE_OUTPOST;
                 }
                 else
                 {
-                    var rnd = new Unity.Mathematics.Random();
-                
-                    if (rnd.NextBool())
+                    if (UnityEngine.Random.value >= 0.5)
                     {
-                        _currentMode = PlayMode.MINE;
+                        _currentMode = PlayMode.UPGRADE_OUTPOST;
                     }
                     else
                     {
@@ -154,9 +150,9 @@ public class AIBrain : MonoBehaviour
                 Debug.Log("***************/n Max ratio is on line " + maxRatio.Item1 + "/n ratio is: " + maxRatio.Item2 + "/n*************");
                 decisions = PrepareToDefense(minRatio.Item1);
                 break;
-            case PlayMode.MINE:
-                Debug.Log("MINE mode");
-                decisions = PrepareToMine();
+            case PlayMode.UPGRADE_OUTPOST:
+                Debug.Log("Upgrading outpost mode");
+                decisions = PrepareToUpgrade();
                 break;
             case PlayMode.TRAIN:
                 Debug.Log("TRAIN mode");
@@ -176,20 +172,18 @@ public class AIBrain : MonoBehaviour
             _unitSpawner.GetCurrentUnitTiers()[rndTier]).TrainCost;
         if (_goldController.GetBalance() > trainCost)
         {
-            decisions.Add(new AIDecisionCA((UnitType)rndTier, 0, false));
+            decisions.Add(new AIDecisionCA((UnitType)rndTier, 0, true));
         }
         return decisions;
     }
 
-    private List<AIDecisionCA> PrepareToMine()
+    private List<AIDecisionCA> PrepareToUpgrade()
     {
-        var prefabs = _unitSpawner.GetUnitPrefabs();
         List<AIDecisionCA> decisions = new List<AIDecisionCA>();
-        var minerCost = prefabs[(int)UnitType.MINER].GetUnitData(
-            _unitSpawner.GetCurrentUnitTiers()[(int)UnitType.MINER]).TrainCost;
-        if (_goldController.GetBalance() > minerCost)
+        if (_goldController.GetBalance() > _outpost.GetUpgradePrice())
         {
-            decisions.Add(new AIDecisionCA(UnitType.MINER, 0, false));
+            decisions.Add(new AIDecisionCA(UnitType.MINER, 0, true));
+            _minersSpawned++;
         }
         return decisions;
     }
@@ -257,7 +251,7 @@ public class AIBrain : MonoBehaviour
     {
         var list = new List<UnitTransferObject>();
         var prefabs = _unitSpawner.GetUnitPrefabs();
-        for (int i = 0; i <prefabs.Count ; i++)
+        for (int i = 0; i < prefabs.Count ; i++)
         {
             var cost = prefabs[i].GetUnitData(_unitSpawner.GetCurrentUnitTiers()[i]).TrainCost;
             var type = prefabs[i].GetUnitData(_unitSpawner.GetCurrentUnitTiers()[i]).Type;
@@ -450,19 +444,4 @@ public class AIBrain : MonoBehaviour
             + minLineRatio * defenseDecisonData.Health_dmgRatioFactor
             + attackFactor * defenseDecisonData.CurrentAttackFactor;
     }
-
-
-    /*
-     mozno by tu mohli byt nejake rozhodnutia... priority list?? necham na teba
-
-    a ze by AIController v nejakych pravidelnych intervaloch si vypytal od AIBrain rozhodnutie
-
-    + AIBrain ma referenciu na AIUnitScanner od ktoreho ziska jednotky na danej lajne
-
-    nemas to staticke ale mas tam public getter na jednotky :D
-    aiUnitScanner.LineUnitHolders
-
-    spravit mozno nejaku metodu ze ziskat lajnu kde ma hrac najvacsiu prevahu
-     
-     */
 }

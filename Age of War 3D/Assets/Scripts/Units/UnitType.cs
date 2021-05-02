@@ -9,6 +9,6 @@ namespace Assets.Scripts.Units
         MAGE = 1,
         SPEARMAN = 2,
         ARCHER = 3,
-        MINER = 4
+        MINER = 4 // also represents whole outpost
     }
 }
