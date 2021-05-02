@@ -33,6 +33,25 @@ public class HealthSlider : MonoBehaviour
         slider.gameObject.SetActive(showFullHealth);
     }
 
+    public void Initialize(float maxHealth, float currentHealth, bool showFullHealth)
+    {
+        _gradient = new Gradient()
+        {
+            colorKeys = new GradientColorKey[]
+            {
+                new GradientColorKey(lowHealthColor, 0f),
+                new GradientColorKey(fullHealthColor, 1f)
+            }
+        };
+
+        Health = currentHealth;
+        MaxHealth = maxHealth;
+
+        healthIndicator.color = _gradient.Evaluate(1);
+
+        slider.gameObject.SetActive(showFullHealth);
+    }
+
     public void SubtractHealth(float amount)
     {
         Health -= amount;

@@ -86,12 +86,17 @@ public class Outpost : MonoBehaviour, IDamagable
 
     private void Upgrade(int tier)
     {
+        float dmg = 0;
+        if (tier > 0)
+        {
+            dmg = outpostTiers[_outpostTier].Health - GetHealth();
+        }
         _outpostTier = tier;
         _outpostData = outpostTiers[_outpostTier];
-        healthSlider.Initialize(_outpostData.Health, true);
-        healthText.text = ((int)_outpostData.Health).ToString();
+        healthSlider.Initialize(_outpostData.Health, _outpostData.Health - dmg, true);
+        healthText.text = ((int)_outpostData.Health - dmg).ToString();
 
-        EventManager.Instance.ExecuteEvent<IOutpostUpgraded>((x, y) => x.OnOutpostUpgraded(_outpostData, Faction));
+        EventManager.Instance.ExecuteEvent<IOutpostUpgraded>((x, y) => x.OnOutpostUpgraded(_outpostData, Faction, dmg));
     }
 
     public float GetHealth()
