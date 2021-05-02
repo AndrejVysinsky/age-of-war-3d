@@ -45,14 +45,14 @@ public class OutpostUpgradeCard : MonoBehaviour, IOutpostUpgraded
         _playerController.UpgradeOutpost();
     }
 
-    public void OnOutpostUpgraded(OutpostData outpostData, FactionEnum faction, float dmgTaken)
+    public void OnOutpostUpgraded(OutpostData outpostData, FactionEnum faction)
     {
         if (faction != FactionEnum.Player)
             return;
 
         outpostName.text = outpostData.Name;
         outpostImage.sprite = outpostData.Sprite;
-        outpostHitpoints.text = (outpostData.Health - dmgTaken).ToString();
+        outpostHitpoints.text = outpostData.Health.ToString();
         outpostTrainCapacity.text = outpostData.MaxQueueCapacity.ToString();
         outpostMinerCapacity.text = outpostData.MaxMinerUnits.ToString();
         outpostUpgradeCost.text = outpostData.UpgradePrice.ToString();

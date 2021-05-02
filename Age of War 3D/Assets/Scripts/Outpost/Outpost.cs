@@ -103,7 +103,7 @@ public class Outpost : MonoBehaviour, IDamagable
         healthSlider.Initialize(_outpostData.Health, _outpostData.Health - dmg, true);
         healthText.text = ((int)_outpostData.Health - dmg).ToString();
 
-        EventManager.Instance.ExecuteEvent<IOutpostUpgraded>((x, y) => x.OnOutpostUpgraded(_outpostData, Faction, dmg));
+        EventManager.Instance.ExecuteEvent<IOutpostUpgraded>((x, y) => x.OnOutpostUpgraded(_outpostData, Faction));
     }
 
     public float GetHealth()
