@@ -260,6 +260,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5887531}
     - target: {fileID: 4421647025720589380, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
+      propertyPath: dmgTakenText
+      value: 
+      objectReference: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
+    - target: {fileID: 4421647025720589380, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 707428230730701428}
@@ -1307,6 +1311,10 @@ PrefabInstance:
       propertyPath: menuScript
       value: 
       objectReference: {fileID: 5887531}
+    - target: {fileID: 7495796249687835877, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
+      propertyPath: dmgTakenText
+      value: 
+      objectReference: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
     - target: {fileID: 7495796249687835877, guid: efa4093d4e33a3044adeab8201b7e2a9, type: 3}
       propertyPath: healthSlider
       value: 

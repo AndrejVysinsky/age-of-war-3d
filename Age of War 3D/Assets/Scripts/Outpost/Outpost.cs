@@ -10,9 +10,11 @@ public class Outpost : MonoBehaviour, IDamagable
     [SerializeField] HealthSlider healthSlider;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] MenuScript menuScript;
+    [SerializeField] GameObject dmgTakenText;
 
     private OutpostData _outpostData;
     private int _outpostTier;
+    private float HEIGHT_OFFSET = 0.5f;
 
     public bool UnderAttack { get; private set; }
     public FactionEnum Faction { get; private set; }
@@ -40,6 +42,11 @@ public class Outpost : MonoBehaviour, IDamagable
         StartCoroutine(setUnderAttack());
 
         healthText.text = ((int)healthSlider.Health).ToString();
+
+        var position = transform.position;
+        position.Set(position.x, position.y + HEIGHT_OFFSET, position.z);
+        var text_holder = Instantiate(dmgTakenText, position, Quaternion.Euler(Camera.main.transform.eulerAngles));
+        text_holder.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("- " + damage);
 
         if (healthSlider.Health <= 0)
         {
