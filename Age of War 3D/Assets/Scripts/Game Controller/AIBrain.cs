@@ -65,6 +65,8 @@ public class AIBrain : MonoBehaviour
     private const float ATCK_OVERSPAWN = 1.2f;
     private bool _firstRound = true;
 
+    private float UPGRADE_PROBABILITY = 0.5f;
+
     /* TODO LIST: 
      * - sometimes is better to not do anything
      */
@@ -124,7 +126,7 @@ public class AIBrain : MonoBehaviour
                 }
                 else
                 {
-                    if (UnityEngine.Random.value >= 0.5)
+                    if (UnityEngine.Random.value < UPGRADE_PROBABILITY)
                     {
                         _currentMode = PlayMode.UPGRADE_OUTPOST;
                     }
@@ -437,7 +439,8 @@ public class AIBrain : MonoBehaviour
 
         if (minLineRatio < 0)
         {
-            minLineRatio = Math.Abs(minLineRatio) * 1000;
+            // AI has no units on the line, we need to spawn someone
+            return float.MaxValue;
         }
 
         return 100/_outpost.GetHealth() * defenseDecisonData.AiBaseHealthFactor
