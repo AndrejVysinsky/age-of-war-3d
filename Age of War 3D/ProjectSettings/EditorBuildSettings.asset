@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Maps/Forest Scene.unity
     guid: 61ad47620085b7a41ae5b65fcc7f77ae
+  - enabled: 1
+    path: Assets/Scenes/Maps/Steppes Scene.unity
+    guid: c8fcd2b979994d54ba427ff4e2331109
+  - enabled: 1
+    path: Assets/Scenes/Maps/Castle Scene.unity
+    guid: e32e9073d61b99b488e474c8924bfeab
   m_configObjects: {}

@@ -60,7 +60,7 @@ public class MenuScript : MonoBehaviour
         gameOverOptions.SetActive(false);
         gameWinOptions.SetActive(true);
 
-        int lastMap = (int)MapEnum.Last;
+        int lastMap = (int)MapEnum.Castle;
 
         int currentMap = (int)currentMapEnum;
 

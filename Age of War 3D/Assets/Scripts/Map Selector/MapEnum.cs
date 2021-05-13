@@ -8,8 +8,7 @@ public enum MapEnum
 {
     Beach,
     Forest,
-    Mountains,
+    Steppes,
     Castle,
-    Last,
     Locked
 }

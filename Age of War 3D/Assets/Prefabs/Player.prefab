@@ -139,6 +139,7 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   healthText: {fileID: 0}
   menuScript: {fileID: 0}
+  dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
 --- !u!65 &4671813937215760238
 BoxCollider:
   m_ObjectHideFlags: 0
