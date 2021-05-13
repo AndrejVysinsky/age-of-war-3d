@@ -1,32 +1,37 @@
 fileFormatVersion: 2
-guid: ad10abe75dc164b4e9c0217bdd41ef7f
+guid: 6c5a64ec1365c194691788347577fbeb
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 6720303635017113406
-    second: Attack
+      74: 2788708581886206802
+    second: Death.001
   - first:
-      74: 2667949614841947897
-    second: Walk
+      74: -3403223495440316006
+    second: Walk.001
   - first:
-      74: 4348485665485846014
-    second: Death
+      74: 5824586129586528265
+    second: Attack.001
   - first:
-      74: 726316398122206493
-    second: mag|Attack
+      74: 5840243439354041883
+    second: knight|Attack
   - first:
-      74: 5312523732615908660
-    second: mag|Death
+      74: -7787377672712401603
+    second: knight|Death
   - first:
-      74: 8624706239724207919
-    second: mag|Walk
+      74: 7141945978498119244
+    second: knight|Walk
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: c8e977eb712bcec45a49aa97652baee5, type: 2}
+      name: color
+    second: {fileID: 2100000, guid: e9a3926cc5b0efa48bb7b90497bd27bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rytier
+    second: {fileID: 2100000, guid: 1b3b6ed47cd7ee04e84dee615cfdc4ec, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -55,8 +60,37 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Attack
-      takeName: Attack
+      name: Death.001
+      takeName: Death.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 65
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk.001
+      takeName: Walk.001
       internalID: 0
       firstFrame: 0
       lastFrame: 70
@@ -84,11 +118,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk
-      takeName: Walk
+      name: Attack.001
+      takeName: Attack.001
       internalID: 0
       firstFrame: 0
-      lastFrame: 69
+      lastFrame: 70
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -113,37 +147,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death
-      takeName: Death
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 60
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: mag|Attack
-      takeName: mag|Attack
+      name: knight|Attack
+      takeName: knight|Attack
       internalID: 0
       firstFrame: 0
       lastFrame: 70
@@ -171,11 +176,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: mag|Death
-      takeName: mag|Death
+      name: knight|Death
+      takeName: knight|Death
       internalID: 0
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 65
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -200,8 +205,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: mag|Walk
-      takeName: mag|Walk
+      name: knight|Walk
+      takeName: knight|Walk
       internalID: 0
       firstFrame: 0
       lastFrame: 70
