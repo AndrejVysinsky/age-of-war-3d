@@ -25,6 +25,8 @@ public class ArrowAbilityUpgradeCard : MonoBehaviour, IArrowAbilityUpgraded
         arrowAbilityUpgradeButton.onClick.AddListener(UpgradeArrowAbility);
 
         _playerController = FindObjectOfType<PlayerController>();
+
+        OnArrowAbilityUpgraded(_playerController.ArrowAbility.ArrowAbilityData, _playerController.Faction);
     }
 
     private void OnEnable()

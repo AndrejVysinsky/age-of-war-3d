@@ -11,8 +11,13 @@ public class Unit : MonoBehaviour, IDamagable
     [SerializeField] protected ColorSwitcher colorSwitcher;
     [SerializeField] protected List<UnitData> unitTiers;
     [SerializeField] protected GameObject dmgTakenText;
+    [SerializeField] Animator animator;
+    [SerializeField] AnimationClip attackAnimationClip;
+    [SerializeField] AnimationClip walkAnimationClip;
+    [SerializeField] AnimationClip deathAnimationClip;
 
     private bool _isAttacking;
+    private bool _isDead;
 
     protected UnitData _unitData;
     protected float HEIGHT_OFFSET = 2.2f;
@@ -86,17 +91,22 @@ public class Unit : MonoBehaviour, IDamagable
 
     private void Update()
     {
+        if (_isDead)
+        {
+            return;
+        }
+
         if (_isAttacking == false)
         {
+            if (UnitInMovementRange == null)
+            {
+                MoveTowardsObjective();
+            }
+
             if (EnemyInRange != null || OutpostInRange != null)
             {
                 StartCoroutine(AttackMode());
             }
-        }
-
-        if (UnitInMovementRange == null)
-        {
-            MoveTowardsObjective();
         }
     }
 
@@ -123,9 +133,14 @@ public class Unit : MonoBehaviour, IDamagable
     {
         _isAttacking = true;
 
+        if (_isDead)
+            yield break;
+
+        animator.Play(attackAnimationClip.name);
+
         while (true)
         {
-            if (unitHealth.Health <= 0)
+            if (_isDead)
             {
                 break;
             }
@@ -144,9 +159,13 @@ public class Unit : MonoBehaviour, IDamagable
                 break;
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(attackAnimationClip.length);
         }
 
+        if (_isDead)
+            yield break;
+
+        animator.Play(walkAnimationClip.name);
         _isAttacking = false;
     }
 
@@ -164,12 +183,25 @@ public class Unit : MonoBehaviour, IDamagable
 
     public virtual void TakeDamage(float damage)
     {
+        if (_isDead)
+            return;
+
         unitHealth.SubtractHealth(damage);
         
         if (unitHealth.Health <= 0)
         {
-            OnUnitDeath?.Invoke(this);
-            Destroy(gameObject);
+            _isDead = true;
+
+            EventManager.Instance.ExecuteEvent<IUnitDead>((x, y) => x.OnUnitDead(this));
+
+            animator.Play(deathAnimationClip.name);
+
+            //disable colliders
+            var colliders = GetComponentsInChildren<Collider>();
+            foreach (Collider collider in colliders)
+                collider.enabled = false;
+
+            Destroy(gameObject, deathAnimationClip.length + 1f);
         }
         var position = transform.position;
         position.Set(position.x, position.y + HEIGHT_OFFSET, position.z);

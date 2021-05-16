@@ -164,6 +164,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b1bd0f4efabaf844da9d81dbb4279c7c, type: 2}
   - {fileID: 11400000, guid: c53696add8018ae48871f9990335cf5e, type: 2}
   dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
+  animator: {fileID: 1930000027170397444}
+  attackAnimationClip: {fileID: 5824586129586528265, guid: 6c5a64ec1365c194691788347577fbeb, type: 3}
+  walkAnimationClip: {fileID: -3403223495440316006, guid: 6c5a64ec1365c194691788347577fbeb, type: 3}
+  deathAnimationClip: {fileID: 2788708581886206802, guid: 6c5a64ec1365c194691788347577fbeb, type: 3}
 --- !u!114 &8825539077409013678
 MonoBehaviour:
   m_ObjectHideFlags: 0

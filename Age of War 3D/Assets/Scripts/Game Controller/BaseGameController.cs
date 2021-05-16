@@ -12,6 +12,7 @@ public class BaseGameController : MonoBehaviour
 
     public Line ActiveLine { get; protected set; }
     public FactionEnum Faction => faction;
+    public Outpost Outpost => outpost;
 
     protected virtual void Start()
     {

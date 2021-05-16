@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Outpost Tier 2
   m_EditorClassIdentifier: 
   name: Tier 2
-  sprite: {fileID: 21300000, guid: 66efa82389d32814ca7e2e56fa53e471, type: 3}
+  sprite: {fileID: 21300000, guid: 019a5e75fa566cb4fa90f25f140d0e5e, type: 3}
   health: 1000
   maxQueueCapacity: 10
   upgradePrice: 800

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackRangeTrigger : MonoBehaviour
+public class AttackRangeTrigger : MonoBehaviour, IUnitDead
 {
     [SerializeField] Unit unit;
 
@@ -11,6 +11,16 @@ public class AttackRangeTrigger : MonoBehaviour
     {
         _enemiesInRange = new List<Unit>();
         unit.OnUnitDeath.AddListener(RemoveUnit);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,36 +55,42 @@ public class AttackRangeTrigger : MonoBehaviour
             {
                 if (otherUnit.Faction != unit.Faction)
                 {
-                    _enemiesInRange.Remove(otherUnit);
-                    unit.EnemyInRange = GetEnemyInFront();
+                    RemoveUnit(otherUnit);
                 }
             }
         }
     }
 
-    private void RemoveUnit(Unit unit)
+    private void RemoveUnit(Unit otherUnit)
     {
-        _enemiesInRange.Remove(unit);
+        _enemiesInRange.Remove(otherUnit);
+        unit.EnemyInRange = GetEnemyInFront();
     }
 
     private Unit GetEnemyInFront()
     {
         _enemiesInRange.RemoveAll(unit => unit == null);
 
-        int index = 0;
-        int minId = int.MaxValue;
+        if (_enemiesInRange.Count == 0)
+            return null;
+
+        Unit enemyInFront = _enemiesInRange[0];
         for (int i = 0; i < _enemiesInRange.Count; i++)
         {
-            if (_enemiesInRange[i].UnitID < minId)
+            if (_enemiesInRange[i].Faction != unit.Faction)
             {
-                index = i;
-                minId = _enemiesInRange[i].UnitID;
+                if (_enemiesInRange[i].UnitID < enemyInFront.UnitID)
+                {
+                    enemyInFront = _enemiesInRange[i];
+                }
             }
         }
 
-        if (minId == int.MaxValue)
-            return null;
+        return enemyInFront;
+    }
 
-        return _enemiesInRange[index];
+    public void OnUnitDead(Unit unit)
+    {
+        RemoveUnit(unit);
     }
 }

@@ -7,7 +7,7 @@ public class ColorSwitcher : MonoBehaviour
     [Serializable]
     public class ColorSwitch
     {
-        [SerializeField] public MeshRenderer meshRenderer;
+        [SerializeField] public Renderer meshRenderer;
         [SerializeField] public int materialIndexToColorSwitch;
     }
 

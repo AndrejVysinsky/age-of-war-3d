@@ -17,7 +17,7 @@ MonoBehaviour:
   name: Knight
   hitPoints: 300
   movementSpeed: 1
-  damage: 15
+  damage: 45
   attackDelay: 0.5
   attackRange: 5
   trainTime: 0.5

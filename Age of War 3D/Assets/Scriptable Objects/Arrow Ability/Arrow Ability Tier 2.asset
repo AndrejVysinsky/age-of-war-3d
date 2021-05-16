@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 7198217547334675006, guid: 2d796c5eaad49b24383c92bc50f1daab, type: 3}
   name: Arrow Rain Tier 2
-  sprite: {fileID: 21300000, guid: d0d03afcba5eebe41a438f083cc0466e, type: 3}
+  sprite: {fileID: 21300000, guid: 4ad178f4636872e48913f4b457b7d503, type: 3}
   damage: 35
   cooldown: 5
   numberOfArrows: 50
-  price: 700
+  price: 500
   upgradePrice: 1000

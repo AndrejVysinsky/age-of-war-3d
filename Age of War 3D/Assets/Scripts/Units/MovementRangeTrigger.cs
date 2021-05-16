@@ -1,15 +1,26 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementRangeTrigger : MonoBehaviour
+public class MovementRangeTrigger : MonoBehaviour, IUnitDead
 {
     [SerializeField] Unit unit;
 
-    private List<Unit> _unitInRange;
+    private List<Unit> _unitsInRange;
 
     private void Awake()
     {
-        _unitInRange = new List<Unit>();
+        _unitsInRange = new List<Unit>();
+        unit.OnUnitDeath.AddListener(RemoveUnit);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -18,7 +29,7 @@ public class MovementRangeTrigger : MonoBehaviour
         {
             if (otherUnit.Line == unit.Line)
             {
-                _unitInRange.Add(otherUnit);
+                _unitsInRange.Add(otherUnit);
                 unit.UnitInMovementRange = GetUnitInFront();
             }
         }
@@ -30,31 +41,54 @@ public class MovementRangeTrigger : MonoBehaviour
         {
             if (otherUnit.Line == unit.Line)
             {
-                _unitInRange.Remove(otherUnit);
-                unit.UnitInMovementRange = GetUnitInFront();
+                RemoveUnit(otherUnit);
             }
         }
     }
 
+    private void RemoveUnit(Unit otherUnit)
+    {
+        _unitsInRange.Remove(otherUnit);
+        unit.UnitInMovementRange = GetUnitInFront();
+    }
+
     private Unit GetUnitInFront()
     {
-        _unitInRange.RemoveAll(unit => unit == null);
+        _unitsInRange.RemoveAll(unit => unit == null);
 
-        Unit enemyInFront = null;
-        //find ally in front of unit
-        for (int i = 0; i < _unitInRange.Count; i++)
+        //either get unit with smallest unitId or get enemy unit
+
+        Unit enemyInFront = unit;
+        Unit allyInFront = unit;
+        for (int i = 0; i < _unitsInRange.Count; i++)
         {
-            if (_unitInRange[i].Faction == unit.Faction)
+            if (_unitsInRange[i].Faction == unit.Faction)
             {
-                if (_unitInRange[i].UnitID < unit.UnitID)
-                    return _unitInRange[i];
+                if (_unitsInRange[i].UnitID < allyInFront.UnitID)
+                {
+                    allyInFront = _unitsInRange[i];
+                }
             }
             else
             {
-                enemyInFront = _unitInRange[i];
+                if (_unitsInRange[i].UnitID < enemyInFront.UnitID)
+                {
+                    enemyInFront = _unitsInRange[i];
+                }
             }
         }
 
-        return enemyInFront;
+        if (enemyInFront != unit)
+            return enemyInFront;
+
+        if (allyInFront != unit)
+            return allyInFront;
+
+        return null;
+    }
+
+    public void OnUnitDead(Unit unit)
+    {
+        RemoveUnit(unit);
     }
 }

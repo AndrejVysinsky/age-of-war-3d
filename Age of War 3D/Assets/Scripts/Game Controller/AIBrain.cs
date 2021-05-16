@@ -106,8 +106,8 @@ public class AIBrain : MonoBehaviour
             var attackViability = GetAttackViability(maxRatio.Item2);
             var defenseViability = Math.Abs(GetDefenseViability(minRatio.Item2));
 
-            Debug.Log("Attack viability:" + attackViability);
-            Debug.Log("Defense viability:" + defenseViability);
+            //Debug.Log("Attack viability:" + attackViability);
+            //Debug.Log("Defense viability:" + defenseViability);
 
             if (attackViability > defenseViability)
             {
@@ -143,21 +143,21 @@ public class AIBrain : MonoBehaviour
         switch (_currentMode)
         {
             case PlayMode.ATTACK:
-                Debug.Log("ATTACK mode");
+                //Debug.Log("ATTACK mode");
                 decisions = PrepareToAttack(maxRatio.Item1);
                 break;
             case PlayMode.DEFENSE:
-                Debug.Log("DEFENSE mode");
-                Debug.Log("***************/n Defensing line " + minRatio.Item1 + "/n ratio is: " + minRatio.Item2 + "/n*************");
-                Debug.Log("***************/n Max ratio is on line " + maxRatio.Item1 + "/n ratio is: " + maxRatio.Item2 + "/n*************");
+                //Debug.Log("DEFENSE mode");
+                //Debug.Log("***************/n Defensing line " + minRatio.Item1 + "/n ratio is: " + minRatio.Item2 + "/n*************");
+                //Debug.Log("***************/n Max ratio is on line " + maxRatio.Item1 + "/n ratio is: " + maxRatio.Item2 + "/n*************");
                 decisions = PrepareToDefense(minRatio.Item1);
                 break;
             case PlayMode.UPGRADE_OUTPOST:
-                Debug.Log("Upgrading outpost mode");
+                //Debug.Log("Upgrading outpost mode");
                 decisions = PrepareToUpgrade();
                 break;
             case PlayMode.TRAIN:
-                Debug.Log("TRAIN mode");
+                //Debug.Log("TRAIN mode");
                 decisions = PrepareToTrain();
                 break;
         }
@@ -223,7 +223,7 @@ public class AIBrain : MonoBehaviour
         List<AIDecisionCA> decisions = new List<AIDecisionCA>();
         if (units.Count == 0)
         {
-            Debug.Log("No defense units available");
+            //Debug.Log("No defense units available");
         }
 
         //int maxSpawn = 2;

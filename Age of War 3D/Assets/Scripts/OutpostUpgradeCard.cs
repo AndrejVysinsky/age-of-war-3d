@@ -28,6 +28,8 @@ public class OutpostUpgradeCard : MonoBehaviour, IOutpostUpgraded
         outpostUpgradeButton.onClick.AddListener(UpgradeOutpost);
 
         _playerController = FindObjectOfType<PlayerController>();
+
+        OnOutpostUpgraded(_playerController.Outpost.OutpostData, _playerController.Faction);
     }
 
     private void OnEnable()

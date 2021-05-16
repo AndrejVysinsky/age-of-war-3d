@@ -12,6 +12,7 @@ public class ArrowAbility : MonoBehaviour
     private FactionEnum _faction;
 
     public float Cooldown => _arrowAbilityData.Cooldown;
+    public ArrowAbilityData ArrowAbilityData => _arrowAbilityData;
 
     public ArrowAbilityData Initialize(FactionEnum faction)
     {

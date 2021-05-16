@@ -82,6 +82,10 @@ MonoBehaviour:
   unitTiers:
   - {fileID: 11400000, guid: 332745e424030ce4e9eb7e7e185bc249, type: 2}
   dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
+  animator: {fileID: 4000375025045372051}
+  attackAnimationClip: {fileID: -9122283631602888013, guid: ffde805edb999574c86dd910bf578d0f, type: 3}
+  walkAnimationClip: {fileID: -3403223495440316006, guid: ffde805edb999574c86dd910bf578d0f, type: 3}
+  deathAnimationClip: {fileID: 0}
   goldController: {fileID: 0}
 --- !u!95 &4000375025045372051
 Animator:

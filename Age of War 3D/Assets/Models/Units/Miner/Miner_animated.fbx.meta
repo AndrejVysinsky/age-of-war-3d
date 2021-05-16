@@ -5,10 +5,10 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -9122283631602888013
-    second: Mining
+    second: Attack
   - first:
       74: -3403223495440316006
-    second: Walk.001
+    second: Walk
   - first:
       74: -8122821232131053480
     second: miner|Action
@@ -52,7 +52,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Mining
+      name: Attack
       takeName: Mining
       internalID: 0
       firstFrame: 0
@@ -81,7 +81,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk.001
+      name: Walk
       takeName: Walk.001
       internalID: 0
       firstFrame: 0

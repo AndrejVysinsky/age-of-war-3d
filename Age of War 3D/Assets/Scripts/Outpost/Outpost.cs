@@ -20,6 +20,7 @@ public class Outpost : MonoBehaviour, IDamagable
     public FactionEnum Faction { get; private set; }
     public Transform Transform { get; private set; }
     public int MaxMinerUnits => _outpostData.MaxMinerUnits;
+    public OutpostData OutpostData => _outpostData;
 
     private void Awake()
     {
