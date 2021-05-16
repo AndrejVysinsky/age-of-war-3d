@@ -136,7 +136,7 @@ public class Unit : MonoBehaviour, IDamagable
         if (_isDead)
             yield break;
 
-        animator.Play(attackAnimationClip.name);
+        animator.Play("Attack");
 
         while (true)
         {
@@ -165,7 +165,7 @@ public class Unit : MonoBehaviour, IDamagable
         if (_isDead)
             yield break;
 
-        animator.Play(walkAnimationClip.name);
+        animator.Play("Walk");
         _isAttacking = false;
     }
 
