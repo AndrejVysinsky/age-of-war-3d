@@ -11,9 +11,16 @@ public class Unit : MonoBehaviour, IDamagable
     [SerializeField] protected ColorSwitcher colorSwitcher;
     [SerializeField] protected List<UnitData> unitTiers;
     [SerializeField] protected GameObject dmgTakenText;
+
+    [Header("Animations")]
     [SerializeField] Animator animator;
     [SerializeField] AnimationClip attackAnimationClip;
     [SerializeField] AnimationClip deathAnimationClip;
+
+    [Header("Audio")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip attackClip;
+    [SerializeField] List<AudioClip> deathClips;
 
     private bool _isAttacking;
     private bool _isDead;
@@ -177,9 +184,9 @@ public class Unit : MonoBehaviour, IDamagable
 
     private void Attack(IDamagable damagable)
     {
-        //play animation
+        audioSource.clip = attackClip;
+        audioSource.Play();
 
-        //at animation end deal damage
         DealDamage(damagable);
     }
 
@@ -201,6 +208,9 @@ public class Unit : MonoBehaviour, IDamagable
             EventManager.Instance.ExecuteEvent<IUnitDead>((x, y) => x.OnUnitDead(this));
 
             animator.Play(deathAnimationClip.name);
+
+            audioSource.clip = deathClips[UnityEngine.Random.Range(0, deathClips.Count)];
+            audioSource.Play();
 
             //disable colliders
             var colliders = GetComponentsInChildren<Collider>();

@@ -3,6 +3,7 @@
 public class Arrow : MonoBehaviour
 {
     [SerializeField] float fallingSpeed;
+    [SerializeField] AudioSource audioSource;
 
     private float _damage;
     private float _targetY;
@@ -16,6 +17,8 @@ public class Arrow : MonoBehaviour
         _damage = damage;
         _targetY = targetY;
         _faction = faction;
+
+        audioSource.PlayDelayed(1f);
     }
 
     private void Update()
