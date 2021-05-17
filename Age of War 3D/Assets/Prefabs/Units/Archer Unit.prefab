@@ -164,9 +164,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 096bbe31fb662ef4f97c8db38dcc1ed6, type: 2}
   dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
   animator: {fileID: 4338451822920005082}
-  attackAnimationClip: {fileID: 6720303635017113406, guid: c79e099cd0e9be44991df168a1e1c85f, type: 3}
-  walkAnimationClip: {fileID: 2667949614841947897, guid: c79e099cd0e9be44991df168a1e1c85f, type: 3}
-  deathAnimationClip: {fileID: 4348485665485846014, guid: c79e099cd0e9be44991df168a1e1c85f, type: 3}
+  attackAnimationClip: {fileID: 6720303635017113406, guid: b6f6fb6df4228b049a3d8a0f02fd0362, type: 3}
+  deathAnimationClip: {fileID: 4348485665485846014, guid: b6f6fb6df4228b049a3d8a0f02fd0362, type: 3}
   projectilePrefab: {fileID: 7198217547334675006, guid: c18872f1429f3824a8790fedc31d888a, type: 3}
   firePoint: {fileID: 8407711341912503533}
 --- !u!114 &6008598570379712315

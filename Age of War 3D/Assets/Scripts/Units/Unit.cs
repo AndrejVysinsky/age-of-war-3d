@@ -13,7 +13,6 @@ public class Unit : MonoBehaviour, IDamagable
     [SerializeField] protected GameObject dmgTakenText;
     [SerializeField] Animator animator;
     [SerializeField] AnimationClip attackAnimationClip;
-    [SerializeField] AnimationClip walkAnimationClip;
     [SerializeField] AnimationClip deathAnimationClip;
 
     private bool _isAttacking;
@@ -24,6 +23,8 @@ public class Unit : MonoBehaviour, IDamagable
 
     protected Vector3 _destination;
     private int _nextCheckpointIndex;
+
+    private float _speed = 0;
 
     public Unit EnemyInRange { get; set; }
     public Unit UnitInMovementRange { get; set; }
@@ -101,6 +102,11 @@ public class Unit : MonoBehaviour, IDamagable
             if (UnitInMovementRange == null)
             {
                 MoveTowardsObjective();
+                animator.SetFloat("Speed", 1);
+            }
+            else
+            {
+                animator.SetFloat("Speed", 0);
             }
 
             if (EnemyInRange != null || OutpostInRange != null)
