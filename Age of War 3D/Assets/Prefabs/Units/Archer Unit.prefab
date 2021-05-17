@@ -163,6 +163,8 @@ MonoBehaviour:
   colorSwitcher: {fileID: 6008598570379712315}
   unitTiers:
   - {fileID: 11400000, guid: 096bbe31fb662ef4f97c8db38dcc1ed6, type: 2}
+  - {fileID: 11400000, guid: d1469f24282339a4fbac9bea2cddb33b, type: 2}
+  - {fileID: 11400000, guid: 604f715b16800bb4097d5243d080ddca, type: 2}
   dmgTakenText: {fileID: 611092722242730444, guid: 216671e088e4557448eb5e9b7c0778c0, type: 3}
   animator: {fileID: 4338451822920005082}
   attackAnimationClip: {fileID: 6720303635017113406, guid: b6f6fb6df4228b049a3d8a0f02fd0362, type: 3}

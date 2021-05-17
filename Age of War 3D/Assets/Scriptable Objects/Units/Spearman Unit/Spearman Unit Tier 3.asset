@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b217763c707982479eb0fc90862b3da, type: 3}
-  m_Name: Knight Unit Tier 3
+  m_Name: Spearman Unit Tier 3
   m_EditorClassIdentifier: 
   unitTier: 3
-  sprite: {fileID: 21300000, guid: 3b73ffb6e9b7d62408fea4ef30028595, type: 3}
-  name: Knight
-  hitPoints: 300
+  sprite: {fileID: 21300000, guid: fe3a23d89631bfc4c9cb3134bea99328, type: 3}
+  name: Spearman
+  hitPoints: 150
   movementSpeed: 1
-  damage: 45
+  damage: 35
   attackDelay: 0.5
   attackRange: 5
-  trainTime: 0.5
-  trainCost: 100
+  trainTime: 2
+  trainCost: 60
   upgradeCost: 0
-  reward: 40
-  type: 0
+  reward: 20
+  type: 2

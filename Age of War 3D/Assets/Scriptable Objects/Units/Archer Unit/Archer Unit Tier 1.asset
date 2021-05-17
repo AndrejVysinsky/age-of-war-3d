@@ -21,7 +21,7 @@ MonoBehaviour:
   attackDelay: 0.5
   attackRange: 5
   trainTime: 2
-  trainCost: 70
-  upgradeCost: 0
-  reward: 0
+  trainCost: 80
+  upgradeCost: 150
+  reward: 10
   type: 3

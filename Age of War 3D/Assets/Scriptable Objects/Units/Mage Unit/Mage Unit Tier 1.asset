@@ -17,11 +17,11 @@ MonoBehaviour:
   name: Mage
   hitPoints: 100
   movementSpeed: 1
-  damage: 15
+  damage: 25
   attackDelay: 0.5
   attackRange: 5
   trainTime: 2
-  trainCost: 60
+  trainCost: 80
   upgradeCost: 400
-  reward: 0
+  reward: 15
   type: 1

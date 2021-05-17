@@ -22,6 +22,6 @@ MonoBehaviour:
   attackRange: 5
   trainTime: 2
   trainCost: 40
-  upgradeCost: 0
-  reward: 0
+  upgradeCost: 80
+  reward: 10
   type: 2
