@@ -13,7 +13,7 @@ public class Unit : MonoBehaviour, IDamagable
     [SerializeField] protected GameObject dmgTakenText;
 
     [Header("Animations")]
-    [SerializeField] Animator animator;
+    [SerializeField] protected Animator animator;
     [SerializeField] AnimationClip attackAnimationClip;
     [SerializeField] AnimationClip deathAnimationClip;
 
@@ -31,7 +31,7 @@ public class Unit : MonoBehaviour, IDamagable
     protected Vector3 _destination;
     private int _nextCheckpointIndex;
 
-    private float _speed = 0;
+    private bool _areSoundsEffectsOn;
 
     public Unit EnemyInRange { get; set; }
     public Unit UnitInMovementRange { get; set; }
@@ -51,6 +51,8 @@ public class Unit : MonoBehaviour, IDamagable
 
         Transform = transform;
         OnUnitDeath = new UnityEvent<Unit>();
+
+        _areSoundsEffectsOn = PlayerPrefs.GetInt("Sound Effects") == 1;
     }
 
     public UnitData GetUnitData(int currentTier)
@@ -184,8 +186,11 @@ public class Unit : MonoBehaviour, IDamagable
 
     private void Attack(IDamagable damagable)
     {
-        audioSource.clip = attackClip;
-        audioSource.Play();
+        if (_areSoundsEffectsOn)
+        {
+            audioSource.clip = attackClip;
+            audioSource.Play();
+        }
 
         DealDamage(damagable);
     }
@@ -209,8 +214,11 @@ public class Unit : MonoBehaviour, IDamagable
 
             animator.Play(deathAnimationClip.name);
 
-            audioSource.clip = deathClips[UnityEngine.Random.Range(0, deathClips.Count)];
-            audioSource.Play();
+            if (_areSoundsEffectsOn)
+            {
+                audioSource.clip = deathClips[UnityEngine.Random.Range(0, deathClips.Count)];
+                audioSource.Play();
+            }
 
             //disable colliders
             var colliders = GetComponentsInChildren<Collider>();

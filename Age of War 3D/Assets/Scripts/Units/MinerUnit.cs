@@ -77,6 +77,8 @@ public class MinerUnit : Unit
     
     private IEnumerator StartMining()
     {
+        animator.Play("Attack");
+
         while (true)
         {
             // play animation

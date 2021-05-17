@@ -23,7 +23,7 @@ public class MapCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     private bool _unlocked;
     private MapSelector _mapSelector;
 
-    private void Start()
+    private void OnEnable()
     {
         if (PlayerPrefs.HasKey(Enum.GetName(typeof(MapEnum), unlockedMapName)) || (int)unlockedMapName == 0)
         {

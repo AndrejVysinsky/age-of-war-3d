@@ -9,6 +9,6 @@ public enum MapEnum
     Beach,
     Forest,
     Steppes,
-    Castle,
+    Mountains,
     Locked
 }

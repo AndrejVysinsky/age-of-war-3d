@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goldText: {fileID: 0}
-  _balance: 1500
+  _balance: 3000
 --- !u!114 &4421647025720589380
 MonoBehaviour:
   m_ObjectHideFlags: 0

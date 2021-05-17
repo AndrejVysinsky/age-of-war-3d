@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MapSelector : MonoBehaviour
@@ -43,7 +44,9 @@ public class MapSelector : MonoBehaviour
 
     public void DeletePlayerPrefs()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey(Enum.GetName(typeof(MapEnum), MapEnum.Forest));
+        PlayerPrefs.DeleteKey(Enum.GetName(typeof(MapEnum), MapEnum.Steppes));
+        PlayerPrefs.DeleteKey(Enum.GetName(typeof(MapEnum), MapEnum.Mountains));
         PlayerPrefs.Save();
     }
 }

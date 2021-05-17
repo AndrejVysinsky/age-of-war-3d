@@ -124,6 +124,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0e451c7159e67b643bd75d8425e00436, type: 3}
   - {fileID: 8300000, guid: cb5a051f0b08dbe43872cb034ca2cac7, type: 3}
   - {fileID: 8300000, guid: d549c05f6ea5b5a4fbb5b600cee9a579, type: 3}
+  victoryClip: {fileID: 8300000, guid: f978fd7efc17c9b48b77808a10544695, type: 3}
+  defeatClip: {fileID: 8300000, guid: 613a30e86f625bf44820dd909057dc4e, type: 3}
 --- !u!82 &5673061993137027384
 AudioSource:
   m_ObjectHideFlags: 0

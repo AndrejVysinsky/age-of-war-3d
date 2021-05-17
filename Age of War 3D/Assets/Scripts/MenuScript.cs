@@ -9,9 +9,16 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject gameWinOptions;
     [SerializeField] MapEnum currentMapEnum;
 
+    private MusicScript _musicScript;
+
     private void Awake()
     {
         ResumeGame();
+    }
+
+    private void Start()
+    {
+        _musicScript = Camera.main.gameObject.GetComponent<MusicScript>();
     }
 
     private void Update()
@@ -49,6 +56,8 @@ public class MenuScript : MonoBehaviour
         menuOptions.SetActive(false);
         gameWinOptions.SetActive(false);
         gameOverOptions.SetActive(true);
+
+        _musicScript.PlayDefeatMusic();
     }
 
     public void GameWin()
@@ -60,7 +69,9 @@ public class MenuScript : MonoBehaviour
         gameOverOptions.SetActive(false);
         gameWinOptions.SetActive(true);
 
-        int lastMap = (int)MapEnum.Castle;
+        _musicScript.PlayVictoryMusic();
+
+        int lastMap = (int)MapEnum.Mountains;
 
         int currentMap = (int)currentMapEnum;
 

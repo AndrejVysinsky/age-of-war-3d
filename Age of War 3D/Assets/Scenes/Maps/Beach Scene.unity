@@ -203,10 +203,6 @@ PrefabInstance:
       propertyPath: lineController
       value: 
       objectReference: {fileID: 750936715}
-    - target: {fileID: 818633461, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
-      propertyPath: _balance
-      value: 1500
-      objectReference: {fileID: 0}
     - target: {fileID: 720268225948284057, guid: cd108f7f0be0d5e4cb60dcc25e0b0c81, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1183,6 +1179,10 @@ PrefabInstance:
     - target: {fileID: 504443713150518680, guid: f56b9b4b8376a6b42abca642be63034d, type: 3}
       propertyPath: currentMapEnum
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 504443713150518682, guid: f56b9b4b8376a6b42abca642be63034d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 504443713263414448, guid: f56b9b4b8376a6b42abca642be63034d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

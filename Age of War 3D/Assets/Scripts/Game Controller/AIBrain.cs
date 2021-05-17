@@ -197,7 +197,7 @@ public class AIBrain : MonoBehaviour
         List<AIDecisionCA> decisions = new List<AIDecisionCA>();
         if (units.Count == 0)
         {
-            Debug.Log("No attack units available");
+            //Debug.Log("No attack units available");
         }
 
         List<UnitTransferObject> spawnedUnits = new List<UnitTransferObject>();

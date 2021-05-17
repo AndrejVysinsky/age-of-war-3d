@@ -18,7 +18,10 @@ public class Arrow : MonoBehaviour
         _targetY = targetY;
         _faction = faction;
 
-        audioSource.PlayDelayed(1f);
+        if (PlayerPrefs.GetInt("Sound Effects") == 1)
+        {
+            audioSource.PlayDelayed(0.3f);
+        }
     }
 
     private void Update()
