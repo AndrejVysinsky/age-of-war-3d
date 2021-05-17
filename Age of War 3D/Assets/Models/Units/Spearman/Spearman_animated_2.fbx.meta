@@ -31,7 +31,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: color
+    second: {fileID: 2100000, guid: e9a3926cc5b0efa48bb7b90497bd27bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: lambert1
+    second: {fileID: 2100000, guid: bb4c56406da785a478a21d0a85958f78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spearman
     second: {fileID: 2100000, guid: bb4c56406da785a478a21d0a85958f78, type: 2}
   materials:
     materialImportMode: 2

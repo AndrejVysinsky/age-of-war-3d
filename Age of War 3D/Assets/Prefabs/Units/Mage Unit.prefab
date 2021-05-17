@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1626752849285875692}
   - component: {fileID: 6711369811019364783}
   - component: {fileID: 7767764873526960812}
+  - component: {fileID: 8613790351231841892}
   m_Layer: 2
   m_Name: Mage Unit
   m_TagString: Untagged
@@ -112,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitHealth: {fileID: 3843477653655380574}
-  colorSwitcher: {fileID: 0}
+  colorSwitcher: {fileID: 8613790351231841892}
   unitTiers:
   - {fileID: 11400000, guid: a231f5c5d36bf2c42847703a8c437eee, type: 2}
   - {fileID: 11400000, guid: 2107af5523954e142b8b01b2b22d650c, type: 2}
@@ -224,6 +225,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8613790351231841892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677309867434599859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf33fd1079355774d988c3b93c64edbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialSwitchers:
+  - meshRenderer: {fileID: 7608041614217758910}
+    materialIndexToColorSwitch: 0
+  - meshRenderer: {fileID: 5824270588413413726}
+    materialIndexToColorSwitch: 1
 --- !u!1 &1711933316908385180
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,5 +547,15 @@ GameObject:
 --- !u!4 &7760643782932831580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c9920ecc928b257418462f8badfb6f32, type: 3}
+  m_PrefabInstance: {fileID: 7798511733042281143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7608041614217758910 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8814441038150782455, guid: c9920ecc928b257418462f8badfb6f32, type: 3}
+  m_PrefabInstance: {fileID: 7798511733042281143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5824270588413413726 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4389345146581316585, guid: c9920ecc928b257418462f8badfb6f32, type: 3}
   m_PrefabInstance: {fileID: 7798511733042281143}
   m_PrefabAsset: {fileID: 0}

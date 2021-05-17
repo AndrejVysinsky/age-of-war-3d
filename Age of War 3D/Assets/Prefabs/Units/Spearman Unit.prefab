@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 6213123675263396762}
   - component: {fileID: 2845645879074944356}
   - component: {fileID: 1923957047244634846}
+  - component: {fileID: 7209234041505070399}
   - component: {fileID: 7335390896974964662}
   m_Layer: 2
   m_Name: Spearman Unit
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitHealth: {fileID: 6369008192422549969}
-  colorSwitcher: {fileID: 0}
+  colorSwitcher: {fileID: 7209234041505070399}
   unitTiers:
   - {fileID: 11400000, guid: 4de98cc5298b7ea4fbfed790b6233a5e, type: 2}
   - {fileID: 11400000, guid: 38fc5d682891b9d498eda9a983ac10b1, type: 2}
@@ -173,6 +174,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08dbd67f25522f84eb997f4dba810655, type: 3}
   - {fileID: 8300000, guid: 66962ef982b8c8d439841342631e4e07, type: 3}
   - {fileID: 8300000, guid: 44b7df500cf9bf24bbde6c345620bd73, type: 3}
+--- !u!114 &7209234041505070399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8519373101542237319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf33fd1079355774d988c3b93c64edbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialSwitchers:
+  - meshRenderer: {fileID: 615373187906431626}
+    materialIndexToColorSwitch: 1
 --- !u!82 &7335390896974964662
 AudioSource:
   m_ObjectHideFlags: 0
@@ -392,6 +408,11 @@ GameObject:
 --- !u!4 &3853289213754372419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e539d029664808c49ba2754f99d4e161, type: 3}
+  m_PrefabInstance: {fileID: 3671308231844632232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &615373187906431626 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5009931579189396446, guid: e539d029664808c49ba2754f99d4e161, type: 3}
   m_PrefabInstance: {fileID: 3671308231844632232}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5886777622937893457
