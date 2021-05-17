@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float distance;
     [SerializeField] float speed;
     [SerializeField] float arcHeight;
+    [SerializeField] MeshRenderer meshRenderer;
 
     private Vector3 _startPosition;
     private Vector3 _currentPosition;
@@ -77,7 +78,7 @@ public class Projectile : MonoBehaviour
                 damagable.TakeDamage(_damage);
 
                 GetComponent<Collider>().enabled = false;
-                GetComponent<MeshRenderer>().enabled = false;
+                meshRenderer.enabled = false;
 
                 if (TryGetComponent(out ParticleSystem particleSystem))
                 {
